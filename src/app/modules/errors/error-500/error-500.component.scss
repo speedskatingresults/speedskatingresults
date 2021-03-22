@@ -1,0 +1,56 @@
+@import 'treo';
+
+error-500 {
+    display: flex;
+
+    .content-layout {
+        align-items: center;
+        justify-content: center;
+        padding: 32px;
+
+        @include treo-breakpoint('xs') {
+            padding: 32px 16px;
+        }
+
+        .image {
+            max-height: 480px;
+            min-height: 0;
+        }
+
+        h1 {
+            margin: 96px 0 0 0;
+            text-align: center;
+
+            @include treo-breakpoint('xs') {
+                margin: 48px 0 0 0;
+            }
+        }
+
+        h6 {
+            margin: 8px 0 0 0;
+            text-align: center;
+        }
+
+        .link {
+            margin-top: 48px;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Theming
+// -----------------------------------------------------------------------------------------------------
+@include treo-theme {
+
+    $foreground: map-get($theme, foreground);
+
+    error-500 {
+
+        .content-layout {
+
+            h6 {
+                color: map-get($foreground, secondary-text);
+            }
+        }
+    }
+}
