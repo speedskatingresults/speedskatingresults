@@ -1,0 +1,29 @@
+@import 'treo';
+
+auth-confirmation-required {
+
+    .content-layout {
+        align-items: center;
+        justify-content: center;
+
+        treo-card {
+
+            .form-container {
+
+                .form {
+
+                    .description {
+                        margin-top: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Theming
+// -----------------------------------------------------------------------------------------------------
+@include treo-theme {
+
+}

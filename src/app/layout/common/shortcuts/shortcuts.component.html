@@ -1,0 +1,199 @@
+<!-- Shortcuts toggle -->
+<button class="shortcuts-toggle"
+        mat-icon-button
+        (click)="openPanel()"
+        #shortcutsOrigin>
+    <mat-icon [svgIcon]="'bookmarks'"></mat-icon>
+</button>
+
+<!-- Shortcuts panel -->
+<ng-template #shortcutsPanel>
+
+    <div class="shortcuts-panel">
+
+        <div class="header">
+
+            <div class="title">
+                Shortcuts
+            </div>
+
+            <div class="actions">
+
+                <!-- View mode -->
+                <ng-container *ngIf="mode === 'view'">
+
+                    <!-- Enter 'modify' mode -->
+                    <button mat-icon-button
+                            (click)="changeMode('modify')"
+                            [matTooltip]="'Enter edit mode'">
+                        <mat-icon [svgIcon]="'edit'"></mat-icon>
+                    </button>
+
+                    <!-- Enter 'add' mode -->
+                    <button mat-icon-button
+                            (click)="newShortcut()"
+                            [matTooltip]="'Add shortcut'">
+                        <mat-icon [svgIcon]="'add_circle'"></mat-icon>
+                    </button>
+
+                </ng-container>
+
+                <!-- Modify mode -->
+                <ng-container *ngIf="mode === 'modify'">
+
+                    <!-- Enter 'view' mode -->
+                    <button mat-icon-button
+                            (click)="changeMode('view')"
+                            [matTooltip]="'Exit edit mode'">
+                        <mat-icon [svgIcon]="'exit_to_app'"></mat-icon>
+                    </button>
+
+                </ng-container>
+
+                <!-- Add mode -->
+                <ng-container *ngIf="mode === 'add'">
+
+                    <!-- Enter 'view' mode -->
+                    <button mat-icon-button
+                            (click)="changeMode('view')">
+                        <mat-icon [svgIcon]="'arrow_back'"
+                                  [matTooltip]="'Cancel'"></mat-icon>
+                    </button>
+
+                </ng-container>
+
+                <!-- Edit mode -->
+                <ng-container *ngIf="mode === 'edit'">
+
+                    <!-- Enter 'modify' mode -->
+                    <button mat-icon-button
+                            (click)="changeMode('modify')">
+                        <mat-icon [svgIcon]="'arrow_back'"
+                                  [matTooltip]="'Cancel'"></mat-icon>
+                    </button>
+
+                </ng-container>
+
+            </div>
+
+        </div>
+
+        <div class="content"
+             [ngClass]="'mode-' + mode">
+
+            <!-- View mode -->
+            <ng-container *ngIf="mode === 'view' || mode === 'modify'">
+
+                <!-- Shortcuts -->
+                <ng-container *ngFor="let shortcut of shortcuts">
+
+                    <div class="shortcut">
+
+                        <div class="edit-shortcut"
+                             (click)="editShortcut(shortcut)">
+                        </div>
+
+                        <!-- Normal links -->
+                        <a *ngIf="!shortcut.useRouter"
+                           [href]="shortcut.link">
+                            <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+                        </a>
+
+                        <!-- Router links -->
+                        <a *ngIf="shortcut.useRouter"
+                           [routerLink]="createRouteFromLink(shortcut.link)">
+                            <ng-container *ngTemplateOutlet="linkContent"></ng-container>
+                        </a>
+
+                        <ng-template #linkContent>
+                            <div class="icon">
+                                <mat-icon class="edit-icon"
+                                          *ngIf="mode === 'modify'"
+                                          [svgIcon]="'edit'"></mat-icon>
+                                <mat-icon class="link-icon"
+                                          [svgIcon]="shortcut.icon"></mat-icon>
+                            </div>
+                            <div class="label">{{shortcut.label}}</div>
+                            <div class="description">{{shortcut.description}}</div>
+                        </ng-template>
+
+                    </div>
+
+                </ng-container>
+
+                <ng-container *ngIf="!shortcuts || !shortcuts.length">
+                    <div class="empty">
+                        <mat-icon [svgIcon]="'bookmarks'"></mat-icon>
+                        <span>No shortcuts</span>
+                    </div>
+                </ng-container>
+
+            </ng-container>
+
+            <!-- Form mode -->
+            <ng-container *ngIf="mode === 'add' || mode === 'edit'">
+
+                <form [formGroup]="shortcutForm">
+
+                    <mat-form-field>
+                        <mat-label>Label</mat-label>
+                        <input matInput
+                               [formControlName]="'label'"
+                               required>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Description</mat-label>
+                        <input matInput
+                               [formControlName]="'description'">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Icon</mat-label>
+                        <input matInput
+                               [formControlName]="'icon'"
+                               required>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Link</mat-label>
+                        <input matInput
+                               [formControlName]="'link'"
+                               required>
+                    </mat-form-field>
+
+                    <mat-slide-toggle [color]="'primary'"
+                                      [formControlName]="'useRouter'">
+                        Use router for the link
+                    </mat-slide-toggle>
+
+                    <div class="actions">
+
+                        <button class="delete"
+                                *ngIf="mode === 'edit'"
+                                mat-flat-button
+                                type="button"
+                                (click)="delete()">
+                            Delete
+                        </button>
+
+                        <button mat-flat-button
+                                [color]="'primary'"
+                                [disabled]="!shortcutForm.valid"
+                                type="button"
+                                (click)="save()">
+                            <ng-container *ngIf="mode === 'add'">Add</ng-container>
+                            <ng-container *ngIf="mode === 'edit'">Update</ng-container>
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </ng-container>
+
+        </div>
+
+    </div>
+
+</ng-template>

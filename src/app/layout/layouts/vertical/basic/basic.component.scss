@@ -1,0 +1,209 @@
+@import 'treo';
+
+basic-layout {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%;
+
+    > treo-vertical-navigation {
+
+        .treo-vertical-navigation-header {
+
+            .logo {
+                display: flex;
+                align-items: center;
+                height: 65px;
+                min-height: 65px;
+                max-height: 65px;
+                padding: 0 24px;
+                border-bottom-width: 1px;
+
+                img {
+                    max-width: 96px;
+                }
+            }
+        }
+    }
+
+    > .wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        width: 100%;
+
+        > .header {
+            position: relative;
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            width: 100%;
+            height: 64px;
+            max-height: 64px;
+            min-height: 64px;
+            padding: 0 24px;
+            z-index: 49;
+
+            @include treo-breakpoint('lt-md') {
+                padding: 0 16px;
+            }
+
+            .navigation-toggle-button {
+                margin-right: 8px;
+            }
+
+            .spacer {
+                display: flex;
+                flex: 1 1 auto;
+                height: 1px;
+            }
+
+            search {
+                margin-right: 8px;
+            }
+
+            shortcuts {
+                margin-right: 8px;
+            }
+
+            messages {
+                margin-right: 8px;
+            }
+
+            notifications {
+                margin-right: 8px;
+            }
+        }
+
+        > .content {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+
+            > *:not(router-outlet) {
+                position: relative;
+                display: flex;
+                flex: 1 1 auto;
+            }
+        }
+
+        > .footer {
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: 56px;
+            max-height: 56px;
+            min-height: 56px;
+            padding: 0 24px;
+            z-index: 49;
+        }
+    }
+
+    &.fixed-header {
+
+        > .wrapper {
+
+            > .header {
+                position: sticky;
+                top: 0;
+            }
+        }
+    }
+
+    &.fixed-footer {
+
+        > .wrapper {
+
+            > .footer {
+                position: sticky;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Theming
+// -----------------------------------------------------------------------------------------------------
+@include treo-theme {
+
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    $primary: map-get($theme, primary);
+    $is-dark: map-get($theme, is-dark);
+
+    basic-layout {
+
+        > treo-vertical-navigation {
+            @if ($is-dark) {
+                background: treo-color('cool-gray', 900);
+            } @else {
+                background: map-get($background, card);
+            }
+
+            .treo-vertical-navigation-header {
+
+                .logo {
+
+                    .logo-text {
+                        @if ($is-dark) {
+                            display: none;
+                        }
+                    }
+
+                    .logo-text-on-dark {
+                        @if (not $is-dark) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        > .wrapper {
+
+            > .header {
+                @if (not $is-dark) {
+                    background: map-get($background, card);
+                }
+                box-shadow: 0 1px 0 0 map-get($foreground, divider);
+
+                .user {
+
+                    .avatar {
+
+                        .status {
+                            border-color: map-get($background, card);
+
+                            &.online {
+                                background: treo-color('green', 500);
+                            }
+
+                            &.away {
+                                background: treo-color('orange', 500);
+                            }
+
+                            &.busy {
+                                background: treo-color('red', 500);
+                            }
+
+                            &.not-visible {
+                                background: treo-color('cool-gray', 400);
+                            }
+                        }
+                    }
+                }
+            }
+
+            > .footer {
+                @if (not $is-dark) {
+                    background: map-get($background, card);
+                }
+                box-shadow: 0 -1px 0 0 map-get($foreground, divider);
+                color: map-get($foreground, secondary-text);
+            }
+        }
+    }
+}

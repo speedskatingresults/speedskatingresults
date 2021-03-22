@@ -1,0 +1,115 @@
+@import 'treo';
+
+user {
+    display: flex;
+    align-items: center;
+
+    .avatar {
+        position: relative;
+
+        img {
+            width: 28px;
+            min-width: 28px;
+            height: 28px;
+            min-height: 28px;
+            border-radius: 50%;
+        }
+
+        .mat-icon {
+
+            + .status {
+                right: 0;
+                bottom: 2px;
+            }
+        }
+
+        .status {
+            position: absolute;
+            right: -1px;
+            bottom: -1px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+    }
+}
+
+.user-actions-menu {
+
+    .user-info {
+        display: flex;
+        flex-direction: column;
+        line-height: 1;
+
+        .email {
+            margin-top: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
+}
+
+.user-status-menu {
+
+    .status {
+        width: 16px;
+        height: 16px;
+        margin-right: 12px;
+        border-radius: 50%;
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Theming
+// -----------------------------------------------------------------------------------------------------
+@include treo-theme {
+
+    $background: map-get($theme, background);
+
+    user {
+
+        .avatar {
+
+            .status {
+
+                &.online {
+                    background: treo-color('green', 500);
+                }
+
+                &.away {
+                    background: treo-color('orange', 500);
+                }
+
+                &.busy {
+                    background: treo-color('red', 500);
+                }
+
+                &.not-visible {
+                    background: treo-color('cool-gray', 400);
+                }
+            }
+        }
+    }
+
+    .user-status-menu {
+
+        .status {
+
+            &.online {
+                background: treo-color('green', 500);
+            }
+
+            &.away {
+                background: treo-color('orange', 500);
+            }
+
+            &.busy {
+                background: treo-color('red', 500);
+            }
+
+            &.not-visible {
+                background: treo-color('cool-gray', 400);
+            }
+        }
+    }
+}

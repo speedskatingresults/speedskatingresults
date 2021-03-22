@@ -1,0 +1,156 @@
+<div class="content-layout fullwidth-basic-normal-scroll">
+
+    <treo-card class="auth-card fullscreen">
+
+        <!-- Form container -->
+        <div class="form-container">
+
+            <div class="form">
+
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="assets/images/logo/logo.svg">
+                </div>
+
+                <!-- Title -->
+                <div class="title">Sign up</div>
+                <div class="subtitle">
+                    <span>Already have an account?</span>
+                    <a class="link"
+                       [routerLink]="['/sign-in']">Sign in</a>
+                </div>
+
+                <!-- Message -->
+                <treo-message *ngIf="message"
+                             [appearance]="message.appearance"
+                             [showIcon]="message.showIcon"
+                             [type]="message.type"
+                             [@shake]="message.shake">
+                    {{message.content}}
+                </treo-message>
+
+                <!-- Sign Up form -->
+                <form [formGroup]="signUpForm">
+
+                    <!-- Name field -->
+                    <mat-form-field>
+                        <mat-label>Full name</mat-label>
+                        <input id="name"
+                               matInput
+                               [formControlName]="'name'">
+                        <mat-error *ngIf="signUpForm.get('name').hasError('required')">
+                            Full name is required
+                        </mat-error>
+                    </mat-form-field>
+
+                    <!-- Email field -->
+                    <mat-form-field>
+                        <mat-label>Email address</mat-label>
+                        <input id="email"
+                               matInput
+                               [formControlName]="'email'">
+                        <mat-error *ngIf="signUpForm.get('email').hasError('required')">
+                            Email address is required
+                        </mat-error>
+                        <mat-error *ngIf="signUpForm.get('email').hasError('email')">
+                            Please enter a valid email address
+                        </mat-error>
+                    </mat-form-field>
+
+                    <!-- Password field -->
+                    <mat-form-field>
+                        <mat-label>Password</mat-label>
+                        <input id="password"
+                               matInput
+                               type="password"
+                               [formControlName]="'password'"
+                               #passwordField>
+                        <button mat-icon-button
+                                type="button"
+                                (click)="passwordField.type === 'password' ? passwordField.type = 'text' : passwordField.type = 'password'"
+                                matSuffix>
+                            <mat-icon *ngIf="passwordField.type === 'password'"
+                                      [svgIcon]="'visibility'"></mat-icon>
+                            <mat-icon *ngIf="passwordField.type === 'text'"
+                                      [svgIcon]="'visibility_off'"></mat-icon>
+                        </button>
+                        <mat-error>
+                            Password is required
+                        </mat-error>
+                    </mat-form-field>
+
+                    <!-- Company field -->
+                    <mat-form-field>
+                        <mat-label>Company</mat-label>
+                        <input id="company-confirm"
+                               matInput
+                               [formControlName]="'company'">
+                    </mat-form-field>
+
+                    <!-- Field footer -->
+                    <div class="field-footer">
+                        <mat-checkbox [color]="'primary'"
+                                      [formControlName]="'agreements'">
+                            <span>I agree to the</span>
+                            <a class="link"
+                               [routerLink]="['./']">Terms of Service</a>
+                            <span>and</span>
+                            <a class="link"
+                               [routerLink]="['./']">Privacy Policy</a>
+                        </mat-checkbox>
+                    </div>
+
+                    <!-- Submit button -->
+                    <button class="submit-button treo-mat-button-large"
+                            mat-flat-button
+                            [color]="'primary'"
+                            [disabled]="signUpForm.disabled"
+                            (click)="signUp()">
+                        <span *ngIf="!signUpForm.disabled">
+                            Create your free account
+                        </span>
+                        <mat-progress-spinner *ngIf="signUpForm.disabled"
+                                              [diameter]="24"
+                                              [mode]="'indeterminate'"></mat-progress-spinner>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- Content container -->
+        <div class="content-container">
+
+            <!-- Background - Inline SVG for easy customizations -->
+            <svg class="background"
+                 viewBox="0 0 1531 891"
+                 preserveAspectRatio="xMidYMax slice"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 182c144.327 47.973 534.462 219.712 440.509 369.87C346.555 702.028 79.877 662.846 0 638V182z"></path>
+                <path d="M1405 848c-424.366 158.009-437-164-437-272s102-425 563-576v769c-21.333 29.333-63.333 55.667-126 79z"></path>
+                <path d="M1531 162c-122.914-17.284-377.96 33.191-543.433 206.414C822.095 541.636 797.342 648.75 835.842 731.622c38.5 82.871 198.243 134.841 400.555 92.053C1438.71 780.886 1492.752 775.894 1531 768V162z"></path>
+            </svg>
+
+            <div class="content">
+                <div class="title">
+                    <span>Well-crafted,</span>
+                    <span>Coded with attention,</span>
+                    <span>Build with passion.</span>
+                </div>
+                <div class="description">
+                    Treo helps developers to build organized and well-coded admin dashboards full of beautiful and feature rich modules.
+                </div>
+                <button class="learn-more-button"
+                        mat-stroked-button>
+                    Learn more
+                </button>
+            </div>
+
+        </div>
+
+    </treo-card>
+
+</div>
+

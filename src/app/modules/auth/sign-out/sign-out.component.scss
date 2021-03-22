@@ -1,0 +1,24 @@
+@import 'treo';
+
+auth-sign-out {
+
+    .content-layout {
+        align-items: center;
+        justify-content: center;
+
+        .title {
+            margin-top: 40px !important;
+        }
+
+        .footer-link {
+            margin-top: 32px !important;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Theming
+// -----------------------------------------------------------------------------------------------------
+@include treo-theme {
+
+}

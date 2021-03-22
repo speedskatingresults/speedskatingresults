@@ -1,0 +1,588 @@
+// -----------------------------------------------------------------------------------------------------
+// @ Angular Material typography config
+// -----------------------------------------------------------------------------------------------------
+@include angular-material-typography(
+        mat-typography-config(
+            $font-family: $treo-font-sans,
+            $title: mat-typography-level(1.25rem, 2rem, 600),
+            $body-2: mat-typography-level(0.875rem, 1.5rem, 600),
+            $button: mat-typography-level(0.875rem, 0.875rem, 500),
+            $input: mat-typography-level(0.875rem, 1.2857142857, 400) // line-height: 20px
+        )
+);
+
+// -----------------------------------------------------------------------------------------------------
+// @ General
+// -----------------------------------------------------------------------------------------------------
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: 0.875rem;
+    font-family: $treo-font-sans;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+    margin: 1.25em 0 0.5em 0;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.022em;
+    line-height: 1.25;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.022em;
+    line-height: 1.25;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.019em;
+    line-height: 1.25;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.017em;
+}
+
+h5 {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: -0.014em;
+}
+
+h6 {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.011em;
+}
+
+// Override links for web apps
+a {
+    color: currentColor;
+    text-decoration: none;
+}
+
+// Link helper for applying default 'a' style
+.link {
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+// Breadcrumb
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    .path {
+        white-space: nowrap;
+
+        &a {
+            color: inherit;
+        }
+
+        &.current {
+
+        }
+    }
+
+    .separator {
+        margin: 0 6px;
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Code and Pre
+// -----------------------------------------------------------------------------------------------------
+code,
+pre {
+    font-family: $treo-font-mono;
+    font-size: 14px;
+    line-height: 1.6;
+    border-radius: 4px;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+
+pre {
+    padding: 24px;
+    margin: 0;
+    @include treo-elevation();
+}
+
+:not(pre) > code {
+    padding: 2px 5px;
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Rich text
+// -----------------------------------------------------------------------------------------------------
+.rich-text {
+
+    h1, h2, h3, h4 {
+        margin: 0;
+    }
+
+    h1 {
+        margin-top: 0;
+        margin-bottom: 24px;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 1;
+    }
+
+    h2 {
+        margin-top: 32px;
+        margin-bottom: 16px;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.25;
+    }
+
+    h3 {
+        margin-top: 32px;
+        margin-bottom: 12px;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.25;
+    }
+
+    h4 {
+        margin-top: 24px;
+        margin-bottom: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.5;
+    }
+
+    h2 + * {
+        margin-top: 0;
+    }
+
+    h3 + * {
+        margin-top: 0;
+    }
+
+    h4 + * {
+        margin-top: 0;
+    }
+
+    p {
+        margin-top: 16px;
+        margin-bottom: 16px;
+        line-height: 1.8;
+    }
+
+    [class~="lead"] {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    hr {
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    hr + * {
+        margin-top: 0;
+    }
+
+    a {
+        font-weight: 500;
+        text-decoration: underline;
+    }
+
+    abbr {
+        cursor: help;
+        border-bottom-width: 1px;
+        border-bottom-style: dotted;
+    }
+
+    blockquote {
+        border-left-width: 3px;
+        font-style: italic;
+        font-weight: 600;
+        margin: 20px 0;
+        padding-left: 16px;
+        quotes: "“" "”" "‘" "’";
+
+        p:first-of-type:before {
+            content: open-quote;
+        }
+
+        p:last-of-type:after {
+            content: close-quote;
+        }
+
+        footer {
+            font-style: normal;
+
+            &:before {
+                content: '\2014 \00A0';
+            }
+        }
+
+        &.reverse {
+            border-left-width: 0;
+            border-right-width: 3px;
+            text-align: right;
+            padding-left: 0;
+            padding-right: 16px;
+
+            footer {
+
+                &:before {
+                    content: '';
+                }
+
+                &:after {
+                    content: '\2014 \00A0';
+                }
+            }
+        }
+    }
+
+    dl {
+
+        dt {
+            font-weight: 700;
+        }
+
+        dd {
+            margin: 4px 0 16px 0;
+        }
+    }
+
+    fieldset {
+        margin-inline-start: 0;
+        margin-inline-end: 0;
+        padding-inline-start: 0;
+        padding-inline-end: 0;
+        padding-block-start: 0;
+        padding-block-end: 0;
+        width: 100%;
+        border-width: 1px;
+        border-radius: 4px;
+        padding: 24px;
+
+        legend {
+            padding: 0 6px;
+            margin-left: -6px;
+        }
+    }
+
+    img {
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    video {
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    figure {
+        margin-top: 32px;
+        margin-bottom: 32px;
+    }
+
+    figure > * {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    figure figcaption {
+        font-size: 12px;
+        line-height: 1.5;
+        margin-top: 12px;
+    }
+
+    pre {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    pre code {
+        padding: 0;
+    }
+
+    strong {
+        font-weight: 600;
+    }
+
+    ol {
+        counter-reset: list-counter;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    ul {
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    li {
+        margin-top: 4px;
+        margin-bottom: 4px;
+        line-height: 1.8;
+    }
+
+    ol > li {
+        position: relative;
+        counter-increment: list-counter;
+        padding-left: 20px;
+    }
+
+    ol > li:before {
+        content: counter(list-counter) ".";
+        position: absolute;
+        font-weight: 400;
+        left: 0;
+    }
+
+    > ol > li > *:first-child {
+        margin-top: 16px;
+    }
+
+    > ol > li > *:last-child {
+        margin-bottom: 16px;
+    }
+
+    ul > li {
+        position: relative;
+        padding-left: 24px;
+    }
+
+    ul > li:before {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        width: 5px;
+        height: 5px;
+        top: 9px;
+        left: 3px;
+    }
+
+    > ul > li p {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    > ul > li > *:first-child {
+        margin-top: 16px;
+    }
+
+    > ul > li > *:last-child {
+        margin-bottom: 16px;
+    }
+
+    ul ul, ul ol, ol ul, ol ol {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+
+    table {
+        table-layout: auto;
+        width: 100%;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        line-height: 1.75;
+        text-align: left;
+    }
+
+    thead {
+        font-weight: 600;
+        border-bottom-width: 1px;
+    }
+
+    thead th {
+        padding-right: 8px;
+        padding-bottom: 8px;
+        padding-left: 8px;
+        vertical-align: bottom;
+    }
+
+    thead th:first-child {
+        padding-left: 0;
+    }
+
+    thead th:last-child {
+        padding-right: 0;
+    }
+
+    tbody tr {
+        border-bottom-width: 1px;
+    }
+
+    tbody tr:last-child {
+        border-bottom-width: 0;
+    }
+
+    tbody td {
+        padding-top: 8px;
+        padding-right: 8px;
+        padding-bottom: 8px;
+        padding-left: 8px;
+        vertical-align: top;
+    }
+
+    tbody td:first-child {
+        padding-left: 0;
+    }
+
+    tbody td:last-child {
+        padding-right: 0;
+    }
+
+    > :first-child {
+        margin-top: 0;
+    }
+
+    > :last-child {
+        margin-bottom: 0;
+    }
+
+    // treo-highlight
+    * + .treo-highlight {
+        margin-top: 16px;
+    }
+
+    .treo-highlight + p {
+        margin-top: 24px;
+    }
+
+    // treo-message
+    * + treo-message {
+        margin-top: 24px;
+    }
+
+    treo-message + p {
+        margin-top: 24px;
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Theming
+// -----------------------------------------------------------------------------------------------------
+@include treo-theme {
+
+    $foreground: map-get($theme, foreground);
+    $primary: map-get($theme, primary);
+    $is-dark: map-get($theme, is-dark);
+
+    // -----------------------------------------------------------------------------------------------------
+    // @ General
+    // -----------------------------------------------------------------------------------------------------
+
+    // Link helper for applying default 'a' style
+    .link {
+        color: map-get($primary, default);
+        border-bottom-color: map-get($primary, default);
+    }
+
+    // Breadcrumb
+    .breadcrumb {
+
+        .path {
+            color: map-get($primary, default);
+
+            &.current {
+                color: map-get($foreground, secondary-text);
+            }
+        }
+
+        .separator {
+            color: map-get($foreground, secondary-text);
+        }
+    }
+
+    // -----------------------------------------------------------------------------------------------------
+    // @ Code and Pre
+    // -----------------------------------------------------------------------------------------------------
+    code,
+    pre {
+        @if ($is-dark) {
+            color: treo-color('cool-gray', 400);
+            background: treo-color('cool-gray', 800);
+        } @else {
+            background: #FFFFFF;
+            color: #728FCB;
+        }
+    }
+
+    :not(pre) > code {
+        @if ($is-dark) {
+            color: treo-color('cool-gray', 400);
+            background: treo-color('cool-gray', 700);
+        } @else {
+            color: treo-color('cool-gray', 500);
+            background: treo-color('cool-gray', 200);
+        }
+    }
+
+    // -----------------------------------------------------------------------------------------------------
+    // @ Rich text
+    // -----------------------------------------------------------------------------------------------------
+    .rich-text {
+
+        a {
+            color: map-get($primary, default);
+            border-bottom-color: map-get($primary, default);
+        }
+
+        figure figcaption {
+            color: map-get($foreground, secondary-text);
+        }
+
+        mark {
+            background: #F7F49A;
+        }
+
+        ol > li:before {
+            @if ($is-dark) {
+                color: treo-color('cool-gray', 400);
+            } @else {
+                color: treo-color('cool-gray', 500);
+            }
+        }
+
+        ul > li:before {
+            @if ($is-dark) {
+                background: treo-color('cool-gray', 500);
+            } @else {
+                background: treo-color('cool-gray', 400);
+            }
+        }
+    }
+}

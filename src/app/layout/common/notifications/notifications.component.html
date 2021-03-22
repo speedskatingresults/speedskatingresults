@@ -1,0 +1,125 @@
+<!-- Notifications toggle -->
+<button class="notifications-toggle"
+        mat-icon-button
+        (click)="openPanel()"
+        #notificationsOrigin>
+    <mat-icon *ngIf="unreadCount > 0"
+              [svgIcon]="'notifications_active'"></mat-icon>
+    <mat-icon *ngIf="unreadCount === 0"
+              [svgIcon]="'notifications'"></mat-icon>
+</button>
+
+<!-- Notifications panel -->
+<ng-template #notificationsPanel>
+
+    <div class="notifications-panel">
+
+        <div class="header">
+
+            <div class="title">
+                Notifications
+            </div>
+
+            <button class="mark-all-as-read"
+                    mat-icon-button
+                    [matTooltip]="'Mark all as read'"
+                    (click)="markAllAsRead()">
+                <mat-icon [svgIcon]="'playlist_add_check'"></mat-icon>
+            </button>
+
+        </div>
+
+        <div class="content">
+
+            <!-- Notifications -->
+            <ng-container *ngFor="let notification of notifications">
+
+                <div class="notification"
+                     [ngClass]="{'unread': !notification.read}">
+
+                    <!-- Notification with a link -->
+                    <ng-container *ngIf="notification.link">
+                        <!-- Normal links -->
+                        <a *ngIf="!notification.useRouter"
+                           [href]="notification.link">
+                            <ng-container *ngTemplateOutlet="notificationContent"></ng-container>
+                        </a>
+
+                        <!-- Router links -->
+                        <a *ngIf="notification.useRouter"
+                           [routerLink]="createRouteFromLink(notification.link)">
+                            <ng-container *ngTemplateOutlet="notificationContent"></ng-container>
+                        </a>
+                    </ng-container>
+
+                    <!-- Notification without a link -->
+                    <span *ngIf="!notification.link">
+                        <ng-container *ngTemplateOutlet="notificationContent"></ng-container>
+                    </span>
+
+                    <!-- Actions -->
+                    <div class="actions">
+
+                        <!-- Indicator -->
+                        <button class="indicator"
+                                mat-icon-button
+                                (click)="toggleRead(notification)"
+                                [matTooltip]="notification.read ? 'Mark as unread' : 'Mark as read'">
+                            <span *ngIf="!notification.read"
+                                  class="unread"></span>
+                            <span *ngIf="notification.read"
+                                  class="read"></span>
+                        </button>
+
+                        <button class="remove"
+                                mat-icon-button
+                                (click)="delete(notification)"
+                                [matTooltip]="'Remove'">
+                            <mat-icon [svgIcon]="'close'"></mat-icon>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <ng-template #notificationContent>
+
+                    <!-- Icon -->
+                    <mat-icon class="icon"
+                              *ngIf="notification.icon && !notification.image"
+                              [svgIcon]="notification.icon">
+                    </mat-icon>
+
+                    <!-- Image -->
+                    <img class="image"
+                         *ngIf="notification.image"
+                         [src]="notification.image">
+
+                    <!-- Title, description & time -->
+                    <div class="notification-content">
+                        <div class="title"
+                             *ngIf="notification.title"
+                             [innerHTML]="notification.title"></div>
+                        <div class="description"
+                             *ngIf="notification.description"
+                             [innerHTML]="notification.description"></div>
+                        <div class="time">{{notification.time | date:'MMM dd, h:mm a'}}</div>
+                    </div>
+
+                </ng-template>
+
+            </ng-container>
+
+
+            <ng-container *ngIf="!notifications || !notifications.length">
+                <div class="empty">
+                    <mat-icon [svgIcon]="'notifications'"></mat-icon>
+                    <span>No notifications</span>
+                </div>
+            </ng-container>
+
+        </div>
+
+    </div>
+
+</ng-template>

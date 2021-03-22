@@ -1,0 +1,97 @@
+@import 'treo';
+
+.example-viewer {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 0;
+    border-radius: 4px;
+    overflow: hidden;
+    @include treo-elevation();
+
+    .title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 88px;
+        min-height: 88px;
+        max-height: 88px;
+        padding: 0 40px;
+
+        h6 {
+            font-weight: 700;
+        }
+
+        .controls {
+            display: flex;
+            align-items: center;
+
+            > * + * {
+                margin-left: 8px;
+            }
+        }
+    }
+
+    mat-tab-group {
+
+        .mat-tab-header {
+            border-top: 1px solid;
+        }
+
+        .mat-tab-body-content {
+            padding: 40px;
+
+            .treo-highlight {
+                margin: 0;
+
+                pre {
+                    padding: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Theming
+// -----------------------------------------------------------------------------------------------------
+@include treo-theme {
+
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    $is-dark: map-get($theme, is-dark);
+
+    // Example viewer
+    .example-viewer {
+        background: map-get($background, card);
+
+        mat-tab-group {
+
+            .mat-tab-header {
+                border-color: map-get($foreground, divider);
+
+                @if ($is-dark) {
+                    background: map-get($background, card);
+                } @else {
+                    background: treo-color('cool-gray', 50);
+                }
+            }
+
+            .mat-tab-body-content {
+
+                .treo-highlight {
+
+                    pre[class*='language-'] {
+                        border: none;
+                    }
+
+                    code[class*='language-'],
+                    pre[class*='language-'] {
+                        background: none;
+                    }
+                }
+            }
+        }
+    }
+}

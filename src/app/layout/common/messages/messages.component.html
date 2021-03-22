@@ -1,0 +1,124 @@
+<!-- Messages toggle -->
+<button class="messages-toggle"
+        mat-icon-button
+        (click)="openPanel()"
+        #messagesOrigin>
+    <mat-icon *ngIf="unreadCount > 0"
+              [svgIcon]="'message'"></mat-icon>
+    <mat-icon *ngIf="unreadCount === 0"
+              [svgIcon]="'chat_bubble'"></mat-icon>
+</button>
+
+<!-- Messages panel -->
+<ng-template #messagesPanel>
+
+    <div class="messages-panel">
+
+        <div class="header">
+
+            <div class="title">
+                Messages
+            </div>
+
+            <button class="mark-all-as-read"
+                    mat-icon-button
+                    [matTooltip]="'Mark all as read'"
+                    (click)="markAllAsRead()">
+                <mat-icon [svgIcon]="'playlist_add_check'"></mat-icon>
+            </button>
+
+        </div>
+
+        <div class="content">
+
+            <!-- Messages -->
+            <ng-container *ngFor="let message of messages">
+
+                <div class="message"
+                     [ngClass]="{'unread': !message.read}">
+
+                    <!-- Message with a link -->
+                    <ng-container *ngIf="message.link">
+                        <!-- Normal links -->
+                        <a *ngIf="!message.useRouter"
+                           [href]="message.link">
+                            <ng-container *ngTemplateOutlet="messageContent"></ng-container>
+                        </a>
+
+                        <!-- Router links -->
+                        <a *ngIf="message.useRouter"
+                           [routerLink]="createRouteFromLink(message.link)">
+                            <ng-container *ngTemplateOutlet="messageContent"></ng-container>
+                        </a>
+                    </ng-container>
+
+                    <!-- Message without a link -->
+                    <span *ngIf="!message.link">
+                        <ng-container *ngTemplateOutlet="messageContent"></ng-container>
+                    </span>
+
+                    <!-- Actions -->
+                    <div class="actions">
+
+                        <!-- Indicator -->
+                        <button class="indicator"
+                                mat-icon-button
+                                (click)="toggleRead(message)"
+                                [matTooltip]="message.read ? 'Mark as unread' : 'Mark as read'">
+                            <span *ngIf="!message.read"
+                                  class="unread"></span>
+                            <span *ngIf="message.read"
+                                  class="read"></span>
+                        </button>
+
+                        <button class="remove"
+                                mat-icon-button
+                                (click)="delete(message)"
+                                [matTooltip]="'Remove'">
+                            <mat-icon [svgIcon]="'close'"></mat-icon>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <ng-template #messageContent>
+
+                    <!-- Icon -->
+                    <mat-icon class="icon"
+                              *ngIf="message.icon && !message.image"
+                              [svgIcon]="message.icon">
+                    </mat-icon>
+
+                    <!-- Image -->
+                    <img class="image"
+                         *ngIf="message.image"
+                         [src]="message.image">
+
+                    <!-- Title, description & time -->
+                    <div class="message-content">
+                        <div class="title"
+                             *ngIf="message.title"
+                             [innerHTML]="message.title"></div>
+                        <div class="description"
+                             *ngIf="message.description"
+                             [innerHTML]="message.description"></div>
+                        <div class="time">{{message.time | date:'MMM dd, h:mm a'}}</div>
+                    </div>
+
+                </ng-template>
+
+            </ng-container>
+
+            <ng-container *ngIf="!messages || !messages.length">
+                <div class="empty">
+                    <mat-icon [svgIcon]="'message'"></mat-icon>
+                    <span>No messages</span>
+                </div>
+            </ng-container>
+
+        </div>
+
+    </div>
+
+</ng-template>

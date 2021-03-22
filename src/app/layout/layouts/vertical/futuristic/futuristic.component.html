@@ -1,0 +1,83 @@
+<!-- Navigation -->
+<treo-vertical-navigation class="bg-indigo-800 theme-dark"
+                          [appearance]="'futuristic'"
+                          [mode]="isScreenSmall ? 'over' : 'side'"
+                          [name]="'mainNavigation'"
+                          [navigation]="data.navigation.futuristic"
+                          [opened]="!isScreenSmall">
+
+    <div treoVerticalNavigationHeader>
+        <div class="logo">
+            <img src="assets/images/logo/logo-text-on-dark.svg">
+        </div>
+    </div>
+
+    <div treoVerticalNavigationFooter>
+        <div class="navigation-footer-menu">
+            <a [routerLink]="['./']">
+                <mat-icon [svgIcon]="'heroicons_outline:cog'"></mat-icon>
+                <span>Settings</span>
+            </a>
+            <a [routerLink]="['./']">
+                <mat-icon [svgIcon]="'heroicons_outline:briefcase'"></mat-icon>
+                <span>Company Corp.</span>
+                <mat-icon class="ml-auto -mr-1 icon-size-20"
+                          [svgIcon]="'heroicons_outline:selector'"></mat-icon>
+            </a>
+        </div>
+        <div class="user">
+            <user [user]="data.user"></user>
+            <div class="info">
+                <div class="name text-indigo-50">{{data.user.name}}</div>
+                <div class="email text-indigo-300">andrew.watkins@company.com</div>
+            </div>
+        </div>
+    </div>
+
+</treo-vertical-navigation>
+
+<!-- Wrapper -->
+<div class="wrapper">
+
+    <!-- Header -->
+    <div class="header">
+
+        <!-- Navigation toggle button -->
+        <button class="navigation-toggle-button"
+                mat-icon-button
+                (click)="toggleNavigation('mainNavigation')">
+            <mat-icon [svgIcon]="'menu'"></mat-icon>
+        </button>
+
+        <!-- Spacer -->
+        <div class="spacer"></div>
+
+        <!-- Search -->
+        <search [appearance]="'bar'"></search>
+
+        <!-- Shortcuts -->
+        <shortcuts [shortcuts]="data.shortcuts"></shortcuts>
+
+        <!-- Messages -->
+        <messages [messages]="data.messages"></messages>
+
+        <!-- Notifications -->
+        <notifications [notifications]="data.notifications"></notifications>
+
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- *ngIf="true" hack is required here for router-outlet to work correctly. Otherwise,
+             it won't register the changes on the layout and won't update the view. -->
+        <router-outlet *ngIf="true"></router-outlet>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Treo &copy; {{currentYear}}
+    </div>
+
+</div>

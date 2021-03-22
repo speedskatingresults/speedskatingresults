@@ -1,0 +1,264 @@
+@import 'treo';
+
+$treo-vertical-navigation-compact-width: 144;
+
+compact-layout {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%;
+
+    > treo-vertical-navigation {
+
+        .treo-vertical-navigation-content-header {
+
+            .logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 80px;
+                min-height: 80px;
+                max-height: 80px;
+                margin: 12px 0 16px 0;
+
+                img {
+                    max-width: 48px;
+                }
+            }
+        }
+
+        // Compact appearance overrides
+        &.treo-vertical-navigation-appearance-compact {
+            width: #{$treo-vertical-navigation-compact-width}px;
+            min-width: #{$treo-vertical-navigation-compact-width}px;
+            max-width: #{$treo-vertical-navigation-compact-width}px;
+
+            // Left positioned
+            &.treo-vertical-navigation-position-left {
+
+                // Side mode
+                &.treo-vertical-navigation-mode-side {
+                    margin-left: -#{$treo-vertical-navigation-compact-width}px;
+                }
+
+                // Opened
+                &.treo-vertical-navigation-opened {
+                    margin-left: 0;
+                }
+            }
+
+            // Right positioned
+            &.treo-vertical-navigation-position-right {
+
+                // Side mode
+                &.treo-vertical-navigation-mode-side {
+                    margin-right: -#{$treo-vertical-navigation-compact-width}px;
+                }
+
+                // Opened
+                &.treo-vertical-navigation-opened {
+                    margin-right: 0;
+                }
+
+                // Aside wrapper
+                .treo-vertical-navigation-aside-wrapper {
+                    left: auto;
+                    right: #{$treo-vertical-navigation-compact-width}px;
+                }
+            }
+
+            // Wrapper
+            .treo-vertical-navigation-wrapper {
+
+                // Content
+                .treo-vertical-navigation-content {
+
+                    > treo-vertical-navigation-aside-item,
+                    > treo-vertical-navigation-basic-item {
+
+                        .treo-vertical-navigation-item {
+                            flex-direction: column;
+                            justify-content: center;
+                            height: 96px;
+                            min-height: 96px;
+                            max-height: 96px;
+                            padding: 0 16px;
+
+                            .treo-vertical-navigation-item-icon {
+                                margin-right: 0;
+                                margin-bottom: 8px;
+                                @include treo-icon-size(30);
+                            }
+
+                            .treo-vertical-navigation-item-title-wrapper {
+
+                                .treo-vertical-navigation-item-title {
+                                    text-align: center;
+                                    font-weight: 500;
+                                }
+
+                                .treo-vertical-navigation-item-subtitle {
+                                    display: none !important;
+                                }
+                            }
+
+                            .treo-vertical-navigation-item-badge {
+                                position: absolute;
+                                top: 12px;
+                                left: 64px;
+                            }
+                        }
+                    }
+
+                    > treo-vertical-navigation-collapsable-item {
+                        display: none
+                    }
+
+                    > treo-vertical-navigation-group-item {
+
+                        > .treo-vertical-navigation-item-wrapper {
+                            display: none
+                        }
+                    }
+                }
+            }
+
+            // Aside wrapper
+            .treo-vertical-navigation-aside-wrapper {
+                left: #{$treo-vertical-navigation-compact-width}px;
+            }
+        }
+    }
+
+    > .wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-width: 0;
+
+        > .header {
+            position: relative;
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            width: 100%;
+            height: 64px;
+            max-height: 64px;
+            min-height: 64px;
+            padding: 0 24px;
+            z-index: 49;
+
+            @include treo-breakpoint('lt-md') {
+                padding: 0 16px;
+            }
+
+            .navigation-toggle-button {
+                margin-right: 8px;
+            }
+
+            .spacer {
+                display: flex;
+                flex: 1 1 auto;
+                height: 1px;
+            }
+
+            search {
+                margin-right: 8px;
+            }
+
+            shortcuts {
+                margin-right: 8px;
+            }
+
+            messages {
+                margin-right: 8px;
+            }
+
+            notifications {
+                margin-right: 8px;
+            }
+        }
+
+        > .content {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+
+            > *:not(router-outlet) {
+                position: relative;
+                display: flex;
+                flex: 1 1 auto;
+            }
+        }
+
+        > .footer {
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: 56px;
+            max-height: 56px;
+            min-height: 56px;
+            padding: 0 24px;
+            z-index: 49;
+        }
+    }
+
+    &.fixed-header {
+
+        > .wrapper {
+
+            > .header {
+                position: sticky;
+                top: 0;
+            }
+        }
+    }
+
+    &.fixed-footer {
+
+        > .wrapper {
+
+            > .footer {
+                position: sticky;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Theming
+// -----------------------------------------------------------------------------------------------------
+@include treo-theme {
+
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    $primary: map-get($theme, primary);
+    $is-dark: map-get($theme, is-dark);
+
+    compact-layout {
+
+        > .wrapper {
+
+            > .header {
+                @if ($is-dark) {
+                    box-shadow: 0 1px 0 0 map-get($foreground, divider);
+                } @else {
+                    background: map-get($background, card);
+                    @include treo-elevation();
+                }
+            }
+
+            > .footer {
+                @if (not $is-dark) {
+                    background: map-get($background, card);
+                    @include treo-elevation();
+                }
+                box-shadow: 0 -1px 0 0 map-get($foreground, divider);
+                color: map-get($foreground, secondary-text);
+            }
+        }
+    }
+}

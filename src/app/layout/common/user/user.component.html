@@ -1,0 +1,68 @@
+<!-- Button -->
+<button class="icon-button"
+        mat-icon-button
+        [matMenuTriggerFor]="userActions">
+    <span class="avatar">
+        <img *ngIf="showAvatar && user.avatar"
+             [src]="user.avatar">
+        <mat-icon *ngIf="!showAvatar || !user.avatar"
+                  [svgIcon]="'account_circle'"></mat-icon>
+        <span class="status"
+              [ngClass]="user.status"></span>
+    </span>
+</button>
+
+<mat-menu class="user-actions-menu"
+          [xPosition]="'before'"
+          #userActions="matMenu">
+    <button mat-menu-item>
+        <span class="user-info">
+            <span>Signed in as</span>
+            <span class="email">{{user.email}}</span>
+        </span>
+    </button>
+    <mat-divider class="my-2"></mat-divider>
+    <button mat-menu-item>
+        <mat-icon [svgIcon]="'account_circle'"></mat-icon>
+        <span>Profile</span>
+    </button>
+    <button mat-menu-item>
+        <mat-icon [svgIcon]="'settings'"></mat-icon>
+        <span>Settings</span>
+    </button>
+    <button mat-menu-item
+            [matMenuTriggerFor]="userStatus">
+        <mat-icon [svgIcon]="'radio_button_unchecked'"></mat-icon>
+        <span>Status</span>
+    </button>
+    <mat-divider class="my-2"></mat-divider>
+    <button mat-menu-item
+            (click)="signOut()">
+        <mat-icon [svgIcon]="'power_settings_new'"></mat-icon>
+        <span>Sign out</span>
+    </button>
+</mat-menu>
+
+<mat-menu class="user-status-menu"
+          #userStatus="matMenu">
+    <button mat-menu-item
+            (click)="updateUserStatus('online')">
+        <span class="status online"></span>
+        <span>Online</span>
+    </button>
+    <button mat-menu-item
+            (click)="updateUserStatus('away')">
+        <span class="status away"></span>
+        <span>Away</span>
+    </button>
+    <button mat-menu-item
+            (click)="updateUserStatus('busy')">
+        <span class="status busy"></span>
+        <span>Busy</span>
+    </button>
+    <button mat-menu-item
+            (click)="updateUserStatus('not-visible')">
+        <span class="status not-visible"></span>
+        <span>Invisible</span>
+    </button>
+</mat-menu>

@@ -1,0 +1,488 @@
+@import 'treo';
+
+futuristic-layout {
+    position: relative;
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%;
+
+    > treo-vertical-navigation {
+
+        .treo-vertical-navigation-header {
+
+            .logo {
+                display: flex;
+                align-items: center;
+                height: 80px;
+                min-height: 80px;
+                max-height: 80px;
+                padding: 24px 24px 0 24px;
+
+                img {
+                    max-width: 120px;
+                }
+            }
+        }
+
+        .treo-vertical-navigation-footer {
+            border-top-width: 1px;
+
+            .navigation-footer-menu {
+                display: flex;
+                flex-direction: column;
+                padding: 16px;
+
+                a {
+                    display: flex;
+                    align-items: center;
+                    padding: 12px 16px;
+                    border-radius: 6px;
+                    font-weight: 500;
+
+                    + a {
+                        margin-top: 4px;
+                    }
+
+                    .mat-icon {
+                        margin-right: 16px;
+                    }
+                }
+            }
+
+            .user {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 24px 32px;
+                border-top-width: 1px;
+
+                .mat-icon-button {
+                    width: 40px;
+                    height: 40px;
+                    min-height: 40px;
+                    max-height: 40px;
+                }
+
+                .avatar {
+
+                    img {
+                        width: 40px;
+                        min-width: 40px;
+                        height: 40px;
+                        min-height: 40px;
+                        border-radius: 50%;
+                    }
+
+                    .mat-icon {
+                        @include treo-icon-size(40);
+                    }
+
+                    .status {
+                        right: -4px;
+                        bottom: -5px;
+                        width: 16px;
+                        height: 16px;
+                        border-width: 3px;
+                    }
+                }
+
+                .info {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1 1 auto;
+                    width: 100%;
+                    min-width: 0;
+                    margin-left: 16px;
+
+                    .name,
+                    .email {
+                        width: 100%;
+                        min-width: 0;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        line-height: normal;
+                    }
+
+                    .email {
+                        font-size: 12px;
+                        margin-top: 2px;
+                    }
+                }
+            }
+        }
+
+        // Futuristic appearance overrides
+        &.treo-vertical-navigation-appearance-futuristic {
+
+            // Aside, basic, collapsable, group
+            treo-vertical-navigation-aside-item,
+            treo-vertical-navigation-basic-item,
+            treo-vertical-navigation-collapsable-item,
+            treo-vertical-navigation-group-item {
+                margin-bottom: 4px;
+
+                > .treo-vertical-navigation-item-wrapper {
+                    margin: 0 16px;
+
+                    .treo-vertical-navigation-item {
+                        padding-left: 16px;
+                        padding-right: 16px;
+                    }
+                }
+            }
+
+            // Collapsable
+            treo-vertical-navigation-collapsable-item {
+
+                > .treo-vertical-navigation-item-children {
+
+                    .treo-vertical-navigation-item {
+                        padding: 10px 16px;
+                    }
+                }
+
+                // 1st level
+                .treo-vertical-navigation-item-children {
+
+                    .treo-vertical-navigation-item {
+                        padding-left: 56px;
+                    }
+
+                    // 2nd level
+                    .treo-vertical-navigation-item-children {
+
+                        .treo-vertical-navigation-item {
+                            padding-left: 72px;
+                        }
+
+                        // 3rd level
+                        .treo-vertical-navigation-item-children {
+
+                            .treo-vertical-navigation-item {
+                                padding-left: 88px;
+                            }
+
+                            // 4th level
+                            .treo-vertical-navigation-item-children {
+
+                                .treo-vertical-navigation-item {
+                                    padding-left: 104px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Navigation items common
+            .treo-vertical-navigation-item {
+                border-radius: 6px;
+            }
+
+            // Aside
+            .treo-vertical-navigation-aside-wrapper {
+
+                > treo-vertical-navigation-aside-item {
+                    padding: 8px 0;
+                }
+            }
+        }
+    }
+
+    > .wrapper {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-width: 0;
+
+        > .header {
+            position: relative;
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            width: 100%;
+            height: 64px;
+            max-height: 64px;
+            min-height: 64px;
+            padding: 0 24px;
+            z-index: 49;
+
+            @include treo-breakpoint('lt-md') {
+                padding: 0 16px;
+            }
+
+            .navigation-toggle-button {
+                margin-right: 8px;
+            }
+
+            .spacer {
+                display: flex;
+                flex: 1 1 auto;
+                height: 1px;
+            }
+
+            search {
+                margin-right: 8px;
+            }
+
+            shortcuts {
+                margin-right: 8px;
+            }
+
+            messages {
+                margin-right: 8px;
+            }
+
+            notifications {
+                margin-right: 8px;
+            }
+        }
+
+        > .content {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+
+            > *:not(router-outlet) {
+                position: relative;
+                display: flex;
+                flex: 1 1 auto;
+            }
+        }
+
+        > .footer {
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            height: 56px;
+            max-height: 56px;
+            min-height: 56px;
+            padding: 0 24px;
+            z-index: 49;
+        }
+    }
+
+    &.fixed-header {
+
+        > .wrapper {
+
+            > .header {
+                position: sticky;
+                top: 0;
+            }
+        }
+    }
+
+    &.fixed-footer {
+
+        > .wrapper {
+
+            > .footer {
+                position: sticky;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------------------------------
+// @ Theming
+// -----------------------------------------------------------------------------------------------------
+@include treo-theme {
+
+    $background: map-get($theme, background);
+    $foreground: map-get($theme, foreground);
+    $primary: map-get($theme, primary);
+    $is-dark: map-get($theme, is-dark);
+
+    futuristic-layout {
+
+        > treo-vertical-navigation {
+
+            .treo-vertical-navigation-footer {
+
+                .navigation-footer-menu {
+
+                    a {
+                        color: treo-color('indigo', 300);
+
+                        .mat-icon {
+                            color: treo-color('indigo', 400);
+                        }
+
+                        &:hover {
+                            background-color: treo-color('indigo', 700);
+                            color: treo-color('indigo', 50);
+
+                            .mat-icon {
+                                color: treo-color('indigo', 100);
+                            }
+                        }
+                    }
+                }
+
+                .user {
+
+                    .avatar {
+
+                        .status {
+                            border-color: treo-color('indigo', 800);
+                        }
+                    }
+                }
+            }
+
+            // Futuristic appearance overrides
+            &.treo-vertical-navigation-appearance-futuristic {
+
+                // Navigation items common
+                .treo-vertical-navigation-item {
+
+                    // Normal state
+                    .treo-vertical-navigation-item-icon {
+                        color: treo-color('indigo', 400);
+                    }
+
+                    .treo-vertical-navigation-item-title {
+                        color: treo-color('indigo', 300);
+                    }
+
+                    .treo-vertical-navigation-item-subtitle {
+                        color: treo-color('indigo', 400);
+                    }
+
+                    // Active state
+                    &.treo-vertical-navigation-item-active:not(.treo-vertical-navigation-item-disabled),
+                    &.treo-vertical-navigation-item-active-forced:not(.treo-vertical-navigation-item-disabled) {
+                        background-color: treo-color('indigo', 900);
+
+                        .treo-vertical-navigation-item-icon {
+                            color: treo-color('indigo', 100);
+                        }
+
+                        .treo-vertical-navigation-item-title {
+                            color: treo-color('indigo', 50);
+                        }
+
+                        .treo-vertical-navigation-item-subtitle {
+                            color: treo-color('indigo', 300);
+                        }
+                    }
+
+                    // Disabled state
+                    &.treo-vertical-navigation-item-disabled {
+
+                        .treo-vertical-navigation-item-icon,
+                        .treo-vertical-navigation-item-title,
+                        .treo-vertical-navigation-item-subtitle,
+                        .treo-vertical-navigation-item-arrow {
+                            color: treo-color('indigo', 600);
+                        }
+                    }
+                }
+
+                // Aside, Basic, Collapsable
+                treo-vertical-navigation-aside-item,
+                treo-vertical-navigation-basic-item,
+                treo-vertical-navigation-collapsable-item {
+
+                    > .treo-vertical-navigation-item-wrapper {
+
+                        .treo-vertical-navigation-item {
+
+                            // Hover state
+                            &:hover:not(.treo-vertical-navigation-item-active):not(.treo-vertical-navigation-item-disabled),
+                            &:hover:not(.treo-vertical-navigation-item-active-forced):not(.treo-vertical-navigation-item-disabled) {
+                                background-color: treo-color('indigo', 700);
+
+                                .treo-vertical-navigation-item-icon {
+                                    color: treo-color('indigo', 100);
+                                }
+
+                                .treo-vertical-navigation-item-title {
+                                    color: treo-color('indigo', 50);
+                                }
+
+                                .treo-vertical-navigation-item-subtitle {
+                                    color: treo-color('indigo', 300);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Collapsable - Expanded state
+                treo-vertical-navigation-collapsable-item {
+
+                    &.treo-vertical-navigation-item-expanded {
+
+                        > .treo-vertical-navigation-item-wrapper {
+
+                            .treo-vertical-navigation-item {
+
+                                .treo-vertical-navigation-item-icon {
+                                    color: treo-color('indigo', 100);
+                                }
+
+                                .treo-vertical-navigation-item-title,
+                                .treo-vertical-navigation-item-arrow {
+                                    color: treo-color('indigo', 50);
+                                }
+
+                                .treo-vertical-navigation-item-subtitle {
+                                    color: treo-color('indigo', 300);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Group - Normal state
+                treo-vertical-navigation-group-item {
+
+                    > .treo-vertical-navigation-item-wrapper {
+
+                        .treo-vertical-navigation-item {
+
+                            .treo-vertical-navigation-item-icon {
+                                color: treo-color('indigo', 300);
+                            }
+
+                            .treo-vertical-navigation-item-title {
+                                color: treo-color('indigo', 50);
+                            }
+
+                            .treo-vertical-navigation-item-subtitle {
+                                color: treo-color('indigo', 500);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        > .wrapper {
+
+            > .header {
+                @if ($is-dark) {
+                    box-shadow: 0 1px 0 0 map-get($foreground, divider);
+                } @else {
+                    background: map-get($background, card);
+                    @include treo-elevation();
+                }
+            }
+
+            > .footer {
+                @if (not $is-dark) {
+                    background: map-get($background, card);
+                    @include treo-elevation();
+                }
+                box-shadow: 0 -1px 0 0 map-get($foreground, divider);
+                color: map-get($foreground, secondary-text);
+            }
+        }
+    }
+}
