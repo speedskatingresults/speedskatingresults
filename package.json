@@ -1,7 +1,7 @@
 {
-    "name": "@treo/demo",
-    "version": "1.1.1",
-    "license": "https://themeforest.net/licenses/standard",
+    "name": "SpeedskatingResults.nl",
+    "version": "0.0.1",
+    "license": "MIT",
     "scripts": {
         "ng": "ng",
         "start": "ng serve --open",
