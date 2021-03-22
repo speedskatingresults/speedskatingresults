@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import {SkaterService} from "../../../shared/services/skating/skater.service";
 
 @Component({
     selector       : 'example',
@@ -9,10 +10,13 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 })
 export class HomeComponent
 {
-    /**
-     * Constructor
-     */
-    constructor()
-    {
+
+    constructor(private skaterService: SkaterService) {
+    }
+
+    ngOnInit(): void {
+
+        this.skaterService.find();
+
     }
 }
