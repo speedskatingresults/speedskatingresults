@@ -1,22 +1,31 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import {SkaterService} from "../../../shared/services/skating/skater.service";
+import {ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation} from '@angular/core';
+import {MatTableDataSource} from "@angular/material/table";
+import {MatSort} from "@angular/material/sort";
 
 @Component({
-    selector       : 'example',
-    templateUrl    : './home.component.html',
-    styleUrls      : ['./home.component.scss'],
-    encapsulation  : ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'example',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent
-{
+export class HomeComponent {
+  recentCompDataSource: MatTableDataSource<any>;
+  recentCompTableColumns: string[];
 
-    constructor(private skaterService: SkaterService) {
-    }
+  @ViewChild('recentCompTable', {read: MatSort})
+  recentCompTableMatSort: MatSort;
 
-    ngOnInit(): void {
+  /**
+   * Constructor
+   */
+  constructor() {
+    this.recentCompDataSource = new MatTableDataSource();
+    this.recentCompTableColumns = ['transactionId', 'date', 'name', 'amount', 'status'];
+        
+  }
 
-        this.skaterService.find();
-
-    }
+  trackByFn(index: number, item: any): any {
+    return item.id || index;
+  }
 }
