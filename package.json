@@ -9,7 +9,6 @@
         "build": "ng build",
         "build:prod": "ng build --prod",
         "build:prod:mem": "node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng build --prod",
-        "test": "ng test",
         "lint": "ng lint",
         "tw": "npm run tw:build && npm run tw:export",
         "tw:build": "./node_modules/.bin/tailwind build src/tailwind/main.css -c src/tailwind/config.js -o src/styles/tailwind.scss",
