@@ -1,69 +1,72 @@
 /* tslint:disable:max-line-length */
 import { TreoNavigationItem } from '@treo/components/navigation';
 
+
 export const defaultNavigation: TreoNavigationItem[] = [
     {
-        id      : 'starter',
-        title   : 'Starter',
-        subtitle: 'Treo Starter Kit',
-        type    : 'group',
-        icon    : 'apps',
-        children: [
-            {
-                id   : 'starter.example',
-                title: 'Example component',
-                type : 'basic',
-                link : '/example'
-            },
-            {
-                id   : 'starter.dummy.1',
-                title: 'Dummy menu item #1',
-                type : 'basic'
-            },
-            {
-                id   : 'starter.dummy.2',
-                title: 'Dummy menu item #1',
-                type : 'basic'
-            }
-        ]
-    }
-];
-export const compactNavigation: TreoNavigationItem[] = [
-    {
-        id      : 'starter',
-        title   : 'Starter',
-        type    : 'aside',
-        icon    : 'apps',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
-    }
-];
-export const futuristicNavigation: TreoNavigationItem[] = [
-    {
-        id   : 'starter.example',
-        title: 'Example component',
-        type : 'basic',
-        icon : 'heroicons:chart-pie',
-        link : '/example'
+        id      : 'home',
+        title   : 'Home',
+        type    : 'basic',
+        icon    : 'heroicons_outline:home',
+        link    : '/'
     },
     {
-        id   : 'starter.dummy.1',
-        title: 'Dummy menu item #1',
-        icon : 'heroicons:calendar',
-        type : 'basic'
+        id      : 'results',
+        title   : 'Results',
+        type    : 'basic',
+        icon    : 'heroicons_outline:trending-up',
+        link    : '/results'
     },
     {
-        id   : 'starter.dummy.2',
-        title: 'Dummy menu item #1',
-        icon : 'heroicons:user-group',
-        type : 'basic'
-    }
-];
-export const horizontalNavigation: TreoNavigationItem[] = [
+        id      : 'skaters',
+        title   : 'Skaters',
+        type    : 'basic',
+        icon    : 'heroicons_outline:user-group',
+        link    : '/skaters'
+    },
     {
-        id      : 'starter',
-        title   : 'Starter',
-        type    : 'group',
-        icon    : 'apps',
-        children: [] // This will be filled from defaultNavigation so we don't have to manage multiple sets of the same navigation
-    }
+        id      : 'countries',
+        title   : 'Countries',
+        type    : 'basic',
+        icon    : 'heroicons_outline:globe',
+        link    : '/countries'
+    },
+    {
+        id      : 'tracks',
+        title   : 'Tracks',
+        type    : 'basic',
+        icon    : 'heroicons_outline:location-marker',
+        link    : '/tracks'
+    },
+    {
+        id      : 'records',
+        title   : 'Records',
+        type    : 'basic',
+        icon    : 'heroicons_outline:star',
+        link    : '/records'
+    },
+    {
+        id      : 'season',
+        title   : 'Season',
+        type    : 'basic',
+        icon    : 'feather:cloud-snow',
+        link    : '/season'
+    },
+
 ];
+
+export const horizontalNavigation: TreoNavigationItem[] = defaultNavigation
+// export const horizontalNavigation: TreoNavigationItem[] = [
+//     {
+//         id      : 'home',
+//         title   : 'Home',
+//         type    : 'basic',
+//         icon    : 'home',
+//         link    : '/'
+//     }
+// ];
+
+
+// Other themes:
+export const compactNavigation: TreoNavigationItem[] = [];
+export const futuristicNavigation: TreoNavigationItem[] = [];
