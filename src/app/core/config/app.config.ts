@@ -23,5 +23,5 @@ export interface AppConfig
  */
 export const appConfig: AppConfig = {
     layout: 'material',
-    theme : 'auto'
+    theme : 'light'
 };
