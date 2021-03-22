@@ -17,10 +17,6 @@ material-layout {
                 min-height: 80px;
                 max-height: 80px;
                 padding: 24px 32px 0 32px;
-
-                img {
-                    max-width: 96px;
-                }
             }
         }
     }
@@ -93,9 +89,9 @@ material-layout {
                     margin: 0 8px;
 
                     img {
-                        width: 96px;
-                        min-width: 96px;
-                        max-width: 96px;
+                        width: 350px;
+                        min-width: 350px;
+                        max-width: 350px;
                     }
                 }
 
