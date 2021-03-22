@@ -4,7 +4,7 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve --open",
+        "start": "ng serve --open --ssl true",
         "start:mem": "node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng serve --open",
         "build": "ng build",
         "build:prod": "ng build --prod",
