@@ -1,6 +1,7 @@
-import {ChangeDetectionStrategy, Component, ViewChild, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatSort} from "@angular/material/sort";
+import {SkaterService} from "../../../shared/services/skating/skater.service";
 
 @Component({
   selector: 'example',
@@ -9,7 +10,7 @@ import {MatSort} from "@angular/material/sort";
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   recentCompDataSource: MatTableDataSource<any>;
   recentCompTableColumns: string[];
 
@@ -19,13 +20,19 @@ export class HomeComponent {
   /**
    * Constructor
    */
-  constructor() {
+  constructor(private skaterService: SkaterService) {
     this.recentCompDataSource = new MatTableDataSource();
     this.recentCompTableColumns = ['transactionId', 'date', 'name', 'amount', 'status'];
-        
+
   }
 
   trackByFn(index: number, item: any): any {
     return item.id || index;
+  }
+
+  ngOnInit(): void {
+
+    this.skaterService.find();
+
   }
 }
