@@ -1,6 +1,6 @@
 # Speedskating Results
 
-Very nice project
+Take a look at all speed skating results!
 
 ## Development server
 
