@@ -1,5 +1,5 @@
 {
-    "name": "SpeedskatingResults.nl",
+    "name": "speedskating-results",
     "version": "0.0.1",
     "license": "MIT",
     "scripts": {
@@ -11,7 +11,6 @@
         "build:prod:mem": "node --max_old_space_size=6144 ./node_modules/@angular/cli/bin/ng build --prod",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e",
         "tw": "npm run tw:build && npm run tw:export",
         "tw:build": "./node_modules/.bin/tailwind build src/tailwind/main.css -c src/tailwind/config.js -o src/styles/tailwind.scss",
         "tw:export": "npm run tw:export:js && npm run tw:export:scss",
