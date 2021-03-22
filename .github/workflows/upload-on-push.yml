@@ -25,7 +25,7 @@ jobs:
         server: speedskatingresults.nl
         username: ${{ secrets.ftp_username }}
         password: ${{ secrets.ftp_password }}
-        protocol: ftps
+        protocol: ftp
         local-dir: ./dist/
         server-dir: public_html/
 
