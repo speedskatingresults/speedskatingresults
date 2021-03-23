@@ -98,7 +98,7 @@ export class SpeedSkatingResultsApiService {
    * @param args
    */
   async getWorldRecords(args: { gender?: string, age: string, distance?: number } = null): Promise<Record[]> {
-    const records = await this.requestService.get('olympic_records', args);
+    const records = await this.requestService.get('world_records', args);
     return records.records;
   }
 }
