@@ -1,4 +1,4 @@
-import {Moment} from "moment";
+import {Moment} from 'moment';
 
 /**
  * Returns a skater's season best or personal record
