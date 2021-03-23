@@ -1,5 +1,5 @@
 import {Moment} from 'moment';
-import {Skater} from '../Skater';
+import {Skater} from './Skater';
 
 /**
  * Returns a record for the: World records, National records & Olympic records

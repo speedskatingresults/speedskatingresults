@@ -36,16 +36,68 @@ export class HomeComponent implements OnInit {
       givenName: 'mees',
       familyName: 'egberts'
     }).then((skaters) => {
-
-      console.log('----');
-      console.log(skaters[0].givenname);
-      console.log(skaters[0].familyname);
-      console.log(skaters[0].gender);
-      console.log(skaters[0].category);
-      console.log('----');
-
+      console.log(skaters);
     });
 
+    this.speedSkatingResultsApiService.skaterCompetitions({
+      skater: 34772,
+      season: 2019
+    }).then((competitions) => {
+      console.log(competitions);
+    });
+
+    this.speedSkatingResultsApiService.skaterResults({
+      skater: 34772,
+      distance: 500,
+    }).then((results) => {
+      console.log(results);
+    });
+
+    this.speedSkatingResultsApiService.personalRecords({
+      skater: 34772,
+    }).then((times) => {
+      console.log(times);
+    });
+
+    this.speedSkatingResultsApiService.seasonBests({
+      skater: 34772,
+      start: 1900,
+      end: 2100
+    }).then((results) => {
+      console.log(results);
+    });
+
+    this.speedSkatingResultsApiService.seedTimes({
+      skater: 11433,
+      start: '2011-01-01',
+      end: '2012-12-31'
+    }).then((results) => {
+      console.log(results);
+    });
+
+    this.speedSkatingResultsApiService.nationalRecords({
+      country: 'NED',
+      distance: 500,
+      gender: 'm',
+      age: 'sr',
+    }).then((records) => {
+      console.log(records);
+    });
+
+    this.speedSkatingResultsApiService.olympicRecords({
+      distance: 500,
+      gender: 'm',
+    }).then((records) => {
+      console.log(records);
+    });
+
+    this.speedSkatingResultsApiService.worldRecords({
+      distance: 500,
+      gender: 'm',
+      age: 'sr',
+    }).then((records) => {
+      console.log(records);
+    });
 
   }
 }

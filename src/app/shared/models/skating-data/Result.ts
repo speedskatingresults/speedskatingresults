@@ -8,5 +8,4 @@ export class Result {
     date: Moment;
     location: string;
     name: string;
-    link: string;
 }
