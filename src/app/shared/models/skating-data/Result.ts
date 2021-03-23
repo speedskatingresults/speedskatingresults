@@ -1,11 +1,6 @@
-import {Moment} from 'moment';
-
-/**
- * Returns a skater's results for a distance.
- */
 export class Result {
     time: number;
-    date: Moment;
+    date: string;
     location: string;
     name: string;
 }

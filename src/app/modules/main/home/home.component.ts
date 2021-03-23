@@ -17,13 +17,9 @@ export class HomeComponent implements OnInit {
   @ViewChild('recentCompTable', {read: MatSort})
   recentCompTableMatSort: MatSort;
 
-  /**
-   * Constructor
-   */
   constructor(private speedSkatingResultsApiService: SpeedSkatingResultsApiService) {
     this.recentCompDataSource = new MatTableDataSource();
     this.recentCompTableColumns = ['transactionId', 'date', 'name', 'amount', 'status'];
-
   }
 
   trackByFn(index: number, item: any): any {
