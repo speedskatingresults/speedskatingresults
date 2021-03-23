@@ -1,6 +1,6 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
-import {environment} from "../../../environments/environment";
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class RequestService {
     this.URL = environment.apiUrl + '/';
   }
 
-  get(endpoint: string, params: string) {
+  get(endpoint: string, params: string): any {
     return this.http.get(this.URL.concat(endpoint + params), {
       responseType: 'json'
     });

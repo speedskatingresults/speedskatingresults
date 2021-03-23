@@ -55,7 +55,7 @@ export const defaultNavigation: TreoNavigationItem[] = [
 
 ];
 
-export const horizontalNavigation: TreoNavigationItem[] = defaultNavigation
+export const horizontalNavigation: TreoNavigationItem[] = defaultNavigation;
 // export const horizontalNavigation: TreoNavigationItem[] = [
 //     {
 //         id      : 'home',

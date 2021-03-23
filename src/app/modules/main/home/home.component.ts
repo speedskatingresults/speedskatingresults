@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
-import {MatTableDataSource} from "@angular/material/table";
-import {MatSort} from "@angular/material/sort";
-import {SkaterService} from "../../../shared/services/skating/skater.service";
+import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
+import {SkaterService} from '../../../shared/services/skating/skater.service';
 
 @Component({
   selector: 'example',
