@@ -35,7 +35,8 @@
               "src/favicon-32x32.png",
               "src/assets",
               "src/.htaccess",
-              "src/robots.txt"
+              "src/robots.txt",
+              "src/manifest.webmanifest"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -76,7 +77,9 @@
                   "maximumWarning": "100kb",
                   "maximumError": "150kb"
                 }
-              ]
+              ],
+              "serviceWorker": true,
+              "ngswConfigPath": "ngsw-config.json"
             }
           }
         },
@@ -107,7 +110,8 @@
             "assets": [
               "src/favicon-16x16.png",
               "src/favicon-32x32.png",
-              "src/assets"
+              "src/assets",
+              "src/manifest.webmanifest"
             ],
             "styles": [
               "src/styles.scss"
