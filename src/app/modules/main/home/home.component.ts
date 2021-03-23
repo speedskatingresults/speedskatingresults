@@ -32,34 +32,34 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.speedSkatingResultsApiService.skaterLookup({
+    this.speedSkatingResultsApiService.getSkater({
       givenName: 'mees',
       familyName: 'egberts'
     }).then((skaters) => {
       console.log(skaters);
     });
 
-    this.speedSkatingResultsApiService.skaterCompetitions({
+    this.speedSkatingResultsApiService.getCompetitionsFromSkater({
       skater: 34772,
       season: 2019
     }).then((competitions) => {
       console.log(competitions);
     });
 
-    this.speedSkatingResultsApiService.skaterResults({
+    this.speedSkatingResultsApiService.getResultsFromSkater({
       skater: 34772,
       distance: 500,
     }).then((results) => {
       console.log(results);
     });
 
-    this.speedSkatingResultsApiService.personalRecords({
+    this.speedSkatingResultsApiService.getPersonalRecordsFromSkater({
       skater: 34772,
     }).then((times) => {
       console.log(times);
     });
 
-    this.speedSkatingResultsApiService.seasonBests({
+    this.speedSkatingResultsApiService.getSeasonBestsFromSkater({
       skater: 34772,
       start: 1900,
       end: 2100
@@ -67,15 +67,15 @@ export class HomeComponent implements OnInit {
       console.log(results);
     });
 
-    this.speedSkatingResultsApiService.seedTimes({
-      skater: 11433,
-      start: '2011-01-01',
-      end: '2012-12-31'
-    }).then((results) => {
-      console.log(results);
-    });
+    // this.speedSkatingResultsApiService.getSeedTimesFromSkater({
+    //   skater: 11433,
+    //   start: '2011-01-01',
+    //   end: '2012-12-31'
+    // }).then((results) => {
+    //   console.log(results);
+    // });
 
-    this.speedSkatingResultsApiService.nationalRecords({
+    this.speedSkatingResultsApiService.getNationalRecords({
       country: 'NED',
       distance: 500,
       gender: 'm',
@@ -84,14 +84,14 @@ export class HomeComponent implements OnInit {
       console.log(records);
     });
 
-    this.speedSkatingResultsApiService.olympicRecords({
+    this.speedSkatingResultsApiService.getOlympicRecords({
       distance: 500,
       gender: 'm',
     }).then((records) => {
       console.log(records);
     });
 
-    this.speedSkatingResultsApiService.worldRecords({
+    this.speedSkatingResultsApiService.getWorldRecords({
       distance: 500,
       gender: 'm',
       age: 'sr',

@@ -23,7 +23,7 @@ export class SpeedSkatingResultsApiService {
    * @returns a list of skaters
    * @param args
    */
-  async skaterLookup(args: { givenName?: string, familyName?: string, country?: string, gender?: string } = null): Promise<Skater[]> {
+  async getSkater(args: { givenName?: string, familyName?: string, country?: string, gender?: string } = null): Promise<Skater[]> {
     const skaters = await this.requestService.get('skater_lookup', args);
     return skaters.skaters;
   }
@@ -33,7 +33,7 @@ export class SpeedSkatingResultsApiService {
    * Season is latest if empty
    * @param args
    */
-  async skaterCompetitions(args: { skater?: number, season?: number } = null): Promise<Competition[]> {
+  async getCompetitionsFromSkater(args: { skater?: number, season?: number } = null): Promise<Competition[]> {
     const competitions = await this.requestService.get('skater_competitions', args);
     return competitions.competitions;
   }
@@ -42,7 +42,7 @@ export class SpeedSkatingResultsApiService {
    * @returns a list of results for a distance of a skater
    * @param args
    */
-  async skaterResults(args: { skater?: number, distance?: number, season?: number } = null): Promise<Result[]> {
+  async getResultsFromSkater(args: { skater?: number, distance?: number, season?: number } = null): Promise<Result[]> {
     const results = await this.requestService.get('skater_results', args);
     return results.results;
   }
@@ -51,7 +51,7 @@ export class SpeedSkatingResultsApiService {
    * @returns a list of personal records from a skater
    * @param args
    */
-  async personalRecords(args: { skater?: number, distance?: number } = null): Promise<Time[]> {
+  async getPersonalRecordsFromSkater(args: { skater?: number, distance?: number } = null): Promise<Time[]> {
     const records = await this.requestService.get('personal_records', args);
     return records.records;
   }
@@ -60,19 +60,17 @@ export class SpeedSkatingResultsApiService {
    * @returns a list of season bests
    * @param args
    */
-  async seasonBests(args: { skater?: number, start?: number, end?: number, distance?: number } = null): Promise<Season[]> {
+  async getSeasonBestsFromSkater(args: { skater?: number, start?: number, end?: number, distance?: number } = null): Promise<Season[]> {
     const seasons = await this.requestService.get('season_bests', args);
     return seasons.seasons;
   }
 
   /**
    * @returns a list of seed times
-   *
-   * For some weird reason this one doesnt work
-   *
+   * @deprecated For some weird reason this one doesnt work
    * @param args
    */
-  async seedTimes(args: { skater?: number, start?: string, end?: string, distance?: number } = null): Promise<Time[]> {
+  async getSeedTimesFromSkater(args: { skater?: number, start?: string, end?: string, distance?: number } = null): Promise<Time[]> {
     const times = await this.requestService.get('seed_times', args);
     return times.times;
   }
@@ -81,7 +79,7 @@ export class SpeedSkatingResultsApiService {
    * @returns a list of national records
    * @param args
    */
-  async nationalRecords(args: { country?: string, gender?: string, age?: string, distance?: number } = null): Promise<Record[]> {
+  async getNationalRecords(args: { country?: string, gender?: string, age?: string, distance?: number } = null): Promise<Record[]> {
     const records = await this.requestService.get('country_records', args);
     return records.records;
   }
@@ -90,7 +88,7 @@ export class SpeedSkatingResultsApiService {
    * @returns a list of olympic records
    * @param args
    */
-  async olympicRecords(args: { gender?: string, distance?: number } = null): Promise<Record[]> {
+  async getOlympicRecords(args: { gender?: string, distance?: number } = null): Promise<Record[]> {
     const records = await this.requestService.get('olympic_records', args);
     return records.records;
   }
@@ -99,7 +97,7 @@ export class SpeedSkatingResultsApiService {
    * @returns a list of world records
    * @param args
    */
-  async worldRecords(args: { gender?: string, age: string, distance?: number } = null): Promise<Record[]> {
+  async getWorldRecords(args: { gender?: string, age: string, distance?: number } = null): Promise<Record[]> {
     const records = await this.requestService.get('olympic_records', args);
     return records.records;
   }
