@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component, OnInit, ViewChild, ViewEncapsulation} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
-import {SkaterService} from '../../../shared/services/skating/skater.service';
+import {SpeedSkatingResultsApiService} from '../../../shared/services/speed-skating-results-api.service';
 
 @Component({
   selector: 'example',
@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
   /**
    * Constructor
    */
-  constructor(private skaterService: SkaterService) {
+  constructor(private speedSkatingResultsApiService: SpeedSkatingResultsApiService) {
     this.recentCompDataSource = new MatTableDataSource();
     this.recentCompTableColumns = ['transactionId', 'date', 'name', 'amount', 'status'];
 
@@ -32,10 +32,20 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.skaterService.find({
+    this.speedSkatingResultsApiService.skaterLookup({
       givenName: 'mees',
       familyName: 'egberts'
+    }).then((skaters) => {
+
+      console.log('----');
+      console.log(skaters[0].givenname);
+      console.log(skaters[0].familyname);
+      console.log(skaters[0].gender);
+      console.log(skaters[0].category);
+      console.log('----');
+
     });
+
 
   }
 }

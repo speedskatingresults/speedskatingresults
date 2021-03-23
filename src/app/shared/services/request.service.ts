@@ -21,9 +21,9 @@ export class RequestService {
     return '?' + queryData.join('&');
   }
 
-  public get(endpoint: string, params: object): Observable<any> {
+  public get(endpoint: string, params: object): Promise<any> {
     return this.http.get(this.URL.concat(endpoint + RequestService.encodeQueryData(params)), {
       responseType: 'json'
-    });
+    }).toPromise();
   }
 }
