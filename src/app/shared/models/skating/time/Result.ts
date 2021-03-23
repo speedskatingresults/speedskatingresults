@@ -1,4 +1,4 @@
-import {Moment} from "moment";
+import {Moment} from 'moment';
 
 /**
  * Returns a skater's results for a distance.

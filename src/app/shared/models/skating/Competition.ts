@@ -1,4 +1,4 @@
-import {Moment} from "moment";
+import {Moment} from 'moment';
 
 /**
  * Get a competition in which a skater competed.
