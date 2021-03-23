@@ -1,6 +1,7 @@
 # Speedskating Results
 
-Take a look at all speed skating results!
+Take a look at all speed skating results!  
+https://speedskatingresults.com/
 
 ## Development server
 
