@@ -13,8 +13,16 @@ export class RequestService {
     this.URL = environment.apiUrl + '/';
   }
 
-  get(endpoint: string, params: string): Observable<any> {
-    return this.http.get(this.URL.concat(endpoint + params), {
+  private static encodeQueryData(data: object): string {
+    const queryData = [];
+    for (const d of Object.keys(data)) {
+      queryData.push(encodeURIComponent(d.toLowerCase()) + '=' + encodeURIComponent(data[d]));
+    }
+    return '?' + queryData.join('&');
+  }
+
+  public get(endpoint: string, params: object): Observable<any> {
+    return this.http.get(this.URL.concat(endpoint + RequestService.encodeQueryData(params)), {
       responseType: 'json'
     });
   }
