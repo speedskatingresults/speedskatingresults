@@ -23,7 +23,7 @@ export class SpeedSkatingResultsApiService {
    * @returns a list of skaters
    * @param args
    */
-  async getSkater(args: { givenName?: string, familyName?: string, country?: string, gender?: string } = null): Promise<Skater[]> {
+  async getSkaters(args: { givenName?: string, familyName?: string, country?: string, gender?: string } = null): Promise<Skater[]> {
     const skaters = await this.requestService.get('skater_lookup', args);
     return skaters.skaters;
   }

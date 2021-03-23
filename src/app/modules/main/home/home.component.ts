@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.speedSkatingResultsApiService.getSkater({
+    this.speedSkatingResultsApiService.getSkaters({
       givenName: 'mees',
       familyName: 'egberts'
     }).then((skaters) => {
