@@ -1,0 +1,18 @@
+<div class="flex flex-col flex-auto w-full p-8 xs:p-2">
+    <div class="flex flex-wrap w-full">
+        <div class="flex items-center justify-between w-full my-4 px-4 xs:pr-0">
+            <div class="mr-6">
+                <h2 class="m-0">Choose a country</h2>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-6 gap-4 w-full overflow-auto my-4 px-4 xs:pr-0">
+            <button *ngFor="let country of countries" type="button" class="flex items-center justify-center whitespace-no-wrap focus:outline-none text-teal-700 text-sm py-2.5 px-5 rounded-md border border-teal-700 hover:bg-blue-50">
+                <img class="mr-2 h-4 w-auto rounded-sm" src="/assets/images/flags/{{ country.code }}.png" alt="{{ country.code }}">
+                {{ country.name }}
+            </button>
+        </div>
+
+    </div>
+</div>
+

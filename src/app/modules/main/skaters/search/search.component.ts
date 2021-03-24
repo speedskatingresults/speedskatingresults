@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
-import {FormBuilder} from "@angular/forms";
-import {Router} from "@angular/router";
+import {FormBuilder} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'search-skaters',

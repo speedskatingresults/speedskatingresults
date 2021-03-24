@@ -1,5 +1,5 @@
 import { Route } from '@angular/router';
-import { SkatersComponent } from "./skaters.component";
+import { SkatersComponent } from './skaters.component';
 
 export const SkatersRoutes: Route[] = [
     {

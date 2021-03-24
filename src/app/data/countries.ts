@@ -1,7 +1,4 @@
-interface Country {
-  code: string;
-  name: string;
-}
+import {Country} from '../shared/models/Country';
 
 export const countries: Country[] = [
   {code: 'ARG', name: 'Argentina'},

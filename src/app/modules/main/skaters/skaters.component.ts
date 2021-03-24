@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-skaters',
@@ -9,7 +9,7 @@ import {ActivatedRoute} from "@angular/router";
 export class SkatersComponent implements OnInit {
 
     name: string;
-    country:string;
+    country: string;
     private sub: any;
 
     constructor(private route: ActivatedRoute) {
