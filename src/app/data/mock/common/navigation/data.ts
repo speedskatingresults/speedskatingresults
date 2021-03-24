@@ -10,13 +10,13 @@ export const defaultNavigation: TreoNavigationItem[] = [
         icon    : 'heroicons_outline:home',
         link    : '/home'
     },
-    {
-        id      : 'results',
-        title   : 'Results',
-        type    : 'basic',
-        icon    : 'heroicons_outline:trending-up',
-        link    : '/results'
-    },
+    // {
+    //     id      : 'results',
+    //     title   : 'Results',
+    //     type    : 'basic',
+    //     icon    : 'heroicons_outline:trending-up',
+    //     link    : '/results'
+    // },
     {
         id      : 'skaters',
         title   : 'Skaters',
