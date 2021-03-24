@@ -6,6 +6,9 @@ import {InitialDataResolver} from 'app/app.resolvers';
 
 export const appRoutes: Route[] = [
 
+  // Redirect empty path to '/home'
+  {path: '', pathMatch : 'full', redirectTo: 'home'},
+
   {
     path: '',
     component: LayoutComponent,
@@ -14,8 +17,12 @@ export const appRoutes: Route[] = [
     },
     children: [
       {
-        path: '',
+        path: 'home',
         loadChildren: () => import('app/modules/main/home/home.module').then(m => m.HomeModule)
+      },
+      {
+        path: 'skaters',
+        loadChildren: () => import('app/modules/main/skaters/skaters.module').then(m => m.SkatersModule)
       },
       {
         path: '404-not-found',
@@ -24,10 +31,8 @@ export const appRoutes: Route[] = [
       },
       {path: '**', redirectTo: '404-not-found'}
     ]
-  }
+  },
 
-  // Redirect empty path to '/example'
-  // {path: '', pathMatch : 'full', redirectTo: 'example'},
 
   // Redirect signed in user to the '/example'
   // {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'example'},
@@ -47,21 +52,6 @@ export const appRoutes: Route[] = [
   //         {path: 'reset-password', loadChildren: () => import('app/modules/auth/reset-password/reset-password.module').then(m => m.AuthResetPasswordModule)},
   //         {path: 'sign-in', loadChildren: () => import('app/modules/auth/sign-in/sign-in.module').then(m => m.AuthSignInModule)},
   //         {path: 'sign-up', loadChildren: () => import('app/modules/auth/sign-up/sign-up.module').then(m => m.AuthSignUpModule)}
-  //     ]
-  // },
-
-  // Auth routes (logged in)
-  // {
-  //     path: '',
-  //     canActivate: [AuthGuard],
-  //     canActivateChild: [AuthGuard],
-  //     component: LayoutComponent,
-  //     data: {
-  //         layout: 'empty'
-  //     },
-  //     children: [
-  //         {path: 'sign-out', loadChildren: () => import('app/modules/auth/sign-out/sign-out.module').then(m => m.AuthSignOutModule)},
-  //         {path: 'unlock-session', loadChildren: () => import('app/modules/auth/unlock-session/unlock-session.module').then(m => m.AuthUnlockSessionModule)}
   //     ]
   // },
 

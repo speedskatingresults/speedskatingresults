@@ -8,7 +8,7 @@ export const defaultNavigation: TreoNavigationItem[] = [
         title   : 'Home',
         type    : 'basic',
         icon    : 'heroicons_outline:home',
-        link    : '/'
+        link    : '/home'
     },
     {
         id      : 'results',
