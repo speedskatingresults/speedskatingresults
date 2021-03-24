@@ -55,7 +55,7 @@ export const countries: Country[] = [
   {code: 'NOR', name: 'Norway'},
   {code: 'NZL', name: 'New Zealand'},
   {code: 'PAN', name: 'Panama'},
-  {code: 'PHI', name: 'Phillippines'},
+  {code: 'PHI', name: 'Philippines'},
   {code: 'POL', name: 'Poland'},
   {code: 'POR', name: 'Portugal'},
   {code: 'PRK', name: 'North Korea'},
