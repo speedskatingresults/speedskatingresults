@@ -1,10 +1,12 @@
 <div class="flex flex-col flex-auto bg-card shadow-md rounded overflow-hidden">
     <div class="p-6">
-        <div class="font-bold text-md text-secondary uppercase tracking-wider">Olympic records</div>
+        <div class="font-bold text-md text-secondary uppercase tracking-wider flex">
+            National records <img class="ml-2 w-auto rounded-sm" src="/assets/images/flags/{{ country }}.png" alt="{{ country }}">
+        </div>
         <div class="text-sm text-hint font-medium">{{this.gender === 'male' ? 'Men' : 'Ladies'}}</div>
     </div>
     <div class="overflow-auto">
-        <table class="w-full bg-transparent" mat-table matSort [dataSource]="olympicRecordsDataSource" [trackBy]="trackByFn" #olympicRecordsTable>
+        <table class="w-full bg-transparent" mat-table matSort [dataSource]="nationalRecordsDataSource" [trackBy]="trackByFn" #nationalRecordsTable>
 
             <!-- Distance -->
             <ng-container matColumnDef="distance">
@@ -36,16 +38,6 @@
                 </td>
             </ng-container>
 
-            <!-- Country -->
-            <ng-container matColumnDef="country">
-                <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
-                    <span class="whitespace-no-wrap px-1">Country</span>
-                </th>
-                <td mat-cell *matCellDef="let record">
-                    <img class="w-auto mx-auto rounded-sm" src="/assets/images/flags/{{ record.skater.country }}.png" alt="{{ record.skater.country }}">
-                </td>
-            </ng-container>
-
             <!-- Date -->
             <ng-container matColumnDef="date">
                 <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
@@ -66,8 +58,8 @@
                 </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="olympicRecordsTableColumns"></tr>
-            <tr class="order-row h-16" mat-row *matRowDef="let row; columns: olympicRecordsTableColumns;"></tr>
+            <tr mat-header-row *matHeaderRowDef="nationalRecordsTableColumns"></tr>
+            <tr class="order-row h-16" mat-row *matRowDef="let row; columns: nationalRecordsTableColumns;"></tr>
         </table>
     </div>
 </div>

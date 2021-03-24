@@ -4,28 +4,30 @@ import {MatSort} from '@angular/material/sort';
 import {SpeedSkatingResultsApiService} from '../../../../shared/services/speed-skating-results-api.service';
 
 @Component({
-  selector: 'app-olympic-records-box',
-  templateUrl: './olympic-records-box.component.html'
+  selector: 'app-national-records-box',
+  templateUrl: './national-records-box.component.html',
 })
-export class OlympicRecordsBoxComponent implements OnInit {
+export class NationalRecordsBoxComponent implements OnInit {
   @Input() gender = 'male';
-  olympicRecordsDataSource: MatTableDataSource<any>;
-  olympicRecordsTableColumns: string[];
+  @Input() country = 'NED';
+  nationalRecordsDataSource: MatTableDataSource<any>;
+  nationalRecordsTableColumns: string[];
 
-  @ViewChild('olympicRecordsTable', {read: MatSort})
-  olympicRecordsTableMatSort: MatSort;
+  @ViewChild('nationalRecordsTable', {read: MatSort})
+  nationalRecordsTableMatSort: MatSort;
 
   constructor(private speedSkatingResultsApiService: SpeedSkatingResultsApiService, private changeDetectorRefs: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
-    this.speedSkatingResultsApiService.getOlympicRecords({
+    this.speedSkatingResultsApiService.getNationalRecords({
       gender: this.gender === 'male' ? 'm' : 'f',
+      country: this.country,
     }).then((records) => {
-      this.olympicRecordsDataSource = new MatTableDataSource(records);
+      this.nationalRecordsDataSource = new MatTableDataSource(records);
       this.changeDetectorRefs.detectChanges();
     });
-    this.olympicRecordsTableColumns = ['distance', 'time', 'skater', 'country', 'date', 'location'];
+    this.nationalRecordsTableColumns = ['distance', 'time', 'skater', 'date', 'location'];
   }
 
   trackByFn(index: number, item: any): any {
