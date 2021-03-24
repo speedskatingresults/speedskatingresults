@@ -9,60 +9,60 @@
             <!-- Distance -->
             <ng-container matColumnDef="distance">
                 <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
-                    <span class="whitespace-no-wrap pr-3">Distance</span>
+                    <span class="whitespace-no-wrap pr-1">Distance</span>
                 </th>
                 <td mat-cell *matCellDef="let record">
-                    <span class="pr-3 font-medium text-sm text-secondary whitespace-no-wrap">{{record.distance}}</span>
+                    <span class="pr-1 font-medium text-sm text-secondary whitespace-no-wrap">{{record.distance}}</span>
                 </td>
             </ng-container>
 
             <!-- Time -->
             <ng-container matColumnDef="time">
                 <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
-                    <span class="whitespace-no-wrap px-3">Time</span>
+                    <span class="whitespace-no-wrap px-1">Time</span>
                 </th>
                 <td mat-cell *matCellDef="let record">
-                    <span class="px-3 whitespace-no-wrap">{{record.time}}</span>
+                    <span class="px-1 whitespace-no-wrap">{{record.time}}</span>
                 </td>
             </ng-container>
 
             <!-- Skater -->
             <ng-container matColumnDef="skater">
                 <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
-                    <span class="whitespace-no-wrap px-3">Skater</span>
+                    <span class="whitespace-no-wrap px-1">Skater</span>
                 </th>
                 <td mat-cell *matCellDef="let record">
-                    <span class="px-3 whitespace-no-wrap">{{record.skater.givenname}} {{record.skater.familyname}}</span>
+                    <span class="px-1 whitespace-no-wrap">{{record.skater.givenname}} {{record.skater.familyname}}</span>
                 </td>
             </ng-container>
 
             <!-- Country -->
             <ng-container matColumnDef="country">
                 <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
-                    <span class="whitespace-no-wrap px-3">Country</span>
+                    <span class="whitespace-no-wrap px-1">Country</span>
                 </th>
                 <td mat-cell *matCellDef="let record">
-                    <img class="flag px-3 w-auto mx-auto" src="/assets/images/flags/{{ record.skater.country }}.png" alt="{{ record.skater.country }}">
+                    <img class="flag px-1 w-auto mx-auto" src="/assets/images/flags/{{ record.skater.country }}.png" alt="{{ record.skater.country }}">
                 </td>
             </ng-container>
 
             <!-- Date -->
             <ng-container matColumnDef="date">
                 <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
-                    <span class="whitespace-no-wrap px-3">Date</span>
+                    <span class="whitespace-no-wrap px-1">Date</span>
                 </th>
                 <td mat-cell *matCellDef="let record">
-                    <span class="px-3 whitespace-no-wrap">{{record.date | date:'dd MMM y'}}</span>
+                    <span class="px-1 whitespace-no-wrap">{{record.date | date:'dd MMM y'}}</span>
                 </td>
             </ng-container>
 
             <!-- Location -->
             <ng-container matColumnDef="location">
                 <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
-                    <span class="whitespace-no-wrap px-3">Location</span>
+                    <span class="whitespace-no-wrap px-1">Location</span>
                 </th>
                 <td mat-cell *matCellDef="let record">
-                    <span class="px-3 whitespace-no-wrap">{{record.location}}</span>
+                    <span class="px-1 whitespace-no-wrap">{{record.location}}</span>
                 </td>
             </ng-container>
 
