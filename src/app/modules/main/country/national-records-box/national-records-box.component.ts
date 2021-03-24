@@ -23,6 +23,7 @@ export class NationalRecordsBoxComponent implements OnInit {
     this.speedSkatingResultsApiService.getNationalRecords({
       gender: this.gender === 'male' ? 'm' : 'f',
       country: this.country,
+      age: 'sr'
     }).then((records) => {
       this.nationalRecordsDataSource = new MatTableDataSource(records);
       this.changeDetectorRefs.detectChanges();
