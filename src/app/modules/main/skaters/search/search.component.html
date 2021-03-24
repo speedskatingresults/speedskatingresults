@@ -1,0 +1,235 @@
+<form [formGroup]="searchForm" (ngSubmit)="submit()">
+    <mat-form-field class="flex-auto w-full">
+        <input matInput formControlName="name">
+        <mat-select [value]="'NED'" matPrefix formControlName="country">
+            <mat-option [value]="'ARG'">
+                ARG - Argentina
+            </mat-option>
+            <mat-option [value]="'ARG'">
+                ARM - Armenia
+            </mat-option>
+            <mat-option [value]="'AUS'">
+                AUS - Australia
+            </mat-option>
+            <mat-option [value]="'AUS'">
+                AUT - Austria
+            </mat-option>
+            <mat-option [value]="'AZE'">
+                AZE - Azerbaijan
+            </mat-option>
+            <mat-option [value]="'BEL'">
+                BEL - Belgium
+            </mat-option>
+            <mat-option [value]="'BIH'">
+                BIH - Bosnia and Herzegovina
+            </mat-option>
+            <mat-option [value]="'BLR'">
+                BLR - Belarus
+            </mat-option>
+            <mat-option [value]="'BRA'">
+                BRA - Brazil
+            </mat-option>
+            <mat-option [value]="'CAN'">
+                CAN - Canada
+            </mat-option>
+            <mat-option [value]="'CHI'">
+                CHI - Chile
+            </mat-option>
+            <mat-option [value]="'CHN'">
+                CHN - China
+            </mat-option>
+            <mat-option [value]="'COL'">
+                COL - Colombia
+            </mat-option>
+            <mat-option [value]="'CRO'">
+                CRO - Croatia
+            </mat-option>
+            <mat-option [value]="'CZE'">
+                CZE - Czech Republic
+            </mat-option>
+            <mat-option [value]="'DEN'">
+                DEN - Denmark
+            </mat-option>
+            <mat-option [value]="'ESP'">
+                ESP - Spain
+            </mat-option>
+            <mat-option [value]="'EST'">
+                EST - Estonia
+            </mat-option>
+            <mat-option [value]="'FIN'">
+                FIN - Finland
+            </mat-option>
+            <mat-option [value]="'FRA'">
+                FRA - France
+            </mat-option>
+            <mat-option [value]="'FRO'">
+                FRO - The Faröes
+            </mat-option>
+            <mat-option [value]="'GBR'">
+                GBR - Great Britain
+            </mat-option>
+            <mat-option [value]="'GEO'">
+                GEO - Georgia
+            </mat-option>
+            <mat-option [value]="'GER'">
+                GER - Germany
+            </mat-option>
+            <mat-option [value]="'GRE'">
+                GRE - Greece
+            </mat-option>
+            <mat-option [value]="'GUA'">
+                GUA - Guatemala
+            </mat-option>
+            <mat-option [value]="'HKG'">
+                HKG - Hong Kong
+            </mat-option>
+            <mat-option [value]="'HUN'">
+                HUN - Hungary
+            </mat-option>
+            <mat-option [value]="'IBV'">
+                IBV - British Virgin Islands
+            </mat-option>
+            <mat-option [value]="'INA'">
+                INA - Indonesia
+            </mat-option>
+            <mat-option [value]="'IND'">
+                IND - India
+            </mat-option>
+            <mat-option [value]="'IRI'">
+                IRI - Iran
+            </mat-option>
+            <mat-option [value]="'IRL'">
+                IRL - Ireland
+            </mat-option>
+            <mat-option [value]="'ISL'">
+                ISL - Iceland
+            </mat-option>
+            <mat-option [value]="'ISR'">
+                ISR - Israel
+            </mat-option>
+            <mat-option [value]="'ITA'">
+                ITA - Italy
+            </mat-option>
+            <mat-option [value]="'...'">
+                JPN - Japan
+            </mat-option>
+            <mat-option [value]="'KAZ'">
+                KAZ - Kazakhstan
+            </mat-option>
+            <mat-option [value]="'KEN'">
+                KEN - Kenya
+            </mat-option>
+            <mat-option [value]="'KGZ'">
+                KGZ - Kyrgyzstan
+            </mat-option>
+            <mat-option [value]="'KOR'">
+                KOR - Korea
+            </mat-option>
+            <mat-option [value]="'LAT'">
+                LAT - Latvia
+            </mat-option>
+            <mat-option [value]="'LIT'">
+                LIT - Lithuania
+            </mat-option>
+            <mat-option [value]="'LUX'">
+                LUX - Luxembourg
+            </mat-option>
+            <mat-option [value]="'MAR'">
+                MAR - Morocco
+            </mat-option>
+            <mat-option [value]="'MEX'">
+                MEX - Mexico
+            </mat-option>
+            <mat-option [value]="'MGL'">
+                MGL - Mongolia
+            </mat-option>
+            <mat-option [value]="'NED'">
+                NED - Netherlands
+            </mat-option>
+            <mat-option [value]="'NOR'">
+                NOR - Norway
+            </mat-option>
+            <mat-option [value]="'NZL'">
+                NZL - New Zealand
+            </mat-option>
+            <mat-option [value]="'PAN'">
+                PAN - Panama
+            </mat-option>
+            <mat-option [value]="'PHI'">
+                PHI - Phillippines
+            </mat-option>
+            <mat-option [value]="'POL'">
+                POL - Poland
+            </mat-option>
+            <mat-option [value]="'POR'">
+                POR - Portugal
+            </mat-option>
+            <mat-option [value]="'PRK'">
+                PRK - North Korea
+            </mat-option>
+            <mat-option [value]="'QAT'">
+                QAT - Qatar
+            </mat-option>
+            <mat-option [value]="'ROU'">
+                ROU - Romania
+            </mat-option>
+            <mat-option [value]="'RSA'">
+                RSA - South Africa
+            </mat-option>
+            <mat-option [value]="'RUS'">
+                RUS - Russia
+            </mat-option>
+            <mat-option [value]="'SGP'">
+                SGP - Singapore
+            </mat-option>
+            <mat-option [value]="'SRB'">
+                SRB - Serbia
+            </mat-option>
+            <mat-option [value]="'SRI'">
+                SRI - Sri Lanka
+            </mat-option>
+            <mat-option [value]="'SUI'">
+                SUI - Switzerland
+            </mat-option>
+            <mat-option [value]="'SVK'">
+                SVK - Slovakia
+            </mat-option>
+            <mat-option [value]="'SWE'">
+                SWE - Sweden
+            </mat-option>
+            <mat-option [value]="'SYR'">
+                SYR - Syria
+            </mat-option>
+            <mat-option [value]="'TAN'">
+                TAN - Tanzania
+            </mat-option>
+            <mat-option [value]="'THA'">
+                THA - Thailand
+            </mat-option>
+            <mat-option [value]="'TKM'">
+                TKM - Turkmenistan
+            </mat-option>
+            <mat-option [value]="'TPE'">
+                TPE - Chinese Taipei
+            </mat-option>
+            <mat-option [value]="'TUR'">
+                TUR - Turkey
+            </mat-option>
+            <mat-option [value]="'UKR'">
+                UKR - Ukraine
+            </mat-option>
+            <mat-option [value]="'USA'">
+                USA - United States
+            </mat-option>
+            <mat-option [value]="'UZB'">
+                UZB - Uzbekistan
+            </mat-option>
+        </mat-select>
+        <button mat-icon-button
+                matSuffix
+                type="submit">
+            <mat-icon [svgIcon]="'search'"></mat-icon>
+        </button>
+    </mat-form-field>
+</form>
+
