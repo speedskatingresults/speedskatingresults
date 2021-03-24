@@ -1,4 +1,12 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit, ViewChild, ViewEncapsulation, ChangeDetectorRef} from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {SpeedSkatingResultsApiService} from '../../../../shared/services/speed-skating-results-api.service';
@@ -6,8 +14,6 @@ import {SpeedSkatingResultsApiService} from '../../../../shared/services/speed-s
 @Component({
   selector: 'app-world-records-box',
   templateUrl: './world-records-box.component.html',
-  encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorldRecordsBoxComponent implements OnInit {
   @Input() gender = 'male';
@@ -34,5 +40,4 @@ export class WorldRecordsBoxComponent implements OnInit {
   trackByFn(index: number, item: any): any {
     return item.id || index;
   }
-
 }
