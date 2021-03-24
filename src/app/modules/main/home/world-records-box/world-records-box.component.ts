@@ -6,7 +6,6 @@ import {SpeedSkatingResultsApiService} from '../../../../shared/services/speed-s
 @Component({
   selector: 'app-world-records-box',
   templateUrl: './world-records-box.component.html',
-  styleUrls: ['./world-records-box.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
