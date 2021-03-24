@@ -6,7 +6,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-6 gap-4 w-full overflow-auto my-4 px-4 xs:pr-0">
+        <div class="grid grid-cols-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full overflow-auto my-4 px-4 xs:pr-0">
             <button *ngFor="let country of countries" (click)="goToCountry(country)" type="button" class="flex items-center justify-center whitespace-no-wrap text-teal-700 text-sm py-2.5 px-5 rounded-md border border-teal-700">
                 <img class="mr-2 h-4 w-auto rounded-sm" src="/assets/images/flags/{{ country.code }}.png" alt="{{ country.code }}">
                 {{ country.name }}
