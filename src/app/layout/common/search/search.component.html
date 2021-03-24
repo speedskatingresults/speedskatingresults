@@ -34,33 +34,30 @@
         </mat-option>
 
         <mat-option *ngFor="let result of results"
-                    [routerLink]="result.link">
+                    [routerLink]="['/skater/' + result.id]">
 
             <!-- Page result -->
-            <div class="result page-result"
-                 *ngIf="result.resultType === 'page'">
-                <div class="badge">Page</div>
+            <div class="result page-result">
+                <div class="badge">Skater</div>
                 <div class="title">
-                    <span [innerHTML]="result.title"></span>
-                    <span class="link"
-                          [routerLink]="result.link">{{result.link}}</span>
+                    <span>{{ result.givenname }} {{ result.familyname }}</span>
                 </div>
             </div>
 
             <!-- Contact result -->
-            <div class="result contact-result"
-                 *ngIf="result.resultType === 'contact'">
-                <div class="badge">Contact</div>
-                <div class="title">
-                    <span [innerHTML]="result.title"></span>
-                </div>
-                <div class="image">
-                    <img *ngIf="result.avatar"
-                         [src]="result.avatar">
-                    <mat-icon *ngIf="!result.avatar"
-                              [svgIcon]="'account_circle'"></mat-icon>
-                </div>
-            </div>
+<!--            <div class="result contact-result"-->
+<!--                 *ngIf="result.resultType === 'contact'">-->
+<!--                <div class="badge">Contact</div>-->
+<!--                <div class="title">-->
+<!--                    <span [innerHTML]="result.title"></span>-->
+<!--                </div>-->
+<!--                <div class="image">-->
+<!--                    <img *ngIf="result.avatar"-->
+<!--                         [src]="result.avatar">-->
+<!--                    <mat-icon *ngIf="!result.avatar"-->
+<!--                              [svgIcon]="'account_circle'"></mat-icon>-->
+<!--                </div>-->
+<!--            </div>-->
 
         </mat-option>
 

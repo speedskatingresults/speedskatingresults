@@ -6,4 +6,5 @@ export class Skater {
   country: string;
   gender: string;
   category: string;
+  searchScore?: number;
 }

@@ -29,6 +29,65 @@ export class SpeedSkatingResultsApiService {
   }
 
   /**
+   * @returns a list of skaters
+   * @param search
+   */
+  async getSkatersWithSearchString(search: string): Promise<Skater[]> {
+    let skaters: Skater[] = [];
+    const skaterIds = new Set();
+
+    const searchSkaters = async (searchArgs) => {
+      if (searchArgs.givenName === '' || searchArgs.familyName === '') {
+        return;
+      }
+
+      const skaterSearchData = await this.getSkaters(searchArgs);
+      const skatersFoundNew = skaterSearchData.filter(d => !skaterIds.has(d.id));
+      const skatersFoundAgain = skaterSearchData.filter(d => skaterIds.has(d.id));
+
+      skatersFoundNew.forEach(newSkater => {
+        newSkater.searchScore = 0;
+        skaterIds.add(newSkater.id);
+      });
+
+      skaters = [...skaters, ...skatersFoundNew];
+
+      skatersFoundAgain.forEach(skaterFoundAgain => {
+        skaters.forEach(skater => {
+          if (skater.id === skaterFoundAgain.id) {
+            skater.searchScore += 1;
+          }
+        });
+      });
+    };
+
+    const splitSearch = search.split(' ');
+    const firstWord = splitSearch.shift();
+    const LastWord = splitSearch.join(' ');
+
+    await Promise.all([
+      searchSkaters({givenName: firstWord, familyName: LastWord}),
+      searchSkaters({familyName: firstWord}),
+      searchSkaters({familyName: LastWord}),
+      searchSkaters({givenName: firstWord}),
+      searchSkaters({givenName: LastWord}),
+    ]);
+
+
+    skaters = skaters.sort((obj1, obj2) => {
+      if (obj1.searchScore > obj2.searchScore) {
+        return -1;
+      }
+      if (obj1.searchScore < obj2.searchScore) {
+        return 1;
+      }
+      return 0;
+    });
+
+    return skaters;
+  }
+
+  /**
    * @returns a list of competitions from a skater
    * Season is latest if empty
    * @param args

@@ -1,10 +1,23 @@
-import { Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
-import { MatFormField } from '@angular/material/form-field';
-import { Subject } from 'rxjs';
-import { debounceTime, filter, map, takeUntil } from 'rxjs/operators';
-import { TreoAnimations } from '@treo/animations/public-api';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  Renderer2,
+  ViewChild,
+  ViewEncapsulation
+} from '@angular/core';
+import {FormControl} from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+import {MatFormField} from '@angular/material/form-field';
+import {Subject} from 'rxjs';
+import {debounceTime, filter, map, takeUntil} from 'rxjs/operators';
+import {TreoAnimations} from '@treo/animations/public-api';
+import {SpeedSkatingResultsApiService} from '../../../shared/services/speed-skating-results-api.service';
+import {Skater} from '../../../shared/models/skating-data/Skater';
 
 @Component({
     selector     : 'search',
@@ -16,7 +29,7 @@ import { TreoAnimations } from '@treo/animations/public-api';
 })
 export class SearchComponent implements OnInit, OnDestroy
 {
-    results: any[] | null;
+    results: Skater[] | null;
     searchControl: FormControl;
 
     // Debounce
@@ -42,11 +55,13 @@ export class SearchComponent implements OnInit, OnDestroy
      * @param {ElementRef} _elementRef
      * @param {HttpClient} _httpClient
      * @param {Renderer2} _renderer2
+     * @param speedSkatingResultsApiService
      */
     constructor(
         private _elementRef: ElementRef,
         private _httpClient: HttpClient,
-        private _renderer2: Renderer2
+        private _renderer2: Renderer2,
+        private speedSkatingResultsApiService: SpeedSkatingResultsApiService
     )
     {
         // Set the private defaults
@@ -199,10 +214,10 @@ export class SearchComponent implements OnInit, OnDestroy
                 })
             )
             .subscribe((value) => {
-                this._httpClient.post('api/common/search', {query: value})
-                    .subscribe((response: any) => {
-                        this.results = response.results;
-                    });
+
+              this.speedSkatingResultsApiService.getSkatersWithSearchString(value).then((skaters) => {
+                this.results = skaters.slice(0, 5);
+              });
             });
     }
 
