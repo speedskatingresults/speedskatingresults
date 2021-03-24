@@ -12,14 +12,12 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {WorldRecordsBoxComponent} from './world-records-box/world-records-box.component';
 import { OlympicRecordsBoxComponent } from './olympic-records-box/olympic-records-box.component';
-import { NationalRecordsBoxComponent } from './national-records-box/national-records-box.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     WorldRecordsBoxComponent,
     OlympicRecordsBoxComponent,
-    NationalRecordsBoxComponent
   ],
   imports: [
     RouterModule.forChild(homeRoutes),

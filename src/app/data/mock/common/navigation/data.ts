@@ -29,7 +29,7 @@ export const defaultNavigation: TreoNavigationItem[] = [
         title   : 'Countries',
         type    : 'basic',
         icon    : 'heroicons_outline:globe',
-        link    : '/countries'
+        link    : '/country'
     },
     {
         id      : 'tracks',
