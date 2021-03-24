@@ -1,28 +1,32 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {MatTableDataSource} from "@angular/material/table";
+import {SpeedSkatingResultsApiService} from "../../../shared/services/speed-skating-results-api.service";
 
 @Component({
     selector: 'app-skaters',
     templateUrl: './skaters.component.html',
     styleUrls: ['./skaters.component.scss']
 })
-export class SkatersComponent implements OnInit {
+export class SkatersComponent implements OnInit, OnDestroy {
 
-    name: string;
+    givenName: string;
+    familyName: string;
     country: string;
     private sub: any;
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private route: ActivatedRoute, private speedSkatingResultsApiService: SpeedSkatingResultsApiService) {
     }
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.sub = this.route.params.subscribe(params => {
-            this.name = params['name'];
+            this.givenName = params['givenName'];
+            this.familyName = params['familyName'];
             this.country = params['country'];
         });
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.sub.unsubscribe();
     }
 }

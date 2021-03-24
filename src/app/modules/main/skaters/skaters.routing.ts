@@ -7,7 +7,11 @@ export const SkatersRoutes: Route[] = [
         component: SkatersComponent
     },
     {
+        path     : 'search/:name',
+        component: SkatersComponent
+    },
+    {
         path     : 'search/:name/:country',
         component: SkatersComponent
-    }
+    },
 ];
