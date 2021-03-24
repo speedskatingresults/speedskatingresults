@@ -1,5 +1,5 @@
-<form class="grid grid-cols-4 gap-4" [formGroup]="searchForm" (ngSubmit)="submit()">
-    <mat-form-field class="flex-auto w-full">
+<form class="flex flex-row gap-4" [formGroup]="searchForm" (ngSubmit)="submit()">
+    <mat-form-field>
         <mat-select formControlName="country">
             <mat-option [value]="'all'">
                 All countries
@@ -8,14 +8,15 @@
                 {{country.code}} - {{country.name}}
             </mat-option>
         </mat-select>
+        <mat-icon matPrefix [svgIcon]="'language'" class="mr-6"></mat-icon>
     </mat-form-field>
-    <mat-form-field class="flex-auto w-full">
+    <mat-form-field>
         <input matInput formControlName="givenName" [placeholder]="'Given name'">
     </mat-form-field>
-    <mat-form-field class="flex-auto w-full">
+    <mat-form-field>
         <input matInput formControlName="familyName" [placeholder]="'Family name'">
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">
+    <button mat-flat-button color="primary" type="submit">
         <mat-icon [svgIcon]="'search'"></mat-icon>
     </button>
 </form>

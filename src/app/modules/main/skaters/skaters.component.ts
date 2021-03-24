@@ -1,7 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {MatTableDataSource} from "@angular/material/table";
-import {SpeedSkatingResultsApiService} from "../../../shared/services/speed-skating-results-api.service";
+import {SpeedSkatingResultsApiService} from '../../../shared/services/speed-skating-results-api.service';
 
 @Component({
     selector: 'app-skaters',
