@@ -4,8 +4,9 @@
             <h2 class="m-0">{{ skaterGivenName }} {{ skaterFamilyName }}</h2>
         </div>
 
-        <div class="px-4">
-            <app-personal-records-box [skaterID]="skaterId"></app-personal-records-box>
+        <div class="px-4 flex flex-wrap w-full gap-8">
+            <app-personal-records-box class="max-w-full" [skaterID]="skaterId"></app-personal-records-box>
+            <app-season-bests-box class="max-w-full" [skaterID]="skaterId"></app-season-bests-box>
         </div>
     </div>
 </div>

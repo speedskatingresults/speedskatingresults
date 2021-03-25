@@ -19,13 +19,15 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { SkaterComponent } from './skater/skater.component';
 import { PersonalRecordsBoxComponent } from './skater/personal-records-box/personal-records-box.component';
+import { SeasonBestsBoxComponent } from './skater/season-bests-box/season-bests-box.component';
 
 @NgModule({
   declarations: [
     SkatersComponent,
     ListComponent,
     SkaterComponent,
-    PersonalRecordsBoxComponent
+    PersonalRecordsBoxComponent,
+    SeasonBestsBoxComponent
   ],
   imports: [
     RouterModule.forChild(SkatersRoutes),
