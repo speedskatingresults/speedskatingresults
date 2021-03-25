@@ -10,14 +10,14 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {SkatersComponent} from './skaters.component';
 import {SkatersRoutes} from './skaters.routing';
-import { ListComponent } from './list/list.component';
+import {ListComponent} from './list/list.component';
 import {SearchModule} from '../../../layout/common/search/search.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
-import { SkaterComponent } from './skater/skater.component';
-import { PersonalRecordsBoxComponent } from './skater/personal-records-box/personal-records-box.component';
-import { SeasonBestsBoxComponent } from './skater/season-bests-box/season-bests-box.component';
+import {SkaterComponent} from './skater/skater.component';
+import {PersonalRecordsBoxComponent} from './skater/personal-records-box/personal-records-box.component';
+import {SeasonBestsBoxComponent} from './skater/season-bests-box/season-bests-box.component';
 
 @NgModule({
   declarations: [

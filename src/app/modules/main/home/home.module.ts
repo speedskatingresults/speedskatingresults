@@ -11,7 +11,7 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {WorldRecordsBoxComponent} from './world-records-box/world-records-box.component';
-import { OlympicRecordsBoxComponent } from './olympic-records-box/olympic-records-box.component';
+import {OlympicRecordsBoxComponent} from './olympic-records-box/olympic-records-box.component';
 
 @NgModule({
   declarations: [

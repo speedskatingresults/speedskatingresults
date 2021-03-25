@@ -18,7 +18,8 @@ export class ListComponent implements OnInit, OnChanges {
   @ViewChild('skatersTable', {read: MatSort})
   skatersTableMatSort: MatSort;
 
-  constructor(private changeDetectorRefs: ChangeDetectorRef) { }
+  constructor(private changeDetectorRefs: ChangeDetectorRef) {
+  }
 
   ngOnInit(): void {
     this.skatersRecordsTableColumns = ['givenName', 'familyName', 'category', 'gender', 'country'];

@@ -6,42 +6,42 @@ import {SpeedSkatingResultsApiService} from '../../../shared/services/speed-skat
 import {countries} from 'app/data/countries';
 
 @Component({
-    selector: 'app-skaters',
-    templateUrl: './skaters.component.html',
-    styleUrls: ['./skaters.component.scss'],
+  selector: 'app-skaters',
+  templateUrl: './skaters.component.html',
+  styleUrls: ['./skaters.component.scss'],
 })
 export class SkatersComponent implements OnInit {
 
-    public country: string;
-    public gender: string;
-    public givenName: string;
-    public familyName: string;
-    public skaters: Skater[] = [];
-    public countries = countries;
-    public searchForm = this.formBuilder.group({});
-    public hasSearched = false;
+  public country: string;
+  public gender: string;
+  public givenName: string;
+  public familyName: string;
+  public skaters: Skater[] = [];
+  public countries = countries;
+  public searchForm = this.formBuilder.group({});
+  public hasSearched = false;
 
-    constructor(private formBuilder: FormBuilder, private router: Router, private speedSkatingResultsApiService: SpeedSkatingResultsApiService) {
-    }
+  constructor(private formBuilder: FormBuilder, private router: Router, private speedSkatingResultsApiService: SpeedSkatingResultsApiService) {
+  }
 
-    ngOnInit(): void {
-        this.searchForm = this.formBuilder.group({
-            country: this.country ?? '',
-            gender: this.gender ?? '',
-            givenName: this.givenName ?? '',
-            familyName: this.familyName ?? '',
-        });
-    }
+  ngOnInit(): void {
+    this.searchForm = this.formBuilder.group({
+      country: this.country ?? '',
+      gender: this.gender ?? '',
+      givenName: this.givenName ?? '',
+      familyName: this.familyName ?? '',
+    });
+  }
 
-    submit(): void {
-        this.speedSkatingResultsApiService.getSkaters({
-            givenName: this.searchForm.value.givenName,
-            familyName: this.searchForm.value.familyName,
-            country: this.searchForm.value.country,
-            gender: this.searchForm.value.gender,
-        }).then((skaters) => {
-            this.skaters = skaters;
-            this.hasSearched = true;
-        });
-    }
+  submit(): void {
+    this.speedSkatingResultsApiService.getSkaters({
+      givenName: this.searchForm.value.givenName,
+      familyName: this.searchForm.value.familyName,
+      country: this.searchForm.value.country,
+      gender: this.searchForm.value.gender,
+    }).then((skaters) => {
+      this.skaters = skaters;
+      this.hasSearched = true;
+    });
+  }
 }
