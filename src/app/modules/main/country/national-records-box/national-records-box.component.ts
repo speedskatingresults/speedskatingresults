@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Input, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectorRef, Component, HostBinding, Input, OnInit, ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
 import {SpeedSkatingResultsApiService} from '../../../../shared/services/speed-skating-results-api.service';
@@ -16,6 +16,8 @@ export class NationalRecordsBoxComponent implements OnInit {
   @ViewChild('nationalRecordsTable', {read: MatSort})
   nationalRecordsTableMatSort: MatSort;
 
+  @HostBinding('class.hidden') hideThisComponent = false;
+
   constructor(private speedSkatingResultsApiService: SpeedSkatingResultsApiService, private changeDetectorRefs: ChangeDetectorRef) {
   }
 
@@ -25,8 +27,12 @@ export class NationalRecordsBoxComponent implements OnInit {
       country: this.country,
       age: 'sr'
     }).then((records) => {
-      this.nationalRecordsDataSource = new MatTableDataSource(records);
-      this.changeDetectorRefs.detectChanges();
+      if (records.length === 0) {
+        this.hideThisComponent = true;
+      } else {
+        this.nationalRecordsDataSource = new MatTableDataSource(records);
+        this.changeDetectorRefs.detectChanges();
+      }
     });
     this.nationalRecordsTableColumns = ['distance', 'time', 'skater', 'date', 'location'];
   }

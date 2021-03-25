@@ -1,10 +1,8 @@
 <div class="flex flex-col flex-auto w-full p-8 xs:p-2">
     <div class="flex flex-wrap w-full">
-        <div class="flex items-center justify-between w-full my-4 px-4 xs:pr-0">
-            <div class="mr-6">
-                <h2 class="m-0">Search skaters</h2>
-                <div class="text-secondary tracking-tight">Search and find every skater</div>
-            </div>
+        <div class="w-full my-4 px-4 xs:pr-0">
+            <h2 class="m-0">Search skaters</h2>
+            <div class="text-secondary tracking-tight">Search and find every skater</div>
         </div>
         <div class="flex flex-auto flex-col w-5/12 min-w-80 p-4 lt-xl:w-full space-y-5">
             <search-skaters [familyName]="familyName" [givenName]="givenName" [country]="country"></search-skaters>

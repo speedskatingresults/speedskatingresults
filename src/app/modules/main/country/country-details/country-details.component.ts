@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {Country} from '../../../../shared/models/Country';
+import {countries} from '../../../../data/countries';
 
 @Component({
   selector: 'app-country-details',
@@ -7,10 +9,11 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./country-details.component.scss']
 })
 export class CountryDetailsComponent implements OnInit {
-  public countryCode: string;
+  public country: Country;
 
   constructor(private route: ActivatedRoute) {
-    this.countryCode = this.route.snapshot.paramMap.get('code');
+    const countryCode = this.route.snapshot.paramMap.get('code');
+    this.country = countries.filter(c => c.code === countryCode)[0];
   }
 
   ngOnInit(): void {
