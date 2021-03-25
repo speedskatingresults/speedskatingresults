@@ -1,16 +1,25 @@
 <div class="flex flex-col flex-auto w-full p-8 xs:p-2">
     <div class="flex flex-wrap w-full">
-        <div class="flex items-center justify-between w-full my-4 px-4 xs:pr-0">
+        <div class="flex items-center justify-between w-full my-4 px-4">
             <div class="mr-6">
                 <h2 class="m-0">Choose a country</h2>
             </div>
         </div>
 
-        <div class="grid grid-cols-5 xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full overflow-auto my-4 px-4 xs:pr-0">
-            <button *ngFor="let country of countries" (click)="goToCountry(country)" type="button" class="flex items-center justify-center whitespace-no-wrap text-teal-700 text-sm py-2.5 px-5 rounded-md border border-teal-700">
-                <img class="mr-2 h-4 w-auto rounded-sm" src="/assets/images/flags/{{ country.code }}.png" alt="{{ country.code }}">
-                {{ country.name }}
-            </button>
+        <mat-form-field class="treo-mat-no-subscript search-input w-60 px-4">
+            <mat-icon matPrefix [svgIcon]="'search'"></mat-icon>
+            <input matInput [formControl]="searchControl" [placeholder]="'Search a country'"/>
+        </mat-form-field>
+
+        <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-4 w-full overflow-auto my-4 px-4">
+            <div *ngFor="let country of countries" [routerLink]="['/country/' + country.code]" [ngClass]="{'hidden': !countryInSearch(country)}" class="bg-white p-4 pr-0 flex rounded-lg shadow cursor-pointer">
+                <div class="flex items-center">
+                    <img class="rounded" src="/assets/images/flags/{{ country.code }}.png" alt="{{ country.code }}">
+                </div>
+                <div class="w-full mx-4 text-center">
+                    <h4 class="truncate font-bold text-gray-700 my-0">{{ country.name }}</h4>
+                </div>
+            </div>
         </div>
 
     </div>

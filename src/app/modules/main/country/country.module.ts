@@ -7,6 +7,9 @@ import {CountryDetailsComponent} from './country-details/country-details.compone
 import {NationalRecordsBoxComponent} from './national-records-box/national-records-box.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
+import { SharedModule } from 'app/shared/shared.module';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -14,8 +17,11 @@ import {MatSortModule} from '@angular/material/sort';
   imports: [
     RouterModule.forChild(countryRoutes),
     CommonModule,
+    SharedModule,
     MatTableModule,
     MatSortModule,
+    MatInputModule,
+    MatIconModule,
   ]
 })
 export class CountryModule {
