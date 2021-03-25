@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
-import {countryRoutes} from 'app/modules/main/country/country.routing';
-import {CountryComponent} from './country.component';
+import {countriesRoutes} from 'app/modules/main/countries/countries.routing';
+import {CountriesComponent} from './countries.component';
 import {CommonModule} from '@angular/common';
 import {CountryDetailsComponent} from './country-details/country-details.component';
 import {NationalRecordsBoxComponent} from './national-records-box/national-records-box.component';
@@ -13,9 +13,9 @@ import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
-  declarations: [CountryComponent, CountryDetailsComponent, NationalRecordsBoxComponent],
+  declarations: [CountriesComponent, CountryDetailsComponent, NationalRecordsBoxComponent],
   imports: [
-    RouterModule.forChild(countryRoutes),
+    RouterModule.forChild(countriesRoutes),
     CommonModule,
     SharedModule,
     MatTableModule,
@@ -24,5 +24,5 @@ import {MatIconModule} from '@angular/material/icon';
     MatIconModule,
   ]
 })
-export class CountryModule {
+export class CountriesModule {
 }

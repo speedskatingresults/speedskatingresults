@@ -5,11 +5,11 @@ import {Router} from '@angular/router';
 import {FormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-country',
-  templateUrl: './country.component.html',
-  styleUrls: ['./country.component.scss']
+  selector: 'app-countries',
+  templateUrl: './countries.component.html',
+  styleUrls: ['./countries.component.scss']
 })
-export class CountryComponent implements OnInit {
+export class CountriesComponent implements OnInit {
   public countries: Country[];
   searchControl: FormControl;
   search = '';

@@ -6,11 +6,11 @@
 
         <mat-form-field class="treo-mat-no-subscript search-input w-60 px-4">
             <mat-icon matPrefix [svgIcon]="'search'"></mat-icon>
-            <input matInput [formControl]="searchControl" [placeholder]="'Search a country'"/>
+            <input matInput [formControl]="searchControl" [placeholder]="'Search a countries'"/>
         </mat-form-field>
 
         <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-4 w-full overflow-auto my-4 px-4">
-            <div *ngFor="let country of countries" [routerLink]="['/country/' + country.code]" [ngClass]="{'hidden': !countryInSearch(country)}" class="bg-white p-4 pr-0 flex rounded-lg shadow cursor-pointer">
+            <div *ngFor="let country of countries" [routerLink]="['/countries/' + country.code]" [ngClass]="{'hidden': !countryInSearch(country)}" class="bg-white p-4 pr-0 flex rounded-lg shadow cursor-pointer">
                 <div class="flex items-center">
                     <img class="rounded" src="/assets/images/flags/{{ country.code }}.png" alt="{{ country.code }}">
                 </div>

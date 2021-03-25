@@ -25,8 +25,8 @@ export const appRoutes: Route[] = [
         loadChildren: () => import('app/modules/main/skaters/skaters.module').then(m => m.SkatersModule)
       },
       {
-        path: 'country',
-        loadChildren: () => import('app/modules/main/country/country.module').then(m => m.CountryModule)
+        path: 'countries',
+        loadChildren: () => import('app/modules/main/countries/countries.module').then(m => m.CountriesModule)
       },
       {
         path: '404-not-found',

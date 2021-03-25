@@ -1,11 +1,10 @@
 import {Route} from '@angular/router';
-import {CountryComponent} from './country.component';
-import {SkatersComponent} from '../skaters/skaters.component';
+import {CountriesComponent} from './countries.component';
 import {CountryDetailsComponent} from './country-details/country-details.component';
 
-export const countryRoutes: Route[] = [{
+export const countriesRoutes: Route[] = [{
   path: '',
-  component: CountryComponent
+  component: CountriesComponent
 },
   {
     path: ':code',
