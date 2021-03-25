@@ -125,16 +125,6 @@ export class SpeedSkatingResultsApiService {
   }
 
   /**
-   * @returns a list of seed times
-   * @deprecated For some weird reason this one doesnt work
-   * @param args
-   */
-  async getSeedTimesFromSkater(args: { skater?: number, start?: string, end?: string, distance?: number } = null): Promise<Time[]> {
-    const times = await this.requestService.get('seed_times', args);
-    return times.times;
-  }
-
-  /**
    * @returns a list of national records
    * @param args
    */
