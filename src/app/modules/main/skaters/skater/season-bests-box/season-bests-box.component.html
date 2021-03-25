@@ -1,9 +1,9 @@
 <div class="flex flex-col flex-auto bg-card shadow-md rounded overflow-hidden">
     <div class="p-6">
-        <div class="font-bold text-md text-secondary uppercase tracking-wider flex">Personal records</div>
+        <div class="font-bold text-md text-secondary uppercase tracking-wider flex">Season bests</div>
     </div>
     <div class="overflow-auto">
-        <table class="w-full bg-transparent" mat-table matSort [dataSource]="personalRecordsDataSource" [trackBy]="trackByFn" #personalRecordsTable>
+        <table class="w-full bg-transparent" mat-table matSort [dataSource]="seasonBestsDataSource" [trackBy]="trackByFn" #seasonBestsTable>
 
             <!-- Distance -->
             <ng-container matColumnDef="distance">
@@ -45,8 +45,8 @@
                 </td>
             </ng-container>
 
-            <tr mat-header-row *matHeaderRowDef="personalRecordsTableColumns"></tr>
-            <tr class="h-16" mat-row *matRowDef="let row; columns: personalRecordsTableColumns;"></tr>
+            <tr mat-header-row *matHeaderRowDef="seasonBestsTableColumns"></tr>
+            <tr class="h-16" mat-row *matRowDef="let row; columns: seasonBestsTableColumns;"></tr>
         </table>
     </div>
 </div>
