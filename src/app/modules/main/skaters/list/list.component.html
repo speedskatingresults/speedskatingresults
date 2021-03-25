@@ -1,1 +1,62 @@
-<p>list works!</p>
+<div class="flex flex-col flex-auto bg-card shadow-md rounded overflow-hidden">
+    <div class="p-6">
+        <div class="font-bold text-md text-secondary uppercase tracking-wider">Results</div>
+    </div>
+    <div class="overflow-auto">
+        <table class="w-full bg-transparent" mat-table matSort [dataSource]="skatersDataSource" [trackBy]="trackByFn" #skatersTable>
+
+            <!-- Given name -->
+            <ng-container matColumnDef="givenName">
+                <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
+                    <span class="whitespace-no-wrap pr-1">Given name</span>
+                </th>
+                <td mat-cell *matCellDef="let record">
+                    <span class="pr-1 font-medium text-sm text-secondary whitespace-no-wrap">{{record.givenname}}</span>
+                </td>
+            </ng-container>
+
+            <!-- Family name -->
+            <ng-container matColumnDef="familyName">
+                <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
+                    <span class="whitespace-no-wrap px-1">Family name</span>
+                </th>
+                <td mat-cell *matCellDef="let record">
+                    <span class="px-1 whitespace-no-wrap">{{record.familyname}}</span>
+                </td>
+            </ng-container>
+
+            <!-- Category -->
+            <ng-container matColumnDef="category">
+                <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
+                    <span class="whitespace-no-wrap px-1">Category</span>
+                </th>
+                <td mat-cell *matCellDef="let record">
+                    <span class="px-1 whitespace-no-wrap">{{record.category}}</span>
+                </td>
+            </ng-container>
+
+            <!-- Gender -->
+            <ng-container matColumnDef="gender">
+                <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
+                    <span class="whitespace-no-wrap px-1">Gender</span>
+                </th>
+                <td mat-cell *matCellDef="let record">
+                    <span class="px-1 whitespace-no-wrap">{{record.gender === 'm' ? 'Male' : 'Female'}}</span>
+                </td>
+            </ng-container>
+
+            <!-- Country -->
+            <ng-container matColumnDef="country">
+                <th class="bg-cool-gray-50 dark:bg-cool-gray-700 border-t" mat-header-cell *matHeaderCellDef>
+                    <span class="whitespace-no-wrap px-1">Country</span>
+                </th>
+                <td mat-cell *matCellDef="let record">
+                    <img class="w-auto mx-auto rounded-sm" src="/assets/images/flags/{{ record.country }}.png" alt="{{ record.country }}">
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="skatersRecordsTableColumns"></tr>
+            <tr class="order-row h-16 cursor-pointer" mat-row *matRowDef="let row; columns: skatersRecordsTableColumns;" routerLink="/skaters/{{row.id}}/{{row.givenname}}/{{row.familyname}}"></tr>
+        </table>
+    </div>
+</div>

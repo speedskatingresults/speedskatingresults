@@ -24,8 +24,6 @@ import { PersonalRecordsBoxComponent } from './skater/personal-records-box/perso
   declarations: [
     SkatersComponent,
     ListComponent,
-    SearchComponent,
-    ItemComponent,
     SkaterComponent,
     PersonalRecordsBoxComponent
   ],
