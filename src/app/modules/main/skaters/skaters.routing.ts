@@ -8,7 +8,7 @@ export const SkatersRoutes: Route[] = [
     component: SkatersComponent
   },
   {
-    path: ':id',
+    path: ':id/:givenName/:familyName',
     component: SkaterComponent
   },
 ];

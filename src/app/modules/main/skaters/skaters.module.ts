@@ -18,6 +18,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import { SkaterComponent } from './skater/skater.component';
+import { PersonalRecordsBoxComponent } from './skater/personal-records-box/personal-records-box.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { SkaterComponent } from './skater/skater.component';
     ListComponent,
     SearchComponent,
     ItemComponent,
-    SkaterComponent
+    SkaterComponent,
+    PersonalRecordsBoxComponent
   ],
   imports: [
     RouterModule.forChild(SkatersRoutes),

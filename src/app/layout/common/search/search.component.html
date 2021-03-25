@@ -33,7 +33,7 @@
             No results found!
         </mat-option>
 
-        <mat-option *ngFor="let result of results" [routerLink]="['/skaters/' + result.id]">
+        <mat-option *ngFor="let result of results" [routerLink]="['/skaters/' + result.id + '/' + result.givenname + '/' + result.familyname]">
 
             <!-- Page result -->
             <div class="result page-result">
