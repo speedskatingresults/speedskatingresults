@@ -31,27 +31,27 @@ export const defaultNavigation: TreoNavigationItem[] = [
         icon    : 'heroicons_outline:globe',
         link    : '/countries'
     },
-    {
-        id      : 'tracks',
-        title   : 'Tracks',
-        type    : 'basic',
-        icon    : 'heroicons_outline:location-marker',
-        link    : '/tracks'
-    },
-    {
-        id      : 'records',
-        title   : 'Records',
-        type    : 'basic',
-        icon    : 'heroicons_outline:star',
-        link    : '/records'
-    },
-    {
-        id      : 'season',
-        title   : 'Season',
-        type    : 'basic',
-        icon    : 'feather:cloud-snow',
-        link    : '/season'
-    },
+    // {
+    //     id      : 'tracks',
+    //     title   : 'Tracks',
+    //     type    : 'basic',
+    //     icon    : 'heroicons_outline:location-marker',
+    //     link    : '/tracks'
+    // },
+    // {
+    //     id      : 'records',
+    //     title   : 'Records',
+    //     type    : 'basic',
+    //     icon    : 'heroicons_outline:star',
+    //     link    : '/records'
+    // },
+    // {
+    //     id      : 'season',
+    //     title   : 'Season',
+    //     type    : 'basic',
+    //     icon    : 'feather:cloud-snow',
+    //     link    : '/season'
+    // },
 
 ];
 
