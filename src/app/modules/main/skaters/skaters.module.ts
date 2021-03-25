@@ -25,8 +25,6 @@ import { SeasonBestsBoxComponent } from './skater/season-bests-box/season-bests-
   declarations: [
     SkatersComponent,
     ListComponent,
-    SearchComponent,
-    ItemComponent,
     SkaterComponent,
     PersonalRecordsBoxComponent,
     SeasonBestsBoxComponent

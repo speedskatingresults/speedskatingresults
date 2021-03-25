@@ -4,8 +4,40 @@
             <h2 class="m-0">Search skaters</h2>
             <div class="text-secondary tracking-tight">Search and find every skater</div>
         </div>
-        <div class="flex flex-auto flex-col w-5/12 min-w-80 p-4 lt-xl:w-full space-y-5">
-            <search-skaters [familyName]="familyName" [givenName]="givenName" [country]="country"></search-skaters>
+        <div class="flex flex-auto flex-col w-full p-4 space-y-5">
+            <form class="grid grid-cols-5 sm:grid-cols-1 xs:grid-cols-1 gap-4 items-center" [formGroup]="searchForm" (ngSubmit)="submit()">
+                <mat-form-field class="mb-0">
+                    <mat-select formControlName="country" placeholder="All countries">
+                        <mat-option *ngFor="let country of countries" [value]="country.code">
+                            {{country.code}} - {{country.name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-icon matPrefix [svgIcon]="'language'" class="mr-6"></mat-icon>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-select formControlName="gender" placeholder="Gender">
+                        <mat-option [value]="'m'">
+                            Male
+                        </mat-option>
+                        <mat-option [value]="'f'">
+                            Female
+                        </mat-option>
+                    </mat-select>
+                    <mat-icon matPrefix [svgIcon]="'person'" class="mr-6"></mat-icon>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="givenName" [placeholder]="'Given name'">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="familyName" [placeholder]="'Family name'">
+                </mat-form-field>
+                <button mat-flat-button class="max-h-12 h-12 mb-4" color="primary" type="submit">
+                    <mat-icon [svgIcon]="'search'"></mat-icon>
+                </button>
+            </form>
+        </div>
+        <div class="flex flex-auto flex-col w-5/12 min-w-80 p-4 lt-xl:w-full space-y-5" *ngIf="hasSearched">
+            <skaters-list [skaters]="skaters"></skaters-list>
         </div>
     </div>
 </div>
