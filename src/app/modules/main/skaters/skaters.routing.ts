@@ -1,17 +1,14 @@
-import { Route } from '@angular/router';
-import { SkatersComponent } from './skaters.component';
+import {Route} from '@angular/router';
+import {SkatersComponent} from './skaters.component';
+import {SkaterComponent} from './skater/skater.component';
 
 export const SkatersRoutes: Route[] = [
-    {
-        path     : '',
-        component: SkatersComponent
-    },
-    {
-        path     : 'search/:name',
-        component: SkatersComponent
-    },
-    {
-        path     : 'search/:name/:country',
-        component: SkatersComponent
-    },
+  {
+    path: '',
+    component: SkatersComponent
+  },
+  {
+    path: ':id',
+    component: SkaterComponent
+  },
 ];

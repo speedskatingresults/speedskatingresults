@@ -17,13 +17,15 @@ import {SearchModule} from '../../../layout/common/search/search.module';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
+import { SkaterComponent } from './skater/skater.component';
 
 @NgModule({
   declarations: [
     SkatersComponent,
     ListComponent,
     SearchComponent,
-    ItemComponent
+    ItemComponent,
+    SkaterComponent
   ],
   imports: [
     RouterModule.forChild(SkatersRoutes),
