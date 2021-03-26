@@ -4,9 +4,9 @@
   "theme_color": "#036672",
   "background_color": "#036672",
   "display": "standalone",
-  "url": "https://speedskatingresults.nl/",
+  "url": "https://speedskatingresults.nl/home",
   "description": "Take a look at all speed skating results!",
-  "start_url": "https://speedskatingresults.nl/",
+  "start_url": "https://speedskatingresults.nl/home",
   "icons": [
     {
       "src": "assets/images/favicons/icon-72x72.png",
