@@ -1,6 +1,12 @@
 <div class="flex flex-col flex-auto bg-card shadow-md rounded overflow-hidden">
-    <div class="p-5">
-        <div class="font-bold text-md text-secondary uppercase tracking-wider flex">Seasons bests chart</div>
+    <div class="flex px-5 py-3 border-b">
+        <div class="flex items-center h-9 font-bold text-md text-secondary uppercase tracking-wider mr-5">Season bests chart</div>
+
+        <mat-form-field class="season-bests-chart-box-distance-selector" appearance="fill">
+            <mat-select [(ngModel)]="distance" (ngModelChange)="loadChart()">
+                <mat-option *ngFor="let distance of [500, 1000, 1500, 3000, 5000, 10000]" [value]="distance">{{ distance }}</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
 
     <div id="chart" *ngIf="chartOptions">

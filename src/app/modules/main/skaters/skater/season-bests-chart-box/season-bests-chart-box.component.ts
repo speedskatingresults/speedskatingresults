@@ -4,9 +4,9 @@ import {
   HostBinding,
   Input,
   OnChanges,
-  OnInit,
   SimpleChanges,
-  ViewChild
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 import {SpeedSkatingResultsApiService} from '../../../../../shared/services/speed-skating-results-api.service';
 import {
@@ -36,22 +36,24 @@ export type ChartOptions = {
 @Component({
   selector: 'app-season-bests-chart-box',
   templateUrl: './season-bests-chart-box.component.html',
-  styleUrls: ['./season-bests-chart-box.component.scss']
+  styleUrls: ['./season-bests-chart-box.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
-export class SeasonBestsChartBoxComponent implements OnInit, OnChanges {
+export class SeasonBestsChartBoxComponent implements OnChanges {
   @Input() skaterID;
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   @HostBinding('class.hidden') hideThisComponent = false;
-  public distance = 500;
+  public distance = 1000;
 
-  constructor(private speedSkatingResultsApiService: SpeedSkatingResultsApiService, private changeDetectorRefs: ChangeDetectorRef) {
-  }
-
-  ngOnInit(): void {
+  constructor(private speedSkatingResultsApiService: SpeedSkatingResultsApiService, public changeDetectorRefs: ChangeDetectorRef) {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    this.loadChart();
+  }
+
+  loadChart(): void {
     this.speedSkatingResultsApiService.getSeasonBestsFromSkater({
       skater: this.skaterID,
       distance: this.distance,
@@ -66,6 +68,9 @@ export class SeasonBestsChartBoxComponent implements OnInit, OnChanges {
         const data = [];
 
         for (const season of seasons.reverse()) {
+          if (!season.records.length) {
+            continue;
+          }
           categories.push(season.start);
           let time;
           if (season.records[0].time.includes('.')) {
@@ -76,7 +81,6 @@ export class SeasonBestsChartBoxComponent implements OnInit, OnChanges {
           }
           data.push(time);
         }
-
 
         this.chartOptions = {
           series: [
