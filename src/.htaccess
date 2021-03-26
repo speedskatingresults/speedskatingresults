@@ -13,7 +13,7 @@ RewriteRule ^ /index.html
 Header always set X-XSS-Protection "1; mode=block"
 Header always set X-FRAME-OPTIONS "DENY"
 
-<IF "false">
+<IF "true">
     <IfModule mod_expires.c>
       ExpiresActive On
       ExpiresByType image/jpg "access 1 year"
