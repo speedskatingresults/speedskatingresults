@@ -18,6 +18,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {SkaterComponent} from './skater/skater.component';
 import {PersonalRecordsBoxComponent} from './skater/personal-records-box/personal-records-box.component';
 import {SeasonBestsBoxComponent} from './skater/season-bests-box/season-bests-box.component';
+import { PersonalResultsBoxComponent } from './skater/personal-results-box/personal-results-box.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {SeasonBestsBoxComponent} from './skater/season-bests-box/season-bests-bo
     ListComponent,
     SkaterComponent,
     PersonalRecordsBoxComponent,
-    SeasonBestsBoxComponent
+    SeasonBestsBoxComponent,
+    PersonalResultsBoxComponent
   ],
   imports: [
     RouterModule.forChild(SkatersRoutes),

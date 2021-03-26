@@ -102,8 +102,31 @@ export class SpeedSkatingResultsApiService {
    * @param args
    */
   async getResultsFromSkater(args: { skater?: number, distance?: number, season?: number } = null): Promise<Result[]> {
-    const results = await this.requestService.get('skater_results', args);
-    return results.results;
+    let results = [];
+    let distances = [500, 1000, 1500, 3000, 5000, 10000];
+
+    if (args.distance) {
+      distances = [args.distance];
+    }
+
+    for (const distance of distances) {
+      args.distance = distance;
+      const response = await this.requestService.get('skater_results', args);
+      response.results.forEach(r => r.distance = args.distance);
+      results = [...results, ...response.results];
+    }
+
+    results = results.sort((obj1, obj2) => {
+      if (obj1.date > obj2.date) {
+        return -1;
+      }
+      if (obj1.date < obj2.date) {
+        return 1;
+      }
+      return 0;
+    });
+
+    return results;
   }
 
   /**

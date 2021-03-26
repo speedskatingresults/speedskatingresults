@@ -1,6 +1,7 @@
 export class Result {
-    time: number;
-    date: string;
-    location: string;
-    name: string;
+  time: number;
+  date: string;
+  location: string;
+  name: string;
+  distance?: string;
 }
