@@ -19,6 +19,8 @@ import {SkaterComponent} from './skater/skater.component';
 import {PersonalRecordsBoxComponent} from './skater/personal-records-box/personal-records-box.component';
 import {SeasonBestsBoxComponent} from './skater/season-bests-box/season-bests-box.component';
 import { PersonalResultsBoxComponent } from './skater/personal-results-box/personal-results-box.component';
+import { SeasonBestsChartBoxComponent } from './skater/season-bests-chart-box/season-bests-chart-box.component';
+import {NgApexchartsModule} from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { PersonalResultsBoxComponent } from './skater/personal-results-box/perso
     SkaterComponent,
     PersonalRecordsBoxComponent,
     SeasonBestsBoxComponent,
-    PersonalResultsBoxComponent
+    PersonalResultsBoxComponent,
+    SeasonBestsChartBoxComponent
   ],
   imports: [
     RouterModule.forChild(SkatersRoutes),
@@ -43,6 +46,7 @@ import { PersonalResultsBoxComponent } from './skater/personal-results-box/perso
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
+    NgApexchartsModule,
   ]
 })
 export class SkatersModule {

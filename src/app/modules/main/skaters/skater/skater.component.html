@@ -4,12 +4,13 @@
             <h2 class="m-0">{{ skaterGivenName }} {{ skaterFamilyName }}</h2>
         </div>
 
-        <div class="px-4 flex flex-wrap w-full gap-8">
-            <app-personal-records-box class="max-w-full" [skaterID]="skaterId"></app-personal-records-box>
-            <app-season-bests-box class="max-w-full" [skaterID]="skaterId"></app-season-bests-box>
+        <div class="flex lg:gap-8 flex-wrap w-full">
+            <app-personal-records-box class="max-w-full px-4 w-1/3 lg:w-full" [skaterID]="skaterId"></app-personal-records-box>
+            <app-season-bests-box class="max-w-full px-4 w-1/3 lg:w-full" [skaterID]="skaterId"></app-season-bests-box>
+            <app-season-bests-chart-box class="max-w-full px-4 w-1/3 lg:w-full" [skaterID]="skaterId"></app-season-bests-chart-box>
         </div>
 
-        <app-personal-results-box class="max-w-full px-4 mt-8" [skaterID]="skaterId"></app-personal-results-box>
+        <app-personal-results-box class="max-w-full lg:w-full px-4 mt-8" [skaterID]="skaterId"></app-personal-results-box>
 
     </div>
 </div>
