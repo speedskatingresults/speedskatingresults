@@ -34,7 +34,9 @@
                     <span class="whitespace-no-wrap px-1">Skater</span>
                 </th>
                 <td mat-cell *matCellDef="let record">
-                    <span class="px-1 whitespace-no-wrap">{{record.skater.givenname}} {{record.skater.familyname}}</span>
+                    <a class="px-1 whitespace-no-wrap cursor-pointer underline" routerLink="/skaters/{{record.skater.id}}/{{record.skater.givenname}}/{{record.skater.familyname}}">
+                        {{record.skater.givenname}} {{record.skater.familyname}}
+                    </a>
                 </td>
             </ng-container>
 
