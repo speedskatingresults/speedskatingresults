@@ -31,24 +31,24 @@ export class PersonalRecordsBoxComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.personalRecordsTableColumns = ['distance', 'time', 'date', 'location'];
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.speedSkatingResultsApiService.getPersonalRecordsFromSkater({
       skater: this.skaterID
     }).then((times) => {
       if (times.length === 0) {
         this.hideThisComponent = true;
       } else {
+        this.hideThisComponent = false;
         this.personalRecordsDataSource = new MatTableDataSource(times);
         this.changeDetectorRefs.detectChanges();
       }
     });
-    this.personalRecordsTableColumns = ['distance', 'time', 'date', 'location'];
   }
 
   trackByFn(index: number, item: any): any {
     return item.id || index;
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.ngOnInit();
   }
 }

@@ -31,24 +31,24 @@ export class SeasonBestsBoxComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+    this.seasonBestsTableColumns = ['distance', 'time', 'date', 'location'];
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
     this.speedSkatingResultsApiService.getSeasonBestsFromSkater({
       skater: this.skaterID
     }).then((seasons) => {
       if (seasons.length === 0) {
         this.hideThisComponent = true;
       } else {
+        this.hideThisComponent = false;
         this.seasonBestsDataSource = new MatTableDataSource(seasons[0].records);
         this.changeDetectorRefs.detectChanges();
       }
     });
-    this.seasonBestsTableColumns = ['distance', 'time', 'date', 'location'];
   }
 
   trackByFn(index: number, item: any): any {
     return item.id || index;
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.ngOnInit();
   }
 }
