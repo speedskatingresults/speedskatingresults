@@ -44,7 +44,7 @@ export class SeasonBestsChartBoxComponent implements OnChanges {
   @ViewChild('chart') chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
   @HostBinding('class.hidden') hideThisComponent = false;
-  public distance = 1000;
+  public distance = 500;
 
   constructor(private speedSkatingResultsApiService: SpeedSkatingResultsApiService, public changeDetectorRefs: ChangeDetectorRef) {
   }
