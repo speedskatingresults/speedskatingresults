@@ -1,22 +1,28 @@
 <div class="flex flex-col flex-auto w-full p-8 xs:p-2">
     <div class="flex flex-wrap w-full">
-        <div class="w-full my-4 px-4">
-            <h2 class="m-0">Choose a country</h2>
+        <div class="md:flex lg:flex xl:flex 2xl:flex items-center justify-between w-full my-4 px-4">
+            <div class="w-full xs:pr-0">
+                <h2 class="m-0 font-extrabold tracking-tight">Choose a country</h2>
+                <div class="text-secondary tracking-tight">Show records by country</div>
+            </div>
+
+            <mat-form-field class="treo-mat-no-subscript search-input w-80 sm:w-full xs:w-full sm:mt-8 xs:mt-8">
+                <mat-icon matPrefix [svgIcon]="'search'"></mat-icon>
+                <input matInput [formControl]="searchControl" [placeholder]="'Search a countries'"/>
+            </mat-form-field>
         </div>
 
-        <mat-form-field class="treo-mat-no-subscript search-input w-80 px-4 xs:w-full">
-            <mat-icon matPrefix [svgIcon]="'search'"></mat-icon>
-            <input matInput [formControl]="searchControl" [placeholder]="'Search a countries'"/>
-        </mat-form-field>
+        <div class="grid xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 gap-4 w-full overflow-auto my-4 px-4 pb-2">
+            <a *ngFor="let country of countries" [routerLink]="['/countries/' + country.code]"
+               [ngClass]="{'hidden': !countryInSearch(country)}"
+               class="bg-white p-4 pr-0 flex rounded-lg shadow cursor-pointer flex-grow-0">
+                <div class="flex items-center flex-shrink-0">
+                    <img class="rounded" src="/assets/images/flags/{{ country.code }}.png" alt="{{ country.code }}"
+                         style="height: 20px; width: 30px">
+                </div>
 
-        <div class="grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 xs:grid-cols-1 gap-4 w-full overflow-auto my-4 px-4 pb-2">
-            <a *ngFor="let country of countries" [routerLink]="['/countries/' + country.code]" [ngClass]="{'hidden': !countryInSearch(country)}" class="bg-white p-4 pr-0 flex rounded-lg shadow cursor-pointer">
-                <div class="flex items-center">
-                    <img class="rounded" src="/assets/images/flags/{{ country.code }}.png" alt="{{ country.code }}">
-                </div>
-                <div class="w-full mx-4 text-center">
-                    <h4 class="truncate font-bold text-gray-700 my-0">{{ country.name }}</h4>
-                </div>
+                <h4 class=" w-full mx-4 text-center truncate font-bold text-gray-700 my-0 text-lg">{{ country.name }}</h4>
+
             </a>
         </div>
 

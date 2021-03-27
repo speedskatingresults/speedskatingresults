@@ -1,10 +1,12 @@
 <div class="flex flex-col flex-auto w-full p-8 xs:p-2">
     <div class="flex flex-wrap">
         <div class="w-full my-4 px-4">
-            <h2 class="m-0">{{ country.name }}</h2>
+            <h2 class="m-0 font-extrabold tracking-tight">{{ country.name }}</h2>
+            <div class="text-secondary tracking-tight">National records</div>
+
         </div>
 
-        <div class="flex flex-wrap w-full gap-8 justify-around">
+        <div class="flex flex-wrap w-full gap-8 justify-start my-4 px-4">
             <app-national-records-box class="max-w-full" gender="male" country="{{ country.code }}"></app-national-records-box>
             <app-national-records-box class="max-w-full" gender="female" country="{{ country.code }}"></app-national-records-box>
         </div>

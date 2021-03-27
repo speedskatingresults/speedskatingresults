@@ -1,15 +1,17 @@
 <div class="flex flex-col flex-auto w-full p-8 xs:p-2">
     <div class="flex flex-wrap w-full">
         <div class="w-full my-4 px-4">
-            <h2 class="m-0">{{ skaterGivenName }} {{ skaterFamilyName }}</h2>
+            <h2 class="m-0 font-extrabold tracking-tight">{{ skaterGivenName }} {{ skaterFamilyName }}</h2>
+            <div class="text-secondary tracking-tight">Speed skater</div>
+
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-8 w-full p-4">
             <app-personal-records-box [skaterID]="skaterId"></app-personal-records-box>
             <app-season-bests-box [skaterID]="skaterId"></app-season-bests-box>
             <app-season-bests-chart-box [skaterID]="skaterId"></app-season-bests-chart-box>
         </div>
 
-        <app-personal-results-box class="mt-8 max-w-full" [skaterID]="skaterId"></app-personal-results-box>
+        <app-personal-results-box class="mt-8 max-w-full p-4" [skaterID]="skaterId"></app-personal-results-box>
     </div>
 </div>

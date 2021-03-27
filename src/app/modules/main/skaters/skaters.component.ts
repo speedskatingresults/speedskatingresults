@@ -35,10 +35,10 @@ export class SkatersComponent implements OnInit {
 
   submit(): void {
     this.speedSkatingResultsApiService.getSkaters({
-      givenName: this.searchForm.value.givenName,
-      familyName: this.searchForm.value.familyName,
-      country: this.searchForm.value.country,
-      gender: this.searchForm.value.gender,
+      givenName: this.searchForm.value.givenName.trim(),
+      familyName: this.searchForm.value.familyName.trim(),
+      country: this.searchForm.value.country.trim(),
+      gender: this.searchForm.value.gender.trim(),
     }).then((skaters) => {
       this.skaters = skaters;
       this.hasSearched = true;

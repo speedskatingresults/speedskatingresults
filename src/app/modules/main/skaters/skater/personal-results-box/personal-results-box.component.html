@@ -58,5 +58,6 @@
             <tr mat-header-row *matHeaderRowDef="personalResultsTableColumns"></tr>
             <tr class="h-16" mat-row *matRowDef="let row; columns: personalResultsTableColumns;"></tr>
         </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
 </div>

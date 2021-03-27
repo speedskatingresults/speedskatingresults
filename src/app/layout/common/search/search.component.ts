@@ -215,7 +215,7 @@ export class SearchComponent implements OnInit, OnDestroy
             )
             .subscribe((value) => {
 
-              this.speedSkatingResultsApiService.getSkatersWithSearchString(value).then((skaters) => {
+              this.speedSkatingResultsApiService.getSkatersWithSearchString(value.trim()).then((skaters) => {
                 this.results = skaters.slice(0, 5);
               });
             });

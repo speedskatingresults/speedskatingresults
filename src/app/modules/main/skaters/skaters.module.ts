@@ -21,6 +21,7 @@ import {SeasonBestsBoxComponent} from './skater/season-bests-box/season-bests-bo
 import { PersonalResultsBoxComponent } from './skater/personal-results-box/personal-results-box.component';
 import { SeasonBestsChartBoxComponent } from './skater/season-bests-chart-box/season-bests-chart-box.component';
 import {NgApexchartsModule} from 'ng-apexcharts';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import {NgApexchartsModule} from 'ng-apexcharts';
     MatInputModule,
     MatSelectModule,
     NgApexchartsModule,
+    MatPaginatorModule,
   ]
 })
 export class SkatersModule {
