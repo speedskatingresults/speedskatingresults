@@ -1,4 +1,7 @@
-on: push
+on:
+  push:
+    branches:
+      - master
 name: Deploy website on push
 jobs:
   web-deploy:
@@ -25,10 +28,10 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
         restore-keys: |
           ${{ runner.os }}-node-
-    
+
     - name: Install Dependencies
       run: npm i
-    
+
     - name: Build Project
       run: npm run build:prod
 
