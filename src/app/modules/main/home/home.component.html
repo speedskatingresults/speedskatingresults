@@ -1,8 +1,11 @@
 <div class="flex flex-col flex-auto w-full p-8 xs:p-2">
     <div class="flex flex-wrap w-full">
-        <div class="w-full my-4 px-4 xs:pr-0">
-            <h2 class="m-0 font-extrabold tracking-tight">Home</h2>
-            <div class="text-secondary tracking-tight">Speed skating results at a glance</div>
+        <div class="grid gap-8 gt-md:flex gt-md:justify-between gt-md:w-full my-4 px-4 xs:pr-0">
+            <div>
+                <h2 class="m-0 font-extrabold tracking-tight">Home</h2>
+                <div class="text-secondary tracking-tight">Speed skating results at a glance</div>
+            </div>
+            <app-next-season-countdown></app-next-season-countdown>
         </div>
         <div class="grid xl:grid-cols-2 grid-cols-1 w-full gap-8 p-4">
             <app-world-records-box gender="male"></app-world-records-box>

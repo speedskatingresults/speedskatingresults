@@ -12,12 +12,14 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {WorldRecordsBoxComponent} from './world-records-box/world-records-box.component';
 import {OlympicRecordsBoxComponent} from './olympic-records-box/olympic-records-box.component';
+import { NextSeasonCountdownComponent } from './next-season-countdown/next-season-countdown.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     WorldRecordsBoxComponent,
     OlympicRecordsBoxComponent,
+    NextSeasonCountdownComponent,
   ],
   imports: [
     RouterModule.forChild(homeRoutes),
