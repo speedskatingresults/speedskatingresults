@@ -12,3 +12,14 @@ th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:
 th.mat-header-cell:last-of-type, td.mat-cell:last-of-type, td.mat-footer-cell:last-of-type {
   padding-right: 20px !important;
 }
+
+.cdk-overlay-pane .mat-mdc-select-panel,
+.mat-mdc-select-panel.mdc-menu-surface,
+.cdk-overlay-pane .mat-select-panel {
+  background-color: var(--mat-sys-surface, #ffffff) !important;
+}
+
+.cdk-overlay-pane .mat-mdc-autocomplete-panel,
+.cdk-overlay-pane .mat-autocomplete-panel {
+  background-color: var(--mat-sys-surface, #ffffff) !important;
+}
