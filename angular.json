@@ -91,18 +91,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "treo:build"
+            "buildTarget": "treo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "treo:build:production"
+              "buildTarget": "treo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "treo:build"
+            "buildTarget": "treo:build"
           }
         },
         "test": {
