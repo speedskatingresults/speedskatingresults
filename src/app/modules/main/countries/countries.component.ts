@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {countries} from '../../../data/countries';
 import {Country} from '../../../shared/models/Country';
 import {Router} from '@angular/router';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-countries',
@@ -11,12 +11,12 @@ import {FormControl} from '@angular/forms';
 })
 export class CountriesComponent implements OnInit {
   public countries: Country[];
-  searchControl: FormControl;
+  searchControl: UntypedFormControl;
   search = '';
 
   constructor(private router: Router) {
     this.countries = countries;
-    this.searchControl = new FormControl();
+    this.searchControl = new UntypedFormControl();
   }
 
   ngOnInit(): void {

@@ -127,7 +127,6 @@
       }
     }
   },
-  "defaultProject": "treo",
   "cli": {
     "analytics": false
   }

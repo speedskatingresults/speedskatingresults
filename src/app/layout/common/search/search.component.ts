@@ -10,7 +10,7 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {UntypedFormControl} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {MatFormField} from '@angular/material/form-field';
 import {Subject} from 'rxjs';
@@ -30,7 +30,7 @@ import {Skater} from '../../../shared/models/skating-data/Skater';
 export class SearchComponent implements OnInit, OnDestroy
 {
     results: Skater[] | null;
-    searchControl: FormControl;
+    searchControl: UntypedFormControl;
 
     // Debounce
     @Input()
@@ -73,7 +73,7 @@ export class SearchComponent implements OnInit, OnDestroy
         this.minLength = this.minLength || 2;
         this.opened = false;
         this.results = null;
-        this.searchControl = new FormControl();
+        this.searchControl = new UntypedFormControl();
     }
 
     // -----------------------------------------------------------------------------------------------------

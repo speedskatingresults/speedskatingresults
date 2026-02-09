@@ -1,7 +1,7 @@
 import {Router} from '@angular/router';
 import {Component, OnInit} from '@angular/core';
 import {Skater} from '../../../shared/models/skating-data/Skater';
-import {FormBuilder} from '@angular/forms';
+import {UntypedFormBuilder} from '@angular/forms';
 import {SpeedSkatingResultsApiService} from '../../../shared/services/speed-skating-results-api.service';
 import {countries} from 'app/data/countries';
 
@@ -21,7 +21,7 @@ export class SkatersComponent implements OnInit {
   public searchForm = this.formBuilder.group({});
   public hasSearched = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router, private speedSkatingResultsApiService: SpeedSkatingResultsApiService) {
+  constructor(private formBuilder: UntypedFormBuilder, private router: Router, private speedSkatingResultsApiService: SpeedSkatingResultsApiService) {
   }
 
   ngOnInit(): void {

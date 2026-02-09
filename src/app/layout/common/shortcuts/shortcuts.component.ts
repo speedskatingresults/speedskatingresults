@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Overlay, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { MatButton } from '@angular/material/button';
@@ -19,7 +19,7 @@ import { ShortcutsService } from 'app/layout/common/shortcuts/shortcuts.service'
 export class ShortcutsComponent implements OnInit, OnDestroy
 {
     mode: 'view' | 'modify' | 'add' | 'edit';
-    shortcutForm: FormGroup;
+    shortcutForm: UntypedFormGroup;
 
     // Private
     private _overlayRef: OverlayRef;
@@ -43,7 +43,7 @@ export class ShortcutsComponent implements OnInit, OnDestroy
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _formBuilder: FormBuilder,
+        private _formBuilder: UntypedFormBuilder,
         private _shortcutsService: ShortcutsService,
         private _overlay: Overlay,
         private _viewContainerRef: ViewContainerRef
