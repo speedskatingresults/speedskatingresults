@@ -11,7 +11,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {UntypedFormControl} from '@angular/forms';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import {MatFormField} from '@angular/material/form-field';
 import {Subject} from 'rxjs';
 import {debounceTime, filter, map, takeUntil} from 'rxjs/operators';

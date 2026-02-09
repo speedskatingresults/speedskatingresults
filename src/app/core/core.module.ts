@@ -1,23 +1,19 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { AuthService } from 'app/core/auth/auth.service';
 import { AuthInterceptor } from 'app/core/auth/auth.interceptor';
 
-@NgModule({
-    imports  : [
-        HttpClientModule
-    ],
-    providers: [
+@NgModule({ imports: [], providers: [
         AuthService,
         {
-            provide : HTTP_INTERCEPTORS,
+            provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
-            multi   : true
-        }
-    ]
-})
+            multi: true
+        },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class CoreModule
 {
     /**
