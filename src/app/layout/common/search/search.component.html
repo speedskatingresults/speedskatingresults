@@ -1,76 +1,72 @@
 <!-- Open button, 'bar' only -->
-<button class="search-toggle-open"
-        mat-icon-button
-        *ngIf="appearance === 'bar' && !opened"
-        (click)="open()">
+@if (appearance === 'bar' && !opened) {
+  <button class="search-toggle-open"
+    mat-icon-button
+    (click)="open()">
     <mat-icon [svgIcon]="'search'"></mat-icon>
-</button>
+  </button>
+}
 
 <!-- Search container -->
-<div class="search-container"
-     *ngIf="appearance === 'basic' || (appearance === 'bar' && opened)"
-     [@.disabled]="appearance === 'basic'"
-     @slideInTop
-     @slideOutTop>
-
+@if (appearance === 'basic' || (appearance === 'bar' && opened)) {
+  <div class="search-container"
+    [@.disabled]="appearance === 'basic'"
+    @slideInTop
+    @slideOutTop>
     <mat-form-field class="treo-mat-no-subscript search-input"
-                    #searchInput>
-        <mat-icon matPrefix
-                  [svgIcon]="'search'"></mat-icon>
-        <input matInput autofocus
-               [formControl]="searchControl"
-               [placeholder]="'Search for a page or a contact'"
-               [matAutocomplete]="matAutocomplete"
-               (keydown)="onKeydown($event)">
+      #searchInput>
+      <mat-icon matPrefix
+      [svgIcon]="'search'"></mat-icon>
+      <input matInput autofocus
+        [formControl]="searchControl"
+        [placeholder]="'Search for a page or a contact'"
+        [matAutocomplete]="matAutocomplete"
+        (keydown)="onKeydown($event)">
     </mat-form-field>
-
     <mat-autocomplete [class]="'search-results search-results-appearance-' + appearance"
-                      #matAutocomplete="matAutocomplete"
-                      [disableRipple]="true">
-
+      #matAutocomplete="matAutocomplete"
+      [disableRipple]="true">
+      @if (results && !results.length) {
         <mat-option class="no-results"
-                    *ngIf="results && !results.length">
-            No results found!
+          >
+          No results found!
         </mat-option>
-
-        <a *ngFor="let result of results" routerLink="/skaters/{{result.id}}/{{result.givenname}}/{{result.familyname}}" (click)="close()">
-
-            <mat-option>
-
-                <!-- Page result -->
-                <div class="result page-result">
-                    <div class="badge">Skater</div>
-                    <div class="title">
-                        <span>{{ result.givenname }} {{ result.familyname }}</span>
-                    </div>
-                </div>
-
-                <!-- Contact result -->
-                <!--            <div class="result contact-result"-->
-                <!--                 *ngIf="result.resultType === 'contact'">-->
-                <!--                <div class="badge">Contact</div>-->
-                <!--                <div class="title">-->
-                <!--                    <span [innerHTML]="result.title"></span>-->
-                <!--                </div>-->
-                <!--                <div class="image">-->
-                <!--                    <img *ngIf="result.avatar"-->
-                <!--                         [src]="result.avatar">-->
-                <!--                    <mat-icon *ngIf="!result.avatar"-->
-                <!--                              [svgIcon]="'account_circle'"></mat-icon>-->
-                <!--                </div>-->
-                <!--            </div>-->
-
-            </mat-option>
-        </a>
-
-    </mat-autocomplete>
-
-    <!-- Close button, 'bar' only -->
-    <button class="search-toggle-close"
-            mat-icon-button
-            *ngIf="appearance === 'bar'"
-            (click)="close()">
-        <mat-icon [svgIcon]="'close'"></mat-icon>
-    </button>
-
+      }
+      @for (result of results; track result) {
+        <a routerLink="/skaters/{{result.id}}/{{result.givenname}}/{{result.familyname}}" (click)="close()">
+          <mat-option>
+            <!-- Page result -->
+            <div class="result page-result">
+              <div class="badge">Skater</div>
+              <div class="title">
+                <span>{{ result.givenname }} {{ result.familyname }}</span>
+              </div>
+            </div>
+            <!-- Contact result -->
+            <!--            <div class="result contact-result"-->
+            <!--                 *ngIf="result.resultType === 'contact'">-->
+            <!--                <div class="badge">Contact</div>-->
+            <!--                <div class="title">-->
+            <!--                    <span [innerHTML]="result.title"></span>-->
+          <!--                </div>-->
+          <!--                <div class="image">-->
+          <!--                    <img *ngIf="result.avatar"-->
+          <!--                         [src]="result.avatar">-->
+          <!--                    <mat-icon *ngIf="!result.avatar"-->
+        <!--                              [svgIcon]="'account_circle'"></mat-icon>-->
+      <!--                </div>-->
+    <!--            </div>-->
+  </mat-option>
+</a>
+}
+</mat-autocomplete>
+<!-- Close button, 'bar' only -->
+@if (appearance === 'bar') {
+  <button class="search-toggle-close"
+    mat-icon-button
+    (click)="close()">
+    <mat-icon [svgIcon]="'close'"></mat-icon>
+  </button>
+}
 </div>
+}

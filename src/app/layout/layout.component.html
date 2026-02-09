@@ -1,45 +1,69 @@
 <!-- ----------------------------------------------------------------------------------------------------- -->
 <!-- Empty layout -->
 <!-- ----------------------------------------------------------------------------------------------------- -->
-<empty-layout *ngIf="layout === 'empty'"></empty-layout>
+@if (layout === 'empty') {
+  <empty-layout></empty-layout>
+}
 
 <!-- ----------------------------------------------------------------------------------------------------- -->
 <!-- Layouts with horizontal navigation -->
 <!-- ----------------------------------------------------------------------------------------------------- -->
 
 <!-- Centered -->
-<centered-layout *ngIf="layout === 'centered'"></centered-layout>
+@if (layout === 'centered') {
+  <centered-layout></centered-layout>
+}
 
 <!-- Enterprise -->
-<enterprise-layout *ngIf="layout === 'enterprise'"></enterprise-layout>
+@if (layout === 'enterprise') {
+  <enterprise-layout></enterprise-layout>
+}
 
 <!-- Material -->
-<material-layout *ngIf="layout === 'material'"></material-layout>
+@if (layout === 'material') {
+  <material-layout></material-layout>
+}
 
 <!-- Modern -->
-<modern-layout *ngIf="layout === 'modern'"></modern-layout>
+@if (layout === 'modern') {
+  <modern-layout></modern-layout>
+}
 
 <!-- ----------------------------------------------------------------------------------------------------- -->
 <!-- Layouts with vertical navigation -->
 <!-- ----------------------------------------------------------------------------------------------------- -->
 
 <!-- Basic -->
-<basic-layout *ngIf="layout === 'basic'"></basic-layout>
+@if (layout === 'basic') {
+  <basic-layout></basic-layout>
+}
 
 <!-- Classic -->
-<classic-layout *ngIf="layout === 'classic'"></classic-layout>
+@if (layout === 'classic') {
+  <classic-layout></classic-layout>
+}
 
 <!-- Classy -->
-<classy-layout *ngIf="layout === 'classy'"></classy-layout>
+@if (layout === 'classy') {
+  <classy-layout></classy-layout>
+}
 
 <!-- Compact -->
-<compact-layout *ngIf="layout === 'compact'"></compact-layout>
+@if (layout === 'compact') {
+  <compact-layout></compact-layout>
+}
 
 <!-- Dense -->
-<dense-layout *ngIf="layout === 'dense'"></dense-layout>
+@if (layout === 'dense') {
+  <dense-layout></dense-layout>
+}
 
 <!-- Futuristic -->
-<futuristic-layout *ngIf="layout === 'futuristic'"></futuristic-layout>
+@if (layout === 'futuristic') {
+  <futuristic-layout></futuristic-layout>
+}
 
 <!-- Thin -->
-<thin-layout *ngIf="layout === 'thin'"></thin-layout>
+@if (layout === 'thin') {
+  <thin-layout></thin-layout>
+}

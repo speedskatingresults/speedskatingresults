@@ -1,3 +1,5 @@
-<div *ngIf="days !== 0" class="p-4 bg-card shadow-md rounded">
+@if (days !== 0) {
+  <div class="p-4 bg-card shadow-md rounded">
     <p>Days until next season: <b>{{ days }}</b></p>
-</div>
+  </div>
+}

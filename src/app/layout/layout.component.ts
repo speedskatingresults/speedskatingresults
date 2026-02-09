@@ -1,5 +1,5 @@
-import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation, DOCUMENT } from '@angular/core';
+
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { combineLatest, Subject } from 'rxjs';
 import { filter, map, takeUntil } from 'rxjs/operators';

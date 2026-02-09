@@ -1,94 +1,97 @@
 <!-- Navigation -->
-<treo-vertical-navigation class="bg-cool-gray-900 theme-dark"
-                         *ngIf="isScreenSmall"
-                         [appearance]="'classic'"
-                         [mode]="'over'"
-                         [name]="'mainNavigation'"
-                         [navigation]="data.navigation.default"
-                         [opened]="false">
-
+@if (isScreenSmall) {
+  <treo-vertical-navigation class="bg-cool-gray-900 theme-dark"
+    [appearance]="'classic'"
+    [mode]="'over'"
+    [name]="'mainNavigation'"
+    [navigation]="data.navigation.default"
+    [opened]="false">
     <div treoVerticalNavigationContentHeader>
-        <div class="logo">
-            <img src="assets/images/logo/logo-text-on-dark.svg">
-        </div>
+      <div class="logo">
+        <img src="assets/images/logo/logo-text-on-dark.svg">
+      </div>
     </div>
-
-</treo-vertical-navigation>
+  </treo-vertical-navigation>
+}
 
 <!-- Wrapper -->
 <div class="wrapper">
 
-    <!-- Header -->
-    <div class="header">
+  <!-- Header -->
+  <div class="header">
 
-        <!-- Top bar -->
-        <div class="top-bar theme-dark">
+    <!-- Top bar -->
+    <div class="top-bar theme-dark">
 
-            <div class="container">
+      <div class="container">
 
-                <!-- Logo -->
-                <div class="logo"
-                     *ngIf="!isScreenSmall">
-                    <img src="assets/images/logo/logo-text-on-dark.svg">
-                </div>
+        <!-- Logo -->
+        @if (!isScreenSmall) {
+          <div class="logo"
+            >
+            <img src="assets/images/logo/logo-text-on-dark.svg">
+          </div>
+        }
 
-                <!-- Navigation toggle button -->
-                <button class="navigation-toggle-button"
-                        *ngIf="isScreenSmall"
-                        mat-icon-button
-                        (click)="toggleNavigation('mainNavigation')">
-                    <mat-icon [svgIcon]="'menu'"></mat-icon>
-                </button>
+        <!-- Navigation toggle button -->
+        @if (isScreenSmall) {
+          <button class="navigation-toggle-button"
+            mat-icon-button
+            (click)="toggleNavigation('mainNavigation')">
+            <mat-icon [svgIcon]="'menu'"></mat-icon>
+          </button>
+        }
 
-                <!-- Spacer -->
-                <div class="spacer"></div>
+        <!-- Spacer -->
+        <div class="spacer"></div>
 
-                <!-- Search -->
-                <search [appearance]="'bar'"></search>
+        <!-- Search -->
+        <search [appearance]="'bar'"></search>
 
-                <!-- Shortcuts -->
-                <shortcuts [shortcuts]="data.shortcuts"></shortcuts>
+        <!-- Shortcuts -->
+        <shortcuts [shortcuts]="data.shortcuts"></shortcuts>
 
-                <!-- Messages -->
-                <messages [messages]="data.messages"></messages>
+        <!-- Messages -->
+        <messages [messages]="data.messages"></messages>
 
-                <!-- Notifications -->
-                <notifications [notifications]="data.notifications"></notifications>
+        <!-- Notifications -->
+        <notifications [notifications]="data.notifications"></notifications>
 
-                <!-- User -->
-                <user [user]="data.user"></user>
+        <!-- User -->
+        <user [user]="data.user"></user>
 
-            </div>
-        </div>
-
-        <!-- Bottom bar -->
-        <div class="bottom-bar"
-             *ngIf="!isScreenSmall">
-
-            <div class="container">
-
-                <treo-horizontal-navigation [name]="'mainNavigation'"
-                                           [navigation]="data.navigation.horizontal"></treo-horizontal-navigation>
-            </div>
-
-        </div>
-
+      </div>
     </div>
 
-    <!-- Content -->
-    <div class="content">
-
-        <!-- *ngIf="true" hack is required here for router-outlet to work correctly. Otherwise,
-             it won't register the changes on the layout and won't update the view. -->
-        <router-outlet *ngIf="true"></router-outlet>
-
-    </div>
-
-    <!-- Footer -->
-    <div class="footer">
+    <!-- Bottom bar -->
+    @if (!isScreenSmall) {
+      <div class="bottom-bar"
+        >
         <div class="container">
-            Treo &copy; {{currentYear}}
+          <treo-horizontal-navigation [name]="'mainNavigation'"
+          [navigation]="data.navigation.horizontal"></treo-horizontal-navigation>
         </div>
+      </div>
+    }
+
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+
+    <!-- *ngIf="true" hack is required here for router-outlet to work correctly. Otherwise,
+    it won't register the changes on the layout and won't update the view. -->
+    @if (true) {
+      <router-outlet></router-outlet>
+    }
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      Treo &copy; {{currentYear}}
     </div>
+  </div>
 
 </div>
