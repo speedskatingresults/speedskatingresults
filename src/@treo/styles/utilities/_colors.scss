@@ -162,10 +162,10 @@ else:treo-color('cool-gray', 800)),
     // Since modifications only being done on 'foreground'
     // and 'background' palettes, add them from above but
     // keep everything else original
-    $modified-theme: (primary:map . get($theme, primary),
-accent:map . get($theme, accent),
-warn:map . get($theme, warn),
-is-dark:map . get($theme, is-dark),
+    $modified-theme: (primary: map.get($theme, primary),
+        accent: map.get($theme, accent),
+        warn: map.get($theme, warn),
+        is-dark: map.get($theme, is-dark),
         foreground: $foreground,
         background: $background
     );
