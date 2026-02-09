@@ -1,12 +1,23 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { MatButton } from '@angular/material/button';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { Shortcut } from 'app/layout/common/shortcuts/shortcuts.types';
-import { ShortcutsService } from 'app/layout/common/shortcuts/shortcuts.service';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnDestroy,
+    OnInit,
+    TemplateRef,
+    ViewChild,
+    ViewContainerRef,
+    ViewEncapsulation
+} from '@angular/core';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
+import {Overlay, OverlayRef} from '@angular/cdk/overlay';
+import {TemplatePortal} from '@angular/cdk/portal';
+import {MatButton} from '@angular/material/button';
+import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {Shortcut} from 'app/layout/common/shortcuts/shortcuts.types';
+import {ShortcutsService} from 'app/layout/common/shortcuts/shortcuts.service';
 
 @Component({
     selector: 'shortcuts',
@@ -25,7 +36,7 @@ export class ShortcutsComponent implements OnInit, OnDestroy
     // Private
     private _overlayRef: OverlayRef;
     private _shortcuts: Shortcut[];
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     @ViewChild('shortcutsOrigin')
     private _shortcutsOrigin: MatButton;

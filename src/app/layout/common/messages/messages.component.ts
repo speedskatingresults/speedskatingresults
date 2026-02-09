@@ -1,11 +1,22 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { MatButton } from '@angular/material/button';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { Message } from 'app/layout/common/messages/messages.types';
-import { MessagesService } from 'app/layout/common/messages/messages.service';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnDestroy,
+    OnInit,
+    TemplateRef,
+    ViewChild,
+    ViewContainerRef,
+    ViewEncapsulation
+} from '@angular/core';
+import {Overlay, OverlayRef} from '@angular/cdk/overlay';
+import {TemplatePortal} from '@angular/cdk/portal';
+import {MatButton} from '@angular/material/button';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {Message} from 'app/layout/common/messages/messages.types';
+import {MessagesService} from 'app/layout/common/messages/messages.service';
 
 @Component({
     selector: 'messages',
@@ -23,7 +34,7 @@ export class MessagesComponent implements OnInit, OnDestroy
     // Private
     private _messages: Message[];
     private _overlayRef: OverlayRef;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     @ViewChild('messagesOrigin')
     private _messagesOrigin: MatButton;

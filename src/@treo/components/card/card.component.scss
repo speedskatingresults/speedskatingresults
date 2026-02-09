@@ -1,4 +1,4 @@
-@import 'treo';
+@use 'treo' as *;
 
 treo-card {
     position: relative;

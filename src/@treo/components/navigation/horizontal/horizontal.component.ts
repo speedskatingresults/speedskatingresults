@@ -1,8 +1,16 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
-import { TreoAnimations } from '@treo/animations';
-import { TreoNavigationItem } from '@treo/components/navigation/navigation.types';
-import { TreoNavigationService } from '@treo/components/navigation/navigation.service';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnDestroy,
+    OnInit,
+    ViewEncapsulation
+} from '@angular/core';
+import {BehaviorSubject, Subject} from 'rxjs';
+import {TreoAnimations} from '@treo/animations';
+import {TreoNavigationItem} from '@treo/components/navigation/navigation.types';
+import {TreoNavigationService} from '@treo/components/navigation/navigation.service';
 
 @Component({
     selector: 'treo-horizontal-navigation',
@@ -24,7 +32,7 @@ export class TreoHorizontalNavigationComponent implements OnInit, OnDestroy
 
     // Private
     private _navigation: TreoNavigationItem[];
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

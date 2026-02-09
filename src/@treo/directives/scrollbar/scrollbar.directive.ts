@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Platform } from '@angular/cdk/platform';
-import { fromEvent, Subject } from 'rxjs';
-import { debounceTime, takeUntil } from 'rxjs/operators';
+import {Directive, ElementRef, Input, OnDestroy, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {Platform} from '@angular/cdk/platform';
+import {fromEvent, Subject} from 'rxjs';
+import {debounceTime, takeUntil} from 'rxjs/operators';
 import PerfectScrollbar from 'perfect-scrollbar';
-import { merge } from 'lodash-es';
-import { ScrollbarGeometry, ScrollbarPosition } from '@treo/directives/scrollbar/scrollbar.interfaces';
+import {merge} from 'lodash-es';
+import {ScrollbarGeometry, ScrollbarPosition} from '@treo/directives/scrollbar/scrollbar.interfaces';
 
 // -----------------------------------------------------------------------------------------------------
 // Wrapper directive for the Perfect Scrollbar: https://github.com/mdbootstrap/perfect-scrollbar
@@ -25,7 +25,7 @@ export class TreoScrollbarDirective implements OnInit, OnDestroy
     private _animation: number | null;
     private _enabled: boolean;
     private _options: any;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

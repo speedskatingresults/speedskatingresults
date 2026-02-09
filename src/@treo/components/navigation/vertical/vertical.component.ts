@@ -1,13 +1,36 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnDestroy, OnInit, Output, QueryList, Renderer2, ViewChild, ViewChildren, ViewEncapsulation } from '@angular/core';
-import { animate, AnimationBuilder, AnimationPlayer, style } from '@angular/animations';
-import { NavigationEnd, Router } from '@angular/router';
-import { ScrollStrategy, ScrollStrategyOptions } from '@angular/cdk/overlay';
-import { BehaviorSubject, merge, Subject, Subscription } from 'rxjs';
-import { delay, filter, takeUntil } from 'rxjs/operators';
-import { TreoAnimations } from '@treo/animations';
-import { TreoNavigationItem, TreoVerticalNavigationAppearance, TreoVerticalNavigationMode, TreoVerticalNavigationPosition } from '@treo/components/navigation/navigation.types';
-import { TreoNavigationService } from '@treo/components/navigation/navigation.service';
-import { TreoScrollbarDirective } from '@treo/directives/scrollbar/scrollbar.directive';
+import {
+    AfterViewInit,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output,
+    QueryList,
+    Renderer2,
+    ViewChild,
+    ViewChildren,
+    ViewEncapsulation
+} from '@angular/core';
+import {animate, AnimationBuilder, AnimationPlayer, style} from '@angular/animations';
+import {NavigationEnd, Router} from '@angular/router';
+import {ScrollStrategy, ScrollStrategyOptions} from '@angular/cdk/overlay';
+import {BehaviorSubject, merge, Subject, Subscription} from 'rxjs';
+import {delay, filter, takeUntil} from 'rxjs/operators';
+import {TreoAnimations} from '@treo/animations';
+import {
+    TreoNavigationItem,
+    TreoVerticalNavigationAppearance,
+    TreoVerticalNavigationMode,
+    TreoVerticalNavigationPosition
+} from '@treo/components/navigation/navigation.types';
+import {TreoNavigationService} from '@treo/components/navigation/navigation.service';
+import {TreoScrollbarDirective} from '@treo/directives/scrollbar/scrollbar.directive';
 
 @Component({
     selector: 'treo-vertical-navigation',
@@ -66,10 +89,10 @@ export class TreoVerticalNavigationComponent implements OnInit, AfterViewInit, O
     private _transparentOverlay: boolean | '';
     private _treoScrollbarDirectives: QueryList<TreoScrollbarDirective>;
     private _treoScrollbarDirectivesSubscription: Subscription;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     @HostBinding('class.treo-vertical-navigation-animations-enabled')
-    private _animationsEnabled: boolean;
+    protected _animationsEnabled: boolean;
 
     @ViewChild('navigationContent')
     private _navigationContentEl: ElementRef;
@@ -747,7 +770,7 @@ export class TreoVerticalNavigationComponent implements OnInit, AfterViewInit, O
      * @private
      */
     @HostListener('mouseenter')
-    private _onMouseenter(): void
+    protected _onMouseenter(): void
     {
         // Enable the animations
         this._enableAnimations();
@@ -762,7 +785,7 @@ export class TreoVerticalNavigationComponent implements OnInit, AfterViewInit, O
      * @private
      */
     @HostListener('mouseleave')
-    private _onMouseleave(): void
+    protected _onMouseleave(): void
     {
         // Enable the animations
         this._enableAnimations();

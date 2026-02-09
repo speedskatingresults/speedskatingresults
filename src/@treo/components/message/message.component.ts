@@ -1,9 +1,21 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, EventEmitter, Input, OnDestroy, OnInit, Output, Renderer2, ViewEncapsulation } from '@angular/core';
-import { Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
-import { TreoAnimations } from '@treo/animations';
-import { TreoMessageAppearance, TreoMessageType } from '@treo/components/message/message.types';
-import { TreoMessageService } from '@treo/components/message/message.service';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    EventEmitter,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output,
+    Renderer2,
+    ViewEncapsulation
+} from '@angular/core';
+import {Subject} from 'rxjs';
+import {filter, takeUntil} from 'rxjs/operators';
+import {TreoAnimations} from '@treo/animations';
+import {TreoMessageAppearance, TreoMessageType} from '@treo/components/message/message.types';
+import {TreoMessageService} from '@treo/components/message/message.service';
 
 @Component({
     selector       : 'treo-message',
@@ -31,7 +43,7 @@ export class TreoMessageComponent implements OnInit, OnDestroy
     private _dismissed: null | boolean;
     private _showIcon: boolean;
     private _type: TreoMessageType;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { TreoHorizontalNavigationComponent } from '@treo/components/navigation/horizontal/horizontal.component';
-import { TreoNavigationService } from '@treo/components/navigation/navigation.service';
-import { TreoNavigationItem } from '@treo/components/navigation/navigation.types';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {TreoHorizontalNavigationComponent} from '@treo/components/navigation/horizontal/horizontal.component';
+import {TreoNavigationService} from '@treo/components/navigation/navigation.service';
+import {TreoNavigationItem} from '@treo/components/navigation/navigation.types';
 
 @Component({
     selector: 'treo-horizontal-navigation-divider-item',
@@ -24,7 +24,7 @@ export class TreoHorizontalNavigationDividerItemComponent implements OnInit, OnD
 
     // Private
     private _treoHorizontalNavigationComponent: TreoHorizontalNavigationComponent;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

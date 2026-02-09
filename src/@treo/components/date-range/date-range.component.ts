@@ -1,11 +1,26 @@
-import { ChangeDetectorRef, Component, ElementRef, EventEmitter, forwardRef, HostBinding, Input, OnDestroy, OnInit, Output, Renderer2, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
-import { Overlay } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { MatCalendarCellCssClasses, MatMonthView } from '@angular/material/datepicker';
-import { Subject } from 'rxjs';
-import * as moment from 'moment';
-import { Moment } from 'moment';
+import {
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    EventEmitter,
+    forwardRef,
+    HostBinding,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output,
+    Renderer2,
+    TemplateRef,
+    ViewChild,
+    ViewContainerRef,
+    ViewEncapsulation
+} from '@angular/core';
+import {ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators} from '@angular/forms';
+import {Overlay} from '@angular/cdk/overlay';
+import {TemplatePortal} from '@angular/cdk/portal';
+import {MatCalendarCellCssClasses, MatMonthView} from '@angular/material/datepicker';
+import {Subject} from 'rxjs';
+import moment, {Moment} from 'moment';
 
 @Component({
     selector     : 'treo-date-range',
@@ -56,7 +71,7 @@ export class TreoDateRangeComponent implements ControlValueAccessor, OnInit, OnD
     private _timeFormat: string;
     private _timeRange: boolean;
     private readonly _timeRegExp: RegExp;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

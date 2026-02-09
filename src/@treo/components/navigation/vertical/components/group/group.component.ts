@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { TreoVerticalNavigationComponent } from '@treo/components/navigation/vertical/vertical.component';
-import { TreoNavigationService } from '@treo/components/navigation/navigation.service';
-import { TreoNavigationItem } from '@treo/components/navigation/navigation.types';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {TreoVerticalNavigationComponent} from '@treo/components/navigation/vertical/vertical.component';
+import {TreoNavigationService} from '@treo/components/navigation/navigation.service';
+import {TreoNavigationItem} from '@treo/components/navigation/navigation.types';
 
 @Component({
     selector: 'treo-vertical-navigation-group-item',
@@ -28,7 +28,7 @@ export class TreoVerticalNavigationGroupItemComponent implements OnInit, OnDestr
 
     // Private
     private _treoVerticalNavigationComponent: TreoVerticalNavigationComponent;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

@@ -1,17 +1,17 @@
 import {
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-  Renderer2,
-  ViewChild,
-  ViewEncapsulation
+    Component,
+    ElementRef,
+    EventEmitter,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output,
+    Renderer2,
+    ViewChild,
+    ViewEncapsulation
 } from '@angular/core';
 import {UntypedFormControl} from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {MatFormField} from '@angular/material/form-field';
 import {Subject} from 'rxjs';
 import {debounceTime, filter, map, takeUntil} from 'rxjs/operators';
@@ -48,7 +48,7 @@ export class SearchComponent implements OnInit, OnDestroy
     // Private
     private _appearance: 'basic' | 'bar';
     private _opened: boolean;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor
@@ -175,7 +175,7 @@ export class SearchComponent implements OnInit, OnDestroy
             setTimeout(() => {
 
                 // Focus to the input element
-                value._inputContainerRef.nativeElement.children[0].focus();
+                value._elementRef.nativeElement.children[0].focus();
             });
         }
     }

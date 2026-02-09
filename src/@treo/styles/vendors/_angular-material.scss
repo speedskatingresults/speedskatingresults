@@ -1,2 +1,4 @@
+@use 'treo' as *;
+
 // Include core Angular Material styles from '~@angular/material/theming'
 @include mat-core();

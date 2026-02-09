@@ -1,11 +1,17 @@
-import { Injectable } from '@angular/core';
-import { assign, cloneDeep, omit } from 'lodash-es';
-import * as moment from 'moment';
-import RRule, { RRuleSet, rrulestr } from 'rrule';
-import { TreoMockApi } from '@treo/lib/mock-api/mock-api.interfaces';
-import { TreoMockApiService } from '@treo/lib/mock-api/mock-api.service';
-import { TreoMockApiUtils } from '@treo/lib/mock-api/mock-api.utils';
-import { calendars as calendarsData, events as eventsData, exceptions as exceptionsData, settings as settingsData, weekdays as weekdaysData } from 'app/data/mock/apps/calendar/data';
+import {Injectable} from '@angular/core';
+import {assign, cloneDeep, omit} from 'lodash-es';
+import moment from 'moment';
+import RRule, {RRuleSet, rrulestr} from 'rrule';
+import {TreoMockApi} from '@treo/lib/mock-api/mock-api.interfaces';
+import {TreoMockApiService} from '@treo/lib/mock-api/mock-api.service';
+import {TreoMockApiUtils} from '@treo/lib/mock-api/mock-api.utils';
+import {
+    calendars as calendarsData,
+    events as eventsData,
+    exceptions as exceptionsData,
+    settings as settingsData,
+    weekdays as weekdaysData
+} from 'app/data/mock/apps/calendar/data';
 
 @Injectable({
     providedIn: 'root'
@@ -51,7 +57,7 @@ export class CalendarMockApi implements TreoMockApi
      * @param until
      * @private
      */
-    private _generateRuleset(event, dtStart, until): RRuleSet | RRule
+    private _generateRuleset(event, dtStart, until): RRule.RRule | RRuleSet
     {
         // Parse the recurrence rules
         const parsedRules = {};

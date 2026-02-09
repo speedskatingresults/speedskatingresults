@@ -1,13 +1,13 @@
-import { Component, Inject, OnDestroy, OnInit, ViewEncapsulation, DOCUMENT } from '@angular/core';
+import {Component, DOCUMENT, Inject, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
 
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { combineLatest, Subject } from 'rxjs';
-import { filter, map, takeUntil } from 'rxjs/operators';
-import { TreoConfigService } from '@treo/services/config';
-import { TreoMediaWatcherService } from '@treo/services/media-watcher';
-import { Layout } from 'app/layout/layout.types';
-import { AppConfig } from 'app/core/config/app.config';
-import { MatRadioChange } from '@angular/material/radio';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
+import {combineLatest, Subject} from 'rxjs';
+import {filter, map, takeUntil} from 'rxjs/operators';
+import {TreoConfigService} from '@treo/services/config';
+import {TreoMediaWatcherService} from '@treo/services/media-watcher';
+import {Layout} from 'app/layout/layout.types';
+import {AppConfig} from 'app/core/config/app.config';
+import {MatRadioChange} from '@angular/material/radio';
 
 @Component({
     selector: 'layout',
@@ -23,7 +23,7 @@ export class LayoutComponent implements OnInit, OnDestroy
     theme: 'dark' | 'light';
 
     // Private
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

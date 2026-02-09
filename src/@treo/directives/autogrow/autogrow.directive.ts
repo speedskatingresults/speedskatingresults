@@ -1,5 +1,5 @@
-import { Directive, ElementRef, HostBinding, HostListener, Input, OnDestroy, OnInit, Renderer2 } from '@angular/core';
-import { Subject } from 'rxjs';
+import {Directive, ElementRef, HostBinding, HostListener, Input, OnDestroy, OnInit, Renderer2} from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Directive({
     selector: 'textarea[treoAutogrow]',
@@ -12,7 +12,7 @@ export class TreoAutogrowDirective implements OnInit, OnDestroy
 
     // Private
     private _padding: number;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

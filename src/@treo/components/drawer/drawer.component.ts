@@ -1,7 +1,19 @@
-import { Component, ElementRef, EventEmitter, HostBinding, HostListener, Input, OnDestroy, OnInit, Output, Renderer2, ViewEncapsulation } from '@angular/core';
-import { animate, AnimationBuilder, AnimationPlayer, style } from '@angular/animations';
-import { TreoDrawerMode, TreoDrawerPosition } from '@treo/components/drawer/drawer.types';
-import { TreoDrawerService } from '@treo/components/drawer/drawer.service';
+import {
+    Component,
+    ElementRef,
+    EventEmitter,
+    HostBinding,
+    HostListener,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output,
+    Renderer2,
+    ViewEncapsulation
+} from '@angular/core';
+import {animate, AnimationBuilder, AnimationPlayer, style} from '@angular/animations';
+import {TreoDrawerMode, TreoDrawerPosition} from '@treo/components/drawer/drawer.types';
+import {TreoDrawerService} from '@treo/components/drawer/drawer.service';
 
 @Component({
     selector: 'treo-drawer',
@@ -43,7 +55,7 @@ export class TreoDrawerComponent implements OnInit, OnDestroy
     readonly positionChanged: EventEmitter<TreoDrawerPosition>;
 
     @HostBinding('class.treo-drawer-animations-enabled')
-    private _animationsEnabled: boolean;
+    protected _animationsEnabled: boolean;
 
     /**
      * Constructor
@@ -454,7 +466,7 @@ export class TreoDrawerComponent implements OnInit, OnDestroy
      * @private
      */
     @HostListener('mouseenter')
-    private _onMouseenter(): void
+    protected _onMouseenter(): void
     {
         // Enable the animations
         this._enableAnimations();
@@ -469,7 +481,7 @@ export class TreoDrawerComponent implements OnInit, OnDestroy
      * @private
      */
     @HostListener('mouseleave')
-    private _onMouseleave(): void
+    protected _onMouseleave(): void
     {
         // Enable the animations
         this._enableAnimations();

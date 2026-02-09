@@ -3,7 +3,47 @@
 // -----------------------------------------------------------------------------------------------------
 
 // 1. Angular Material theming tools
-@import '@angular/material/theming';
+@use '@angular/material' as mat;
+@use "sass:map";
+
+// Sass 3.0 compatibility shim for legacy global map-get usage.
+@function map-get($map, $key) {
+    @return map.get($map, $key);
+}
+
+// Legacy M2 API compatibility shims for older Treo theming helpers.
+// This keeps the rest of the Treo styles unchanged while using the modern Sass module system.
+@function mat-light-theme($primary, $accent: null, $warn: null) {
+    @return mat.m2-define-light-theme($primary, $accent, $warn);
+}
+
+@function mat-dark-theme($primary, $accent: null, $warn: null) {
+    @return mat.m2-define-dark-theme($primary, $accent, $warn);
+}
+
+@function mat-palette($palette, $default: 500, $lighter: 100, $darker: 700, $text: $default) {
+    @return mat.m2-define-palette($palette, $default, $lighter, $darker, $text);
+}
+
+@function mat-typography-config($args...) {
+    @return mat.m2-define-legacy-typography-config($args...);
+}
+
+@function mat-typography-level($font-size, $line-height: $font-size, $font-weight: 400, $font-family: null, $letter-spacing: normal) {
+    @return mat.m2-define-typography-level($font-size, $line-height, $font-weight, $font-family, $letter-spacing);
+}
+
+@mixin mat-core() {
+    @include mat.core();
+}
+
+@mixin angular-material-typography($theme: null) {
+    @include mat.all-component-typographies($theme);
+}
+
+@mixin angular-material-theme($theme) {
+    @include mat.all-component-themes($theme);
+}
 
 // 2. Utilities
 @import '../tailwind/exported/variables';

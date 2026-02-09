@@ -1,10 +1,18 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MatMenu } from '@angular/material/menu';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { TreoHorizontalNavigationComponent } from '@treo/components/navigation/horizontal/horizontal.component';
-import { TreoNavigationService } from '@treo/components/navigation/navigation.service';
-import { TreoNavigationItem } from '@treo/components/navigation/navigation.types';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnDestroy,
+    OnInit,
+    ViewChild
+} from '@angular/core';
+import {MatMenu} from '@angular/material/menu';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {TreoHorizontalNavigationComponent} from '@treo/components/navigation/horizontal/horizontal.component';
+import {TreoNavigationService} from '@treo/components/navigation/navigation.service';
+import {TreoNavigationItem} from '@treo/components/navigation/navigation.types';
 
 @Component({
     selector: 'treo-horizontal-navigation-branch-item',
@@ -33,7 +41,7 @@ export class TreoHorizontalNavigationBranchItemComponent implements OnInit, OnDe
 
     // Private
     private _treoHorizontalNavigationComponent: TreoHorizontalNavigationComponent;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

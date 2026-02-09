@@ -1,7 +1,7 @@
-import { Directive, ElementRef, OnDestroy, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { filter, takeUntil } from 'rxjs/operators';
+import {Directive, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {NavigationEnd, Router} from '@angular/router';
+import {Subject} from 'rxjs';
+import {filter, takeUntil} from 'rxjs/operators';
 
 @Directive({
     selector: '[treoScrollReset]',
@@ -10,7 +10,7 @@ import { filter, takeUntil } from 'rxjs/operators';
 export class TreoScrollResetDirective implements OnInit, OnDestroy
 {
     // Private
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

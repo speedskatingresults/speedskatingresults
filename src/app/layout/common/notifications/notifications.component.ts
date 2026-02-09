@@ -1,11 +1,22 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, TemplateRef, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
-import { Overlay, OverlayRef } from '@angular/cdk/overlay';
-import { TemplatePortal } from '@angular/cdk/portal';
-import { MatButton } from '@angular/material/button';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { Notification } from 'app/layout/common/notifications/notifications.types';
-import { NotificationsService } from 'app/layout/common/notifications/notifications.service';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnDestroy,
+    OnInit,
+    TemplateRef,
+    ViewChild,
+    ViewContainerRef,
+    ViewEncapsulation
+} from '@angular/core';
+import {Overlay, OverlayRef} from '@angular/cdk/overlay';
+import {TemplatePortal} from '@angular/cdk/portal';
+import {MatButton} from '@angular/material/button';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {Notification} from 'app/layout/common/notifications/notifications.types';
+import {NotificationsService} from 'app/layout/common/notifications/notifications.service';
 
 @Component({
     selector: 'notifications',
@@ -23,7 +34,7 @@ export class NotificationsComponent implements OnInit, OnDestroy
     // Private
     private _notifications: Notification[];
     private _overlayRef: OverlayRef;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     @ViewChild('notificationsOrigin')
     private _notificationsOrigin: MatButton;

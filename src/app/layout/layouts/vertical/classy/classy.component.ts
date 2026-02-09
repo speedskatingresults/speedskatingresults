@@ -1,9 +1,9 @@
-import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Data, Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { TreoMediaWatcherService } from '@treo/services/media-watcher';
-import { TreoNavigationService } from '@treo/components/navigation';
+import {Component, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute, Data, Router} from '@angular/router';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {TreoMediaWatcherService} from '@treo/services/media-watcher';
+import {TreoNavigationService} from '@treo/components/navigation';
 
 @Component({
     selector: 'classy-layout',
@@ -18,7 +18,7 @@ export class ClassyLayoutComponent implements OnInit, OnDestroy
     isScreenSmall: boolean;
 
     // Private
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

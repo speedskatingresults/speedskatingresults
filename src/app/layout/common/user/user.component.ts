@@ -1,9 +1,17 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { User } from 'app/layout/common/user/user.types';
-import { UserService } from 'app/layout/common/user/user.service';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnDestroy,
+    OnInit,
+    ViewEncapsulation
+} from '@angular/core';
+import {Router} from '@angular/router';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {User} from 'app/layout/common/user/user.types';
+import {UserService} from 'app/layout/common/user/user.service';
 
 @Component({
     selector: 'user',
@@ -20,7 +28,7 @@ export class UserComponent implements OnInit, OnDestroy
     showAvatar: boolean;
 
     // Private
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
     private _user: User;
 
     /**

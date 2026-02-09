@@ -1,9 +1,9 @@
-import { Component, HostBinding, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute, Data, Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { TreoMediaWatcherService } from '@treo/services/media-watcher';
-import { TreoNavigationService } from '@treo/components/navigation';
+import {Component, HostBinding, OnDestroy, OnInit, ViewEncapsulation} from '@angular/core';
+import {ActivatedRoute, Data, Router} from '@angular/router';
+import {Subject} from 'rxjs';
+import {takeUntil} from 'rxjs/operators';
+import {TreoMediaWatcherService} from '@treo/services/media-watcher';
+import {TreoNavigationService} from '@treo/components/navigation';
 
 @Component({
     selector: 'thin-layout',
@@ -24,7 +24,7 @@ export class ThinLayoutComponent implements OnInit, OnDestroy
     fixedFooter: boolean;
 
     // Private
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

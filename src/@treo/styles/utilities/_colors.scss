@@ -1,3 +1,8 @@
+@use '@angular/material' as mat;
+@use "sass:map";
+@use "sass:meta";
+@use '../../tailwind/exported/variables' as vars;
+
 // -----------------------------------------------------------------------------------------------------
 // @ Functions
 // -----------------------------------------------------------------------------------------------------
@@ -13,7 +18,7 @@
 @function treo-color($color, $hue: 500, $opacity: 1) {
 
     // Get the color palette
-    $palette: map-get($treo-colors, $color);
+    $palette: map.get(vars.$treo-colors, $color);
 
     // Make sure the palette is available
     @if ($palette == null) {
@@ -21,7 +26,7 @@
     }
 
     // Get the color
-    $color: map-get($palette, $hue);
+    $color: map.get($palette, $hue);
 
     // Make sure the hue is available
     @if ($color == null) {
@@ -29,7 +34,7 @@
     }
 
     // Apply the opacity if possible
-    @if (type-of($color) == color) {
+    @if (meta.type-of($color) == color) {
         $color: rgba($color, $opacity);
     }
 
@@ -48,7 +53,7 @@
 @function treo-contrast($contrast, $hue: 500, $opacity: 1) {
 
     // Get the color palette
-    $palette: map-get($treo-colors, $contrast);
+    $palette: map.get(vars.$treo-colors, $contrast);
 
     // Make sure the palette is available
     @if ($palette == null) {
@@ -56,7 +61,7 @@
     }
 
     // Get the contrast
-    $contrast: map-get(map-get($palette, contrast), $hue);
+    $contrast: map.get(map.get($palette, contrast), $hue);
 
     // Make sure the hue is available
     @if ($contrast == null) {
@@ -64,7 +69,7 @@
     }
 
     // Apply the opacity if possible
-    @if (type-of($contrast) == color) {
+    @if (meta.type-of($contrast) == color) {
         $color: rgba($contrast, $opacity);
     }
 
@@ -82,46 +87,74 @@
 @function _treo-modify-angular-material-theme-colors($theme) {
 
     // Store the is-dark for convenience
-    $is-dark: map-get($theme, is-dark);
+    $is-dark: map.get($theme, is-dark);
 
     // Generate the modified foreground palette based on
     // Angular Material's mat-xxx-theme-foreground map
     $foreground: (
-        base: if($is-dark, white, black),
-        divider: if($is-dark, rgba(treo-color('cool-gray', 100), 0.12), treo-color('cool-gray', 200)),
-        dividers: if($is-dark, rgba(treo-color('cool-gray', 100), 0.12), treo-color('cool-gray', 200)),
-        disabled: if($is-dark, treo-color('cool-gray', 600), treo-color('cool-gray', 400)),
-        disabled-button: if($is-dark, treo-color('cool-gray', 800), treo-color('cool-gray', 400)),
-        disabled-text: if($is-dark, treo-color('cool-gray', 600), treo-color('cool-gray', 400)),
+            base: if(sass($is-dark): white;
+    else: black),
+divider:if(sass($is-dark):rgba(treo-color('cool-gray', 100), 0.12);
+else:treo-color('cool-gray', 200)),
+dividers:if(sass($is-dark):rgba(treo-color('cool-gray', 100), 0.12);
+else:treo-color('cool-gray', 200)),
+disabled:if(sass($is-dark):treo-color('cool-gray', 600);
+else:treo-color('cool-gray', 400)),
+disabled-button:if(sass($is-dark):treo-color('cool-gray', 800);
+else:treo-color('cool-gray', 400)),
+disabled-text:if(sass($is-dark):treo-color('cool-gray', 600);
+else:treo-color('cool-gray', 400)),
         elevation: black,
-        hint-text: if($is-dark, treo-color('cool-gray', 500), treo-color('cool-gray', 400)),
-        secondary-text: if($is-dark, treo-color('cool-gray', 400), treo-color('cool-gray', 500)),
-        icon: if($is-dark, treo-color('cool-gray', 100), treo-color('cool-gray', 500)),
-        icons: if($is-dark, treo-color('cool-gray', 100), treo-color('cool-gray', 500)),
-        text: if($is-dark, white, treo-color('cool-gray', 800)),
-        slider-min: if($is-dark, white, treo-color('cool-gray', 800)),
-        slider-off: if($is-dark, treo-color('cool-gray', 500), treo-color('cool-gray', 300)),
-        slider-off-active: if($is-dark, treo-color('cool-gray', 400), treo-color('cool-gray', 400)),
+hint-text:if(sass($is-dark):treo-color('cool-gray', 500);
+else:treo-color('cool-gray', 400)),
+secondary-text:if(sass($is-dark):treo-color('cool-gray', 400);
+else:treo-color('cool-gray', 500)),
+icon:if(sass($is-dark):treo-color('cool-gray', 100);
+else:treo-color('cool-gray', 500)),
+icons:if(sass($is-dark):treo-color('cool-gray', 100);
+else:treo-color('cool-gray', 500)),
+text:if(sass($is-dark):white;
+else:treo-color('cool-gray', 800)),
+slider-min:if(sass($is-dark):white;
+else:treo-color('cool-gray', 800)),
+slider-off:if(sass($is-dark):treo-color('cool-gray', 500);
+else:treo-color('cool-gray', 300)),
+slider-off-active:if(sass($is-dark):treo-color('cool-gray', 400);
+else:treo-color('cool-gray', 400)),
     );
 
     // Generate the modified background palette based on
     // Angular Material's mat-xxx-theme-background map
-    $background: (
-        status-bar: if($is-dark, treo-color('cool-gray', 900), treo-color('cool-gray', 300)),
-        app-bar: if($is-dark, treo-color('cool-gray', 900), white),
-        background: if($is-dark, treo-color('cool-gray', 900), treo-color('cool-gray', 100)),
-        hover: if($is-dark, rgba(255, 255, 255, 0.05), rgba(treo-color('cool-gray', 400), 0.12)),
-        card: if($is-dark, treo-color('cool-gray', 800), white),
-        dialog: if($is-dark, treo-color('cool-gray', 800), white),
-        disabled-button: if($is-dark, rgba(treo-color('cool-gray', 900), 0.38), rgba(treo-color('cool-gray', 400), 0.38)),
-        raised-button: if($is-dark, treo-color('cool-gray', 900), white),
-        focused-button: if($is-dark, treo-color('cool-gray', 200), treo-color('cool-gray', 500)),
-        selected-button: if($is-dark, rgba(255, 255, 255, 0.05), treo-color('cool-gray', 200)),
-        selected-disabled-button: if($is-dark, treo-color('cool-gray', 800), treo-color('cool-gray', 200)),
-        disabled-button-toggle: if($is-dark, treo-color('cool-gray', 900), treo-color('cool-gray', 300)),
-        unselected-chip: if($is-dark, treo-color('cool-gray', 600), treo-color('cool-gray', 200)),
-        disabled-list-option: if($is-dark, treo-color('cool-gray', 200), treo-color('cool-gray', 300)),
-        tooltip: if($is-dark, treo-color('cool-gray', 500), treo-color('cool-gray', 800)),
+    $background: (status-bar:if(sass($is-dark):treo-color('cool-gray', 900);
+else:treo-color('cool-gray', 300)),
+app-bar:if(sass($is-dark):treo-color('cool-gray', 900);
+else:white),
+background:if(sass($is-dark):treo-color('cool-gray', 900);
+else:treo-color('cool-gray', 100)),
+hover:if(sass($is-dark):rgba(255, 255, 255, 0.05);
+else:rgba(treo-color('cool-gray', 400), 0.12)),
+card:if(sass($is-dark):treo-color('cool-gray', 800);
+else:white),
+dialog:if(sass($is-dark):treo-color('cool-gray', 800);
+else:white),
+disabled-button:if(sass($is-dark):rgba(treo-color('cool-gray', 900), 0.38);
+else:rgba(treo-color('cool-gray', 400), 0.38)),
+raised-button:if(sass($is-dark):treo-color('cool-gray', 900);
+else:white),
+focused-button:if(sass($is-dark):treo-color('cool-gray', 200);
+else:treo-color('cool-gray', 500)),
+selected-button:if(sass($is-dark):rgba(255, 255, 255, 0.05);
+else:treo-color('cool-gray', 200)),
+selected-disabled-button:if(sass($is-dark):treo-color('cool-gray', 800);
+else:treo-color('cool-gray', 200)),
+disabled-button-toggle:if(sass($is-dark):treo-color('cool-gray', 900);
+else:treo-color('cool-gray', 300)),
+unselected-chip:if(sass($is-dark):treo-color('cool-gray', 600);
+else:treo-color('cool-gray', 200)),
+disabled-list-option:if(sass($is-dark):treo-color('cool-gray', 200);
+else:treo-color('cool-gray', 300)),
+tooltip:if(sass($is-dark):treo-color('cool-gray', 500);
+else:treo-color('cool-gray', 800)),
     );
 
     // Store the modified theme.
@@ -129,11 +162,10 @@
     // Since modifications only being done on 'foreground'
     // and 'background' palettes, add them from above but
     // keep everything else original
-    $modified-theme: (
-        primary: map-get($theme, primary),
-        accent: map-get($theme, accent),
-        warn: map-get($theme, warn),
-        is-dark: map-get($theme, is-dark),
+    $modified-theme: (primary:map . get($theme, primary),
+accent:map . get($theme, accent),
+warn:map . get($theme, warn),
+is-dark:map . get($theme, is-dark),
         foreground: $foreground,
         background: $background
     );
@@ -154,7 +186,17 @@
 @function treo-light-theme($primary-palette, $accent-palette, $warn-palette) {
 
     // Generate the Angular Material theme
-    $angular-material-theme: mat-light-theme($primary-palette, $accent-palette, $warn-palette);
+    $angular-material-theme: mat.m2-define-light-theme(
+                    (
+                            color: (
+                                    primary: $primary-palette,
+                                    accent: $accent-palette,
+                                    warn: $warn-palette
+                            ),
+                            typography: null,
+                            density: 0
+                    )
+    );
 
     // Modify and return the theme
     @return _treo-modify-angular-material-theme-colors($angular-material-theme);
@@ -172,7 +214,17 @@
 @function treo-dark-theme($primary-palette, $accent-palette, $warn-palette) {
 
     // Generate the Angular Material theme
-    $angular-material-theme: mat-dark-theme($primary-palette, $accent-palette, $warn-palette);
+    $angular-material-theme: mat.m2-define-dark-theme(
+                    (
+                            color: (
+                                    primary: $primary-palette,
+                                    accent: $accent-palette,
+                                    warn: $warn-palette
+                            ),
+                            typography: null,
+                            density: 0
+                    )
+    );
 
     // Modify and return the theme
     @return _treo-modify-angular-material-theme-colors($angular-material-theme);
@@ -189,7 +241,7 @@
 /// @param {Map} $text - Text color
 ///
 @function treo-palette($palette, $default: 500, $lighter: 100, $darker: 700, $text: $default) {
-    @return mat-palette(map-get($treo-colors, $palette), $default, $lighter, $darker, $text);
+    @return mat.m2-define-palette(map.get(vars.$treo-colors, $palette), $default, $lighter, $darker, $text);
 }
 
 // -----------------------------------------------------------------------------------------------------
@@ -282,8 +334,8 @@
         @each $hue in (100, 200, 300, 400, 500, 600, 700, 800, 900) {
 
             // Get color and contrast
-            $color: map-get($palette, $hue);
-            $contrast: map-get($palette, '#{$hue}-contrast');
+            $color: map.get($palette, $hue);
+            $contrast: map.get($palette, '#{$hue}-contrast');
 
             // If both color and its contrasting color exist, generate the color classes...
             @if ($color != null and $contrast != null) {

@@ -1,7 +1,7 @@
-import { ModuleWithProviders, NgModule, provideAppInitializer } from '@angular/core';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { TreoMockApiInterceptor } from '@treo/lib/mock-api/mock-api.interceptor';
-import { TreoMockApiService } from '@treo/lib/mock-api/mock-api.service';
+import {APP_INITIALIZER, ModuleWithProviders, NgModule} from '@angular/core';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TreoMockApiInterceptor} from '@treo/lib/mock-api/mock-api.interceptor';
+import {TreoMockApiService} from '@treo/lib/mock-api/mock-api.service';
 
 @NgModule({
     providers: [
@@ -25,10 +25,13 @@ export class TreoMockApiModule
         return {
             ngModule : TreoMockApiModule,
             providers: [
-                provideAppInitializer(() => {
-        const initializerFn = (() => () => null)();
-        return initializerFn();
-      }),
+                ...mockDataServices,
+                {
+                    provide: APP_INITIALIZER,
+                    multi: true,
+                    deps: mockDataServices,
+                    useFactory: (..._services: any[]) => () => null
+                }
             ]
         };
     }

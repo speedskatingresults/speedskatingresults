@@ -1,9 +1,9 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { takeUntil } from 'rxjs/operators';
-import { Subject } from 'rxjs';
-import { TreoHorizontalNavigationComponent } from '@treo/components/navigation/horizontal/horizontal.component';
-import { TreoNavigationService } from '@treo/components/navigation/navigation.service';
-import { TreoNavigationItem } from '@treo/components/navigation/navigation.types';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {takeUntil} from 'rxjs/operators';
+import {Subject} from 'rxjs';
+import {TreoHorizontalNavigationComponent} from '@treo/components/navigation/horizontal/horizontal.component';
+import {TreoNavigationService} from '@treo/components/navigation/navigation.service';
+import {TreoNavigationItem} from '@treo/components/navigation/navigation.types';
 
 @Component({
     selector: 'treo-horizontal-navigation-spacer-item',
@@ -24,7 +24,7 @@ export class TreoHorizontalNavigationSpacerItemComponent implements OnInit, OnDe
 
     // Private
     private _treoHorizontalNavigationComponent: TreoHorizontalNavigationComponent;
-    private _unsubscribeAll: Subject<any>;
+    private _unsubscribeAll: Subject<void>;
 
     /**
      * Constructor

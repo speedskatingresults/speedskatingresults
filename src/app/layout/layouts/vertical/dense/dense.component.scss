@@ -1,4 +1,4 @@
-@import 'treo';
+@use 'treo' as *;
 
 $treo-vertical-navigation-width: 280;
 $treo-vertical-navigation-dense-width: 72;
