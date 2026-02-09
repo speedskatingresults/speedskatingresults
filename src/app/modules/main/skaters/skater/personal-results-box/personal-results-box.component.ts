@@ -15,9 +15,10 @@ import {SpeedSkatingResultsApiService} from '../../../../../shared/services/spee
 import {MatPaginator} from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-personal-results-box',
-  templateUrl: './personal-results-box.component.html',
-  styleUrls: ['./personal-results-box.component.scss']
+    selector: 'app-personal-results-box',
+    templateUrl: './personal-results-box.component.html',
+    styleUrls: ['./personal-results-box.component.scss'],
+    standalone: false
 })
 export class PersonalResultsBoxComponent implements OnInit, OnChanges {
   @Input() skaterID;

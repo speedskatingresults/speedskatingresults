@@ -6,10 +6,11 @@ import { TreoMediaWatcherService } from '@treo/services/media-watcher';
 import { TreoNavigationService } from '@treo/components/navigation';
 
 @Component({
-    selector     : 'futuristic-layout',
-    templateUrl  : './futuristic.component.html',
-    styleUrls    : ['./futuristic.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'futuristic-layout',
+    templateUrl: './futuristic.component.html',
+    styleUrls: ['./futuristic.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class FuturisticLayoutComponent implements OnInit, OnDestroy
 {

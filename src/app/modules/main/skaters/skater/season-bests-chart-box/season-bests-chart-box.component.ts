@@ -34,10 +34,11 @@ export type ChartOptions = {
 
 
 @Component({
-  selector: 'app-season-bests-chart-box',
-  templateUrl: './season-bests-chart-box.component.html',
-  styleUrls: ['./season-bests-chart-box.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+    selector: 'app-season-bests-chart-box',
+    templateUrl: './season-bests-chart-box.component.html',
+    styleUrls: ['./season-bests-chart-box.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class SeasonBestsChartBoxComponent implements OnChanges {
   @Input() skaterID;

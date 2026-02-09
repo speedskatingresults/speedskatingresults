@@ -6,10 +6,11 @@ import { TreoMediaWatcherService } from '@treo/services/media-watcher';
 import { TreoNavigationService } from '@treo/components/navigation';
 
 @Component({
-    selector     : 'basic-layout',
-    templateUrl  : './basic.component.html',
-    styleUrls    : ['./basic.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'basic-layout',
+    templateUrl: './basic.component.html',
+    styleUrls: ['./basic.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class BasicLayoutComponent implements OnInit, OnDestroy
 {

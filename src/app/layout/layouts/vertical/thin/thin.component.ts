@@ -6,10 +6,11 @@ import { TreoMediaWatcherService } from '@treo/services/media-watcher';
 import { TreoNavigationService } from '@treo/components/navigation';
 
 @Component({
-    selector     : 'thin-layout',
-    templateUrl  : './thin.component.html',
-    styleUrls    : ['./thin.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'thin-layout',
+    templateUrl: './thin.component.html',
+    styleUrls: ['./thin.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class ThinLayoutComponent implements OnInit, OnDestroy
 {

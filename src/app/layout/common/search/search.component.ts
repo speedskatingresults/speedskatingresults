@@ -20,12 +20,13 @@ import {SpeedSkatingResultsApiService} from '../../../shared/services/speed-skat
 import {Skater} from '../../../shared/models/skating-data/Skater';
 
 @Component({
-    selector     : 'search',
-    templateUrl  : './search.component.html',
-    styleUrls    : ['./search.component.scss'],
+    selector: 'search',
+    templateUrl: './search.component.html',
+    styleUrls: ['./search.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    exportAs     : 'treoSearch',
-    animations   : TreoAnimations
+    exportAs: 'treoSearch',
+    animations: TreoAnimations,
+    standalone: false
 })
 export class SearchComponent implements OnInit, OnDestroy
 {

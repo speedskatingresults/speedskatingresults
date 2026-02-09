@@ -10,13 +10,14 @@ import { TreoNavigationService } from '@treo/components/navigation/navigation.se
 import { TreoScrollbarDirective } from '@treo/directives/scrollbar/scrollbar.directive';
 
 @Component({
-    selector       : 'treo-vertical-navigation',
-    templateUrl    : './vertical.component.html',
-    styleUrls      : ['./vertical.component.scss'],
-    animations     : TreoAnimations,
-    encapsulation  : ViewEncapsulation.None,
+    selector: 'treo-vertical-navigation',
+    templateUrl: './vertical.component.html',
+    styleUrls: ['./vertical.component.scss'],
+    animations: TreoAnimations,
+    encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    exportAs       : 'treoVerticalNavigation'
+    exportAs: 'treoVerticalNavigation',
+    standalone: false
 })
 export class TreoVerticalNavigationComponent implements OnInit, AfterViewInit, OnDestroy
 {

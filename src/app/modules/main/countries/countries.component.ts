@@ -5,9 +5,10 @@ import {Router} from '@angular/router';
 import {UntypedFormControl} from '@angular/forms';
 
 @Component({
-  selector: 'app-countries',
-  templateUrl: './countries.component.html',
-  styleUrls: ['./countries.component.scss']
+    selector: 'app-countries',
+    templateUrl: './countries.component.html',
+    styleUrls: ['./countries.component.scss'],
+    standalone: false
 })
 export class CountriesComponent implements OnInit {
   public countries: Country[];

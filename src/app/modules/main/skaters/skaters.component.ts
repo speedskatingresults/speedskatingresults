@@ -6,9 +6,10 @@ import {SpeedSkatingResultsApiService} from '../../../shared/services/speed-skat
 import {countries} from 'app/data/countries';
 
 @Component({
-  selector: 'app-skaters',
-  templateUrl: './skaters.component.html',
-  styleUrls: ['./skaters.component.scss'],
+    selector: 'app-skaters',
+    templateUrl: './skaters.component.html',
+    styleUrls: ['./skaters.component.scss'],
+    standalone: false
 })
 export class SkatersComponent implements OnInit {
 

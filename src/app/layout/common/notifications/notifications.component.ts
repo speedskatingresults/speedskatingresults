@@ -8,12 +8,13 @@ import { Notification } from 'app/layout/common/notifications/notifications.type
 import { NotificationsService } from 'app/layout/common/notifications/notifications.service';
 
 @Component({
-    selector       : 'notifications',
-    templateUrl    : './notifications.component.html',
-    styleUrls      : ['./notifications.component.scss'],
-    encapsulation  : ViewEncapsulation.None,
+    selector: 'notifications',
+    templateUrl: './notifications.component.html',
+    styleUrls: ['./notifications.component.scss'],
+    encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    exportAs       : 'notifications'
+    exportAs: 'notifications',
+    standalone: false
 })
 export class NotificationsComponent implements OnInit, OnDestroy
 {

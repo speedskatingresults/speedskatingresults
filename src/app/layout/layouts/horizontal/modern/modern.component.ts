@@ -6,10 +6,11 @@ import { TreoMediaWatcherService } from '@treo/services/media-watcher';
 import { TreoNavigationService } from '@treo/components/navigation';
 
 @Component({
-    selector     : 'modern-layout',
-    templateUrl  : './modern.component.html',
-    styleUrls    : ['./modern.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'modern-layout',
+    templateUrl: './modern.component.html',
+    styleUrls: ['./modern.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class ModernLayoutComponent implements OnInit, OnDestroy
 {

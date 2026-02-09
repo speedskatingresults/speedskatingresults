@@ -6,10 +6,11 @@ import { TreoMediaWatcherService } from '@treo/services/media-watcher';
 import { TreoNavigationService } from '@treo/components/navigation';
 
 @Component({
-    selector     : 'dense-layout',
-    templateUrl  : './dense.component.html',
-    styleUrls    : ['./dense.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'dense-layout',
+    templateUrl: './dense.component.html',
+    styleUrls: ['./dense.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class DenseLayoutComponent implements OnInit, OnDestroy
 {

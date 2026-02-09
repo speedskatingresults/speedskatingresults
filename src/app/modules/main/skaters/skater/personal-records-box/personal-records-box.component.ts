@@ -13,9 +13,10 @@ import {MatSort} from '@angular/material/sort';
 import {SpeedSkatingResultsApiService} from '../../../../../shared/services/speed-skating-results-api.service';
 
 @Component({
-  selector: 'app-personal-records-box',
-  templateUrl: './personal-records-box.component.html',
-  styleUrls: ['./personal-records-box.component.scss']
+    selector: 'app-personal-records-box',
+    templateUrl: './personal-records-box.component.html',
+    styleUrls: ['./personal-records-box.component.scss'],
+    standalone: false
 })
 export class PersonalRecordsBoxComponent implements OnInit, OnChanges {
   @Input() skaterID;

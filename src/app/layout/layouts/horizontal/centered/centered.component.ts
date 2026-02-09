@@ -6,10 +6,11 @@ import { TreoMediaWatcherService } from '@treo/services/media-watcher';
 import { TreoNavigationService } from '@treo/components/navigation';
 
 @Component({
-    selector     : 'centered-layout',
-    templateUrl  : './centered.component.html',
-    styleUrls    : ['./centered.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'centered-layout',
+    templateUrl: './centered.component.html',
+    styleUrls: ['./centered.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class CenteredLayoutComponent implements OnInit, OnDestroy
 {

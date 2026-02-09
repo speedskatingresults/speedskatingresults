@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-next-season-countdown',
-  templateUrl: './next-season-countdown.component.html'
+    selector: 'app-next-season-countdown',
+    templateUrl: './next-season-countdown.component.html',
+    standalone: false
 })
 export class NextSeasonCountdownComponent implements OnInit {
   public days: number;

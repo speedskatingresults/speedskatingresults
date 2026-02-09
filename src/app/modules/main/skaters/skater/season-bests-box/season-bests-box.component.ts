@@ -13,9 +13,10 @@ import {MatSort} from '@angular/material/sort';
 import {SpeedSkatingResultsApiService} from '../../../../../shared/services/speed-skating-results-api.service';
 
 @Component({
-  selector: 'app-season-bests-box',
-  templateUrl: './season-bests-box.component.html',
-  styleUrls: ['./season-bests-box.component.scss']
+    selector: 'app-season-bests-box',
+    templateUrl: './season-bests-box.component.html',
+    styleUrls: ['./season-bests-box.component.scss'],
+    standalone: false
 })
 export class SeasonBestsBoxComponent implements OnInit, OnChanges {
   @Input() skaterID;

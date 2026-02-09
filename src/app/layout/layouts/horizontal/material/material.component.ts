@@ -6,10 +6,11 @@ import { TreoMediaWatcherService } from '@treo/services/media-watcher';
 import { TreoNavigationService } from '@treo/components/navigation';
 
 @Component({
-    selector     : 'material-layout',
-    templateUrl  : './material.component.html',
-    styleUrls    : ['./material.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'material-layout',
+    templateUrl: './material.component.html',
+    styleUrls: ['./material.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class MaterialLayoutComponent implements OnInit, OnDestroy
 {

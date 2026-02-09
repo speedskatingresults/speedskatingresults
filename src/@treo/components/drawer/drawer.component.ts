@@ -4,11 +4,12 @@ import { TreoDrawerMode, TreoDrawerPosition } from '@treo/components/drawer/draw
 import { TreoDrawerService } from '@treo/components/drawer/drawer.service';
 
 @Component({
-    selector     : 'treo-drawer',
-    templateUrl  : './drawer.component.html',
-    styleUrls    : ['./drawer.component.scss'],
+    selector: 'treo-drawer',
+    templateUrl: './drawer.component.html',
+    styleUrls: ['./drawer.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    exportAs     : 'treoDrawer'
+    exportAs: 'treoDrawer',
+    standalone: false
 })
 export class TreoDrawerComponent implements OnInit, OnDestroy
 {

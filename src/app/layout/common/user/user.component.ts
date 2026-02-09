@@ -6,12 +6,13 @@ import { User } from 'app/layout/common/user/user.types';
 import { UserService } from 'app/layout/common/user/user.service';
 
 @Component({
-    selector       : 'user',
-    templateUrl    : './user.component.html',
-    styleUrls      : ['./user.component.scss'],
-    encapsulation  : ViewEncapsulation.None,
+    selector: 'user',
+    templateUrl: './user.component.html',
+    styleUrls: ['./user.component.scss'],
+    encapsulation: ViewEncapsulation.None,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    exportAs       : 'user'
+    exportAs: 'user',
+    standalone: false
 })
 export class UserComponent implements OnInit, OnDestroy
 {

@@ -6,10 +6,11 @@ import { TreoMediaWatcherService } from '@treo/services/media-watcher';
 import { TreoNavigationService } from '@treo/components/navigation';
 
 @Component({
-    selector     : 'compact-layout',
-    templateUrl  : './compact.component.html',
-    styleUrls    : ['./compact.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'compact-layout',
+    templateUrl: './compact.component.html',
+    styleUrls: ['./compact.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class CompactLayoutComponent implements OnInit, OnDestroy
 {

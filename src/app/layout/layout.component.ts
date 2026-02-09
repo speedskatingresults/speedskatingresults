@@ -10,10 +10,11 @@ import { AppConfig } from 'app/core/config/app.config';
 import { MatRadioChange } from '@angular/material/radio';
 
 @Component({
-    selector     : 'layout',
-    templateUrl  : './layout.component.html',
-    styleUrls    : ['./layout.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    selector: 'layout',
+    templateUrl: './layout.component.html',
+    styleUrls: ['./layout.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class LayoutComponent implements OnInit, OnDestroy
 {

@@ -4,8 +4,9 @@ import {MatSort} from '@angular/material/sort';
 import {SpeedSkatingResultsApiService} from '../../../../shared/services/speed-skating-results-api.service';
 
 @Component({
-  selector: 'app-world-records-box',
-  templateUrl: './world-records-box.component.html',
+    selector: 'app-world-records-box',
+    templateUrl: './world-records-box.component.html',
+    standalone: false
 })
 export class WorldRecordsBoxComponent implements OnInit {
   @Input() gender = 'male';
