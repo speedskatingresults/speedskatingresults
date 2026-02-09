@@ -17,8 +17,7 @@ import { environment } from '../environments/environment';
 
 const routerConfig: ExtraOptions = {
     scrollPositionRestoration: 'enabled',
-    preloadingStrategy       : PreloadAllModules,
-    relativeLinkResolution   : 'legacy'
+    preloadingStrategy: PreloadAllModules
 };
 
 @NgModule({
