@@ -108,7 +108,8 @@ search {
         border-radius: 0 0 4px 4px;
         @include treo-elevation('md', true);
 
-        .mat-option {
+        .mat-option,
+        .mat-mdc-option {
             padding: 0 40px;
 
             @include treo-breakpoint('xs') {
@@ -123,7 +124,8 @@ search {
         border-radius: 4px;
         @include treo-elevation('2xl', true);
 
-        .mat-option {
+        .mat-option,
+        .mat-mdc-option {
             padding: 0 32px;
 
             @include treo-breakpoint('xs') {
@@ -132,7 +134,8 @@ search {
         }
     }
 
-    .mat-option {
+    .mat-option,
+    .mat-mdc-option {
         height: 56px;
         line-height: 56px;
         font-size: 14px;
@@ -141,7 +144,8 @@ search {
             pointer-events: none;
         }
 
-        .mat-option-text {
+        .mat-option-text,
+        .mdc-list-item__primary-text {
 
             .result {
                 display: flex;
@@ -262,7 +266,8 @@ search {
             border-bottom-color: map-get($background, card);
         }
 
-        .mat-option {
+        .mat-option,
+        .mat-mdc-option {
 
             @include treo-breakpoint('xs') {
                 background: transparent !important;
@@ -277,12 +282,14 @@ search {
 
             &.no-results {
 
-                .mat-option-text {
+                .mat-option-text,
+                .mdc-list-item__primary-text {
                     color: map-get($foreground, secondary-text);
                 }
             }
 
-            .mat-option-text {
+            .mat-option-text,
+            .mdc-list-item__primary-text {
 
                 .result {
 
