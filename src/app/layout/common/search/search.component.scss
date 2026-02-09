@@ -35,6 +35,31 @@ search {
                         }
                     }
                 }
+
+                .mat-mdc-text-field-wrapper {
+                    height: 100%;
+                    border-radius: 0 !important;
+                    background: transparent;
+                }
+
+                .mat-mdc-form-field-flex {
+                    height: 100%;
+                    padding: 0 72px 0 32px;
+                    align-items: center;
+
+                    @include treo-breakpoint('xs') {
+                        padding: 0 56px 0 24px
+                    }
+                }
+
+                .mat-mdc-form-field-infix {
+                    padding: 0;
+                    min-height: 0;
+                }
+
+                .mdc-line-ripple {
+                    display: none;
+                }
             }
 
             .search-toggle-close {
@@ -140,16 +165,26 @@ search {
         line-height: 56px;
         font-size: 14px;
 
+        &.mat-mdc-option {
+            min-height: 56px;
+            line-height: normal;
+            align-items: center;
+        }
+
         &.no-results {
             pointer-events: none;
         }
 
         .mat-option-text,
         .mdc-list-item__primary-text {
+            display: flex;
+            align-items: center;
+            width: 100%;
 
             .result {
                 display: flex;
                 align-items: center;
+                width: 100%;
 
                 &.contact-result {
 
@@ -248,6 +283,10 @@ search {
                             background: transparent;
                         }
                     }
+                }
+
+                .mat-mdc-form-field-subscript-wrapper{
+                    display: none;
                 }
             }
         }
